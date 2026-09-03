@@ -5,6 +5,7 @@ import { recalculateAllExposures, exposeBottomCells } from '../engine/exposure';
 import { CellView } from '../components/CellView';
 import { ColorBalanceWidget } from './ColorBalanceWidget';
 import { QueueEditor } from './QueueEditor';
+import { LevelListSidebar } from './LevelListSidebar';
 import {
   Paintbrush,
   Eraser,
@@ -25,25 +26,41 @@ import {
   Columns,
   Trash2,
   Lock,
-  Unlock
+  Unlock,
+  Save,
+  Copy
 } from 'lucide-react';
 
 interface LevelEditorProps {
   level: LevelConfig;
+  levels?: LevelConfig[];
   onChange: (level: LevelConfig) => void;
   onPlayTest: () => void;
   onExport: () => void;
   onImport: () => void;
+  onSelectLevel?: (level: LevelConfig) => void;
+  onOverrideLevel?: () => void;
+  onSaveAsNewLevel?: (source?: LevelConfig) => void;
+  onDeleteLevel?: (levelId?: string) => void;
+  onResetToDefaults?: () => void;
+  canDelete?: boolean;
 }
 
 type EditorTool = 'brush' | 'bucket' | 'eraser' | 'picker' | 'rect';
 
 export const LevelEditor: React.FC<LevelEditorProps> = ({
   level,
+  levels,
   onChange,
   onPlayTest,
   onExport,
-  onImport
+  onImport,
+  onSelectLevel,
+  onOverrideLevel,
+  onSaveAsNewLevel,
+  onDeleteLevel,
+  onResetToDefaults,
+  canDelete = true
 }) => {
   const [activeTool, setActiveTool] = useState<EditorTool>('brush');
   const [activeColor, setActiveColor] = useState<string>('pink');
@@ -412,8 +429,44 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
           </div>
         </div>
 
-        {/* Action Buttons: Play Test, Export, Import */}
-        <div className="flex items-center gap-2">
+        {/* Action Buttons: Override, Save as New, Delete, Import, Export, Play Test */}
+        <div className="flex flex-wrap items-center gap-2">
+          {onOverrideLevel && (
+            <button
+              onClick={onOverrideLevel}
+              title="Override and save current edits to this level"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-black text-xs shadow-sm transition active:scale-95"
+            >
+              <Save className="w-3.5 h-3.5" />
+              <span>Override</span>
+            </button>
+          )}
+
+          {onSaveAsNewLevel && (
+            <button
+              onClick={() => onSaveAsNewLevel()}
+              title="Save current canvas as a brand new level"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs border border-amber-900/15 shadow-sm transition active:scale-95"
+            >
+              <Copy className="w-3.5 h-3.5" />
+              <span>Save as New</span>
+            </button>
+          )}
+
+          {onDeleteLevel && (
+            <button
+              onClick={() => onDeleteLevel()}
+              disabled={!canDelete}
+              title={!canDelete ? 'Cannot delete the last remaining level' : 'Delete this level'}
+              className="flex items-center gap-1.5 px-2.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200 shadow-sm transition active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              <span>Delete</span>
+            </button>
+          )}
+
+          <div className="h-5 w-px bg-amber-900/20 mx-0.5 hidden sm:block" />
+
           <button
             onClick={onImport}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs shadow-sm transition active:scale-95"
@@ -440,9 +493,161 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
 
       {/* Main Studio Area */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left Toolbar & Palette (3 cols) */}
+        {/* Left Column (3 cols): Level Data List Management & Color Balance Validator */}
         <div className="lg:col-span-3 flex flex-col gap-4">
-          {/* Drawing Tools Card */}
+          {/* Level Data List Management (shows the whole list of levels) */}
+          {levels && levels.length > 0 && onSelectLevel && onOverrideLevel && onDeleteLevel && (
+            <LevelListSidebar
+              levels={levels}
+              currentLevelId={level.id}
+              onSelectLevel={onSelectLevel}
+              onSaveAsNew={onSaveAsNewLevel || (() => {})}
+              onOverrideCurrent={onOverrideLevel}
+              onDeleteLevel={onDeleteLevel}
+              onResetToDefaults={onResetToDefaults || (() => {})}
+            />
+          )}
+
+          {/* Color Balance Validator (placed at previous Level Data List position) */}
+          <ColorBalanceWidget
+            level={level}
+            onUpdateQueues={queues => onChange({ ...level, queues })}
+          />
+        </div>
+
+        {/* Center Grid Workspace (6 cols) */}
+        <div className="lg:col-span-6 flex flex-col items-center gap-4">
+          <div className="w-full p-4 rounded-3xl bg-[#452818] border-8 border-[#331c0e] shadow-[inset_0_4px_16px_rgba(0,0,0,0.6)] flex items-center justify-center overflow-auto min-h-[460px]">
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+                gap: '2px'
+              }}
+              className="justify-center items-center"
+            >
+              {level.grid.cells.map((row, r) =>
+                row.map((cell, c) => {
+                  const isSelected = rectStart?.r === r && rectStart?.c === c;
+                  return (
+                    <CellView
+                      key={`editor-cell-${r}-${c}`}
+                      cell={cell}
+                      r={r}
+                      c={c}
+                      size={cols > 18 ? 20 : cols > 14 ? 24 : 28}
+                      isEditor={true}
+                      isSelected={isSelected}
+                      onClick={() => handleCellClick(r, c)}
+                      onMouseEnter={() => handleCellMouseEnter(r, c)}
+                    />
+                  );
+                })
+              )}
+            </div>
+          </div>
+
+          <div className="text-xs text-slate-500 text-center font-medium">
+            💡 Tip: Click or drag to draw. Use the paint bucket to flood fill. Hollow blocks represent exposed open lids!
+          </div>
+        </div>
+
+        {/* Right Column (3 cols): Grid Canvas Options (ON TOP) & Design Tools + Color Palette (BELOW) */}
+        <div className="lg:col-span-3 flex flex-col gap-4">
+          {/* 1. Grid Canvas Options (PLACED ON TOP) */}
+          <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
+            <span className="text-xs font-extrabold text-slate-700">Grid Canvas Options</span>
+
+            {/* Shift Grid */}
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-slate-600">Shift Canvas:</span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => shiftGrid(0, -1)}
+                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => shiftGrid(-1, 0)}
+                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
+                >
+                  <ArrowUp className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => shiftGrid(1, 0)}
+                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
+                >
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={() => shiftGrid(0, 1)}
+                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
+                >
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Dimensions (Sliders) */}
+            <div className="flex flex-col gap-1.5 text-xs">
+              <div className="flex justify-between font-bold text-slate-600">
+                <span>Rows: {rows}</span>
+                <span>Cols: {cols}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="range"
+                  min={6}
+                  max={24}
+                  value={rows}
+                  onChange={e => handleResize(parseInt(e.target.value), cols)}
+                  className="w-full accent-amber-600"
+                />
+                <input
+                  type="range"
+                  min={6}
+                  max={24}
+                  value={cols}
+                  onChange={e => handleResize(rows, parseInt(e.target.value))}
+                  className="w-full accent-amber-600"
+                />
+              </div>
+            </div>
+
+            {/* Image / Pixel Art Importer */}
+            <label className="flex items-center justify-center gap-2 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-900/15 cursor-pointer text-xs font-bold text-amber-950 transition active:scale-95">
+              <ImageIcon className="w-3.5 h-3.5 text-amber-800" />
+              <span>Convert Image to Grid</span>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageImport}
+                className="hidden"
+              />
+            </label>
+
+            {/* Clear & Undo Actions */}
+            <div className="flex items-center gap-2 pt-1">
+              <button
+                onClick={handleUndo}
+                disabled={editorHistory.length === 0}
+                className="flex-1 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs disabled:opacity-30 transition flex items-center justify-center gap-1"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Undo</span>
+              </button>
+              <button
+                onClick={handleClearGrid}
+                className="flex-1 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition flex items-center justify-center gap-1"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span>Clear</span>
+              </button>
+            </div>
+          </div>
+
+          {/* 2. Design Tools Combined with Color Palette (BELOW Grid Canvas Options) */}
           <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
             <span className="text-xs font-extrabold text-slate-700">Design Tools</span>
             <div className="grid grid-cols-5 gap-1.5">
@@ -562,172 +767,37 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               <Sparkles className="w-3.5 h-3.5 text-amber-800" />
               <span>Expose Bottom Cells</span>
             </button>
-          </div>
 
-          {/* Color Palette Card */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
-            <span className="text-xs font-extrabold text-slate-700">Color Palette</span>
-            <div className="grid grid-cols-4 gap-2">
-              {COLOR_PALETTE.map(c => {
-                const isSelected = activeColor === c.id;
-                return (
-                  <button
-                    key={c.id}
-                    onClick={() => {
-                      setActiveColor(c.id);
-                      if (activeTool === 'eraser') setActiveTool('brush');
-                    }}
-                    style={{
-                      backgroundColor: c.hex,
-                      boxShadow: isSelected ? `0 0 0 3px white, 0 0 0 5px ${c.dark}` : undefined
-                    }}
-                    title={c.name}
-                    className={`h-9 rounded-xl transition transform active:scale-90 relative ${
-                      isSelected ? 'scale-105 z-10' : 'hover:scale-95'
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Grid Transformers & Image Import Card */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
-            <span className="text-xs font-extrabold text-slate-700">Grid Canvas Options</span>
-
-            {/* Shift Grid */}
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-600">Shift Canvas:</span>
-              <div className="flex items-center gap-1">
-                <button
-                  onClick={() => shiftGrid(0, -1)}
-                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
-                >
-                  <ArrowLeft className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => shiftGrid(-1, 0)}
-                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
-                >
-                  <ArrowUp className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => shiftGrid(1, 0)}
-                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
-                >
-                  <ArrowDown className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => shiftGrid(0, 1)}
-                  className="p-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900"
-                >
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+            {/* Combined Color Palette */}
+            <div className="pt-2 border-t border-amber-900/10 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-extrabold text-slate-600 uppercase tracking-wider">Active Color:</span>
+                <span className="text-xs font-black text-amber-950 capitalize">{getColorDef(activeColor).name}</span>
               </div>
-            </div>
-
-            {/* Dimensions (Sliders) */}
-            <div className="flex flex-col gap-1.5 text-xs">
-              <div className="flex justify-between font-bold text-slate-600">
-                <span>Rows: {rows}</span>
-                <span>Cols: {cols}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="range"
-                  min={6}
-                  max={24}
-                  value={rows}
-                  onChange={e => handleResize(parseInt(e.target.value), cols)}
-                  className="w-full accent-amber-600"
-                />
-                <input
-                  type="range"
-                  min={6}
-                  max={24}
-                  value={cols}
-                  onChange={e => handleResize(rows, parseInt(e.target.value))}
-                  className="w-full accent-amber-600"
-                />
-              </div>
-            </div>
-
-            {/* Image / Pixel Art Importer */}
-            <label className="flex items-center justify-center gap-2 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-900/15 cursor-pointer text-xs font-bold text-amber-950 transition active:scale-95">
-              <ImageIcon className="w-3.5 h-3.5 text-amber-800" />
-              <span>Convert Image to Grid</span>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageImport}
-                className="hidden"
-              />
-            </label>
-
-            {/* Clear & Undo Actions */}
-            <div className="flex items-center gap-2 pt-1">
-              <button
-                onClick={handleUndo}
-                disabled={editorHistory.length === 0}
-                className="flex-1 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs disabled:opacity-30 transition flex items-center justify-center gap-1"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>Undo</span>
-              </button>
-              <button
-                onClick={handleClearGrid}
-                className="flex-1 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs transition flex items-center justify-center gap-1"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>Clear</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Center Grid Workspace (6 cols) */}
-        <div className="lg:col-span-6 flex flex-col items-center gap-4">
-          <div className="w-full p-4 rounded-3xl bg-[#452818] border-8 border-[#331c0e] shadow-[inset_0_4px_16px_rgba(0,0,0,0.6)] flex items-center justify-center overflow-auto min-h-[460px]">
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-                gap: '2px'
-              }}
-              className="justify-center items-center"
-            >
-              {level.grid.cells.map((row, r) =>
-                row.map((cell, c) => {
-                  const isSelected = rectStart?.r === r && rectStart?.c === c;
+              <div className="grid grid-cols-4 gap-2">
+                {COLOR_PALETTE.map(c => {
+                  const isSelected = activeColor === c.id;
                   return (
-                    <CellView
-                      key={`editor-cell-${r}-${c}`}
-                      cell={cell}
-                      r={r}
-                      c={c}
-                      size={cols > 18 ? 20 : cols > 14 ? 24 : 28}
-                      isEditor={true}
-                      isSelected={isSelected}
-                      onClick={() => handleCellClick(r, c)}
-                      onMouseEnter={() => handleCellMouseEnter(r, c)}
+                    <button
+                      key={c.id}
+                      onClick={() => {
+                        setActiveColor(c.id);
+                        if (activeTool === 'eraser') setActiveTool('brush');
+                      }}
+                      style={{
+                        backgroundColor: c.hex,
+                        boxShadow: isSelected ? `0 0 0 3px white, 0 0 0 5px ${c.dark}` : undefined
+                      }}
+                      title={c.name}
+                      className={`h-9 rounded-xl transition transform active:scale-90 relative ${
+                        isSelected ? 'scale-105 z-10' : 'hover:scale-95'
+                      }`}
                     />
                   );
-                })
-              )}
+                })}
+              </div>
             </div>
           </div>
-
-          <div className="text-xs text-slate-500 text-center font-medium">
-            💡 Tip: Click or drag to draw. Use the paint bucket to flood fill. Hollow blocks represent exposed open lids!
-          </div>
-        </div>
-
-        {/* Right Panel: Color Balance & Queues (3 cols) */}
-        <div className="lg:col-span-3 flex flex-col gap-4">
-          <ColorBalanceWidget
-            level={level}
-            onUpdateQueues={queues => onChange({ ...level, queues })}
-          />
         </div>
       </div>
 

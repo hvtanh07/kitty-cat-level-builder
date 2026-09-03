@@ -215,31 +215,35 @@ const lvl5Grid = parseAsciiLevel(LVL5_ASCII, {
 });
 
 // ==========================================
-// Level 6 (Screenshot media_1788451058319.jpg)
-// 15 cols x 15 rows: 225 cells (Mighty Oak Tree)
-// 3 Queues: Green 110, Brown 25, Blue 90
+// Level 6 (Screenshot media_1788455832239.png)
+// 15 cols x 15 rows: 225 cells (Mighty Oak Tree with Apples)
+// Multi-layer foliage, lime canopy, 10 red apples, detailed trunk & roots, clouds & night sky
+// 3 Queues: Green 50, Brown 20, Red 10, Yellow 50, Cyan 40, Blue 55 = 225 cats
 // Front boxes: Green 10, Brown 10, Green 10
 // ==========================================
 const LVL6_ASCII = [
-  "BBBBBBBBBBBBBBB", // 0
-  "BBBBBGGGGGBBBBB", // 1
-  "BBBGGGGGGGGGBBB", // 2
-  "BBBGGGGGGGGGBBB", // 3
-  "BBGGGGGGGGGGGBB", // 4
-  "BBGGGGGGGGGGGBB", // 5
-  "BBGGGGGGGGGGGBB", // 6
-  "BBGGGGGGGGGGGBB", // 7
-  "BBGGGGGGGGGGGBB", // 8
-  "BBBGGGGGGGGGBBB", // 9
-  "BBBBGDDDDDGGBBB", // 10
-  "BBBBBDDDDDBBBBB", // 11
-  "BBBBBDDDDDBBBBB", // 12
+  "BBBBBCCCCCBBBBB", // 0
+  "BBBBCCGGGCCBBBB", // 1
+  "BBBCCGYYYYGCCBB", // 2
+  "BBCCGRYYYRYGCCB", // 3
+  "BCGGYYYYYYYYGGB", // 4
+  "CGGYYRYRYRYYGGC", // 5
+  "CGGYYYYYYYYYYGC", // 6
+  "CGGYYRYRYRYYGGC", // 7
+  "BCGGYYYYYYYYGGB", // 8
+  "BBCCGRYYYRYGCCB", // 9
+  "BBBCCGDDDDGCCBB", // 10
+  "BBBBCCDDDCCBBBB", // 11
+  "BBBBBCDDDCCBBBB", // 12
   "GGGGGDDDDDGGGGG", // 13
   "GGGGGDDDDDGGGGG"  // 14
 ];
 const lvl6Grid = parseAsciiLevel(LVL6_ASCII, {
   B: 'blue',
+  C: 'cyan',
   G: 'green',
+  Y: 'yellow',
+  R: 'red',
   D: 'brown'
 });
 
@@ -271,31 +275,33 @@ const lvl7Grid = parseAsciiLevel(LVL7_ASCII, {
 // ==========================================
 // Level 8 (Screenshot media_1788451058324.jpg)
 // 15 cols x 15 rows: 225 cells (Tuxedo Cat Face)
-// 3 Queues: Brown 100, Blue 75, Yellow 25, Green 15, Red 10
+// Authentic cat: pointy ears with inner pink lining, glowing almond eyes,
+// white blaze, puffy cheeks, centered red button nose, white tuxedo bib & red bowtie.
+// 3 Queues: Brown 95, Blue 60, Yellow 40, Red 20, Green 10 = 225 cats
 // Front boxes: Red 10, Brown 10, Brown 10
 // ==========================================
 const LVL8_ASCII = [
   "BBBBBBBBBBBBBBB", // 0
-  "BBBBBBBBBBBBBBB", // 1
-  "BBDDDBBBBBDDDBB", // 2
-  "BBDDDBBBBBDDDBB", // 3
-  "BBDDDDDBBDDDDDB", // 4
-  "BBDDDDDDDDDDDDB", // 5
-  "BDDDDDDDDDDDDDB", // 6
-  "BDDGGGDDDDGGGDB", // 7
-  "BDDGGGGDDGGGGGB", // 8
-  "BDDDDYYYYYYYDDD", // 9
-  "BDDDDYRRYYYDDDB", // 10
-  "BDDDYYYYYYYYDDB", // 11
-  "BBDDDYYYYYYDDBB", // 12
-  "BDRBDDDDDDDDRDB", // 13
-  "RRRBDDDDDDDDRRR"  // 14
+  "BBDDYBBBBBYDDBB", // 1
+  "BBDYYDBBBDYYDBB", // 2
+  "BBDYYDBBBDYYDBB", // 3
+  "BDDDDDDDDDDDDDB", // 4
+  "BDDDDDDDDDDDDDB", // 5
+  "BDDDDGDDDDGDDDB", // 6
+  "BDDGGGYDYGGGDDB", // 7
+  "BDDDDGYYYGDDDDB", // 8
+  "BDDDYYYYYYDDDDB", // 9
+  "BDDDYYYRYYYDDDB", // 10
+  "BDDDYYYYYYYDDDB", // 11
+  "DRRRDDYYYDDRRRD", // 12
+  "BRRRDDYYYDDRRRB", // 13
+  "BBRRRRDDDDRRRBB"  // 14
 ];
 const lvl8Grid = parseAsciiLevel(LVL8_ASCII, {
   B: 'blue',
   D: 'brown',
-  G: 'green',
   Y: 'yellow',
+  G: 'green',
   R: 'red'
 });
 
@@ -502,20 +508,39 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cols: LVL6_ASCII[0].length,
       cells: lvl6Grid
     },
-    queues: (() => {
-      const q = generateBalancedQueues(lvl6Grid, 3, 10);
-      // Ensure front boxes match: Green 10, Brown 10, Green 10
-      const setFront = (qIdx: number, color: string) => {
-        const queue = q[qIdx];
-        const idx = queue.findIndex(b => b.color === color);
-        if (idx > 0) [queue[0], queue[idx]] = [queue[idx], queue[0]];
-        if (queue.length > 0) queue[0].isMystery = false;
-      };
-      setFront(0, 'green');
-      setFront(1, 'brown');
-      setFront(2, 'green');
-      return q;
-    })()
+    queues: [
+      // Queue 1 (7 boxes = 70 cats) - All boxes visible as shown in screenshot
+      [
+        { id: 'b-6-1', color: 'green', count: 10, isMystery: false },
+        { id: 'b-6-2', color: 'brown', count: 10, isMystery: false },
+        { id: 'b-6-3', color: 'yellow', count: 10, isMystery: false },
+        { id: 'b-6-4', color: 'green', count: 10, isMystery: false },
+        { id: 'b-6-5', color: 'yellow', count: 10, isMystery: false },
+        { id: 'b-6-6', color: 'cyan', count: 10, isMystery: false },
+        { id: 'b-6-7', color: 'blue', count: 15, isMystery: false }
+      ],
+      // Queue 2 (8 boxes = 85 cats) - All boxes visible as shown in screenshot
+      [
+        { id: 'b-6-8', color: 'brown', count: 10, isMystery: false },
+        { id: 'b-6-9', color: 'green', count: 10, isMystery: false },
+        { id: 'b-6-10', color: 'blue', count: 10, isMystery: false },
+        { id: 'b-6-11', color: 'red', count: 10, isMystery: false },
+        { id: 'b-6-12', color: 'yellow', count: 10, isMystery: false },
+        { id: 'b-6-13', color: 'yellow', count: 10, isMystery: false },
+        { id: 'b-6-14', color: 'cyan', count: 10, isMystery: false },
+        { id: 'b-6-15', color: 'blue', count: 10, isMystery: false }
+      ],
+      // Queue 3 (7 boxes = 70 cats) - All boxes visible as shown in screenshot
+      [
+        { id: 'b-6-16', color: 'green', count: 10, isMystery: false },
+        { id: 'b-6-17', color: 'cyan', count: 10, isMystery: false },
+        { id: 'b-6-18', color: 'green', count: 10, isMystery: false },
+        { id: 'b-6-19', color: 'blue', count: 10, isMystery: false },
+        { id: 'b-6-20', color: 'yellow', count: 10, isMystery: false },
+        { id: 'b-6-21', color: 'cyan', count: 10, isMystery: false },
+        { id: 'b-6-22', color: 'blue', count: 10, isMystery: false }
+      ]
+    ]
   },
 
   // Level 7: Retro Rocket (Screenshot Lv7, 2 Queues)
@@ -560,20 +585,38 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cols: LVL8_ASCII[0].length,
       cells: lvl8Grid
     },
-    queues: (() => {
-      const q = generateBalancedQueues(lvl8Grid, 3, 10);
-      // Ensure front boxes match: Red 10, Brown 10, Brown 10
-      const setFront = (qIdx: number, color: string) => {
-        const queue = q[qIdx];
-        const idx = queue.findIndex(b => b.color === color);
-        if (idx > 0) [queue[0], queue[idx]] = [queue[idx], queue[0]];
-        if (queue.length > 0) queue[0].isMystery = false;
-      };
-      setFront(0, 'red');
-      setFront(1, 'brown');
-      setFront(2, 'brown');
-      return q;
-    })()
+    queues: [
+      // Queue 1 (7 boxes = 75 cats)
+      [
+        { id: 'b-8-1', color: 'red', count: 10 },
+        { id: 'b-8-2', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-3', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-8-4', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-5', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-8-6', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-7', color: 'blue', count: 15, isMystery: true }
+      ],
+      // Queue 2 (7 boxes = 75 cats)
+      [
+        { id: 'b-8-8', color: 'brown', count: 10 },
+        { id: 'b-8-9', color: 'red', count: 10, isMystery: true },
+        { id: 'b-8-10', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-11', color: 'green', count: 10, isMystery: true },
+        { id: 'b-8-12', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-8-13', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-14', color: 'blue', count: 15, isMystery: true }
+      ],
+      // Queue 3 (7 boxes = 75 cats)
+      [
+        { id: 'b-8-15', color: 'brown', count: 10 },
+        { id: 'b-8-16', color: 'brown', count: 15, isMystery: true },
+        { id: 'b-8-17', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-8-18', color: 'brown', count: 10, isMystery: true },
+        { id: 'b-8-19', color: 'blue', count: 10, isMystery: true },
+        { id: 'b-8-20', color: 'blue', count: 10, isMystery: true },
+        { id: 'b-8-21', color: 'blue', count: 10, isMystery: true }
+      ]
+    ]
   },
 
   // Level 9: Elephant Mascot (Screenshot Lv9, 2 Queues)

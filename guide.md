@@ -230,9 +230,9 @@ kitty-cat-level-builder/
 3. **Level 3** (Replicated from screenshot `media_1788432161741.jpg`): 10x9 grid, 81 cells with center hole. Red/Pink top, Orange/Green bottom, Yellow cross, Blue border frame. **1 single Queue** with Yellow 10 in front.
 4. **Level 4** (Replicated from screenshot `media_1788432161738.jpg`): 10x10 grid, 100 cells. Devil Smiley Face with Red horns, Yellow face, Blue eyes, Red smile, bottom exposed Blue row. **2 Queues** with Blue 10 in front.
 5. **Level 5 - Geometric Harmony** (Replicated from screenshot `media_1788451058313.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Front boxes: Cyan 10 and Green 10 matching the bottom row.
-6. **Level 6 - Mighty Oak Tree** (Replicated from screenshot `media_1788451058319.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Grand oak tree with green foliage, brown trunk, and summer sky. Front boxes: Green 10, Brown 10, Green 10 matching the bottom row.
+6. **Level 6 - Mighty Oak Tree** (Replicated from screenshot `media_1788455832239.png`): 15x15 solid rectangle, 225 cells. **3 Queues**. Multi-layer tree with rich emerald foliage border, sunny lime canopy, 10 ripe red apples, brown trunk notch, and electric cyan cloud fringes in royal blue night sky. Front boxes: Green 10 and Brown 10 matching the bottom row.
 7. **Level 7 - Retro Rocket** (Replicated from screenshot `media_1788451058311.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical rocket ship with red fuselage, orange wings, and cyan cockpit. Front boxes: Cyan 10 and Red 10 matching the bottom row.
-8. **Level 8 - Tuxedo Cat** (Replicated from screenshot `media_1788451058324.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Iconic tuxedo cat face with glowing green eyes, white muzzle, and red collar. Front boxes: Red 10, Brown 10, Brown 10 matching the bottom row.
+8. **Level 8 - Tuxedo Cat** (Replicated from screenshot `media_1788451058324.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Authentic tuxedo cat portrait with pointy triangular ears (pink inner lining), glowing emerald almond eyes, white forehead blaze, puffy whisker cheeks, centered red button nose, white tuxedo chest bib, and red bowtie. Front boxes: Red 10, Brown 10, Brown 10.
 9. **Level 9 - Elephant Mascot** (Replicated from screenshot `media_1788451058306.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical character with green trunk, cyan cheeks, and pink feet. Front boxes: Blue 10 and Pink 10 matching the bottom row.
 10. **Level 10 - Snail Garden** (Original screenshot masterpiece Lv10!): 18x15, 253 cells. **3 Queues**. The grand Lv10 snail masterpiece!
 
@@ -252,3 +252,14 @@ The project is configured to build directly into the `/docs` folder with relativ
    - Under **Branch**, select `main` (or your active branch) and choose the **/docs** folder from the dropdown.
    - Click **Save**.
 4. Your Kitty Cat Level Builder will be live at `https://<username>.github.io/<repo-name>/`!
+ 
+---
+ 
+## 9. Level Data List & Management
+All levels are stored locally in the browser's persistent storage under `kitty_cat_level_list_v1`.
+ 
+- **10 Premade Levels**: Automatically loaded on first launch.
+- **Save / Override**: Updates the currently selected level in the level list with your latest editor canvas changes.
+- **Save as New**: Prompts for a level name and saves your current canvas design as a new level.
+- **Delete Level**: Removes the level from your list (with a safety prompt and guard against deleting the last remaining level).
+- **Levels Modal**: Click the **Levels** button next to the dropdown in the header to view, search, duplicate, load, or delete any level, or click **Restore Defaults** to restore the 10 original premade levels anytime.
