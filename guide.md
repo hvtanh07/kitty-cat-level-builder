@@ -237,3 +237,18 @@ kitty-cat-level-builder/
 10. **Level 10 - Snail Garden** (Original screenshot masterpiece Lv10!): 18x15, 253 cells. **3 Queues**. The grand Lv10 snail masterpiece!
 
 All levels have bottom cells exposed, are 100% mathematically balanced, and are fully solvable.
+
+---
+
+## 8. GitHub Pages Deployment (`/docs` Folder)
+The project is configured to build directly into the `/docs` folder with relative paths (`base: './'`) and a `.nojekyll` bypass file.
+
+### How to Build and Host:
+1. Run: `npm run build`
+2. Push your repository to GitHub.
+3. In your GitHub repository:
+   - Go to **Settings** > **Pages**.
+   - Under **Build and deployment** > **Source**, select **Deploy from a branch**.
+   - Under **Branch**, select `main` (or your active branch) and choose the **/docs** folder from the dropdown.
+   - Click **Save**.
+4. Your Kitty Cat Level Builder will be live at `https://<username>.github.io/<repo-name>/`!
