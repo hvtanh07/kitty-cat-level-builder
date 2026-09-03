@@ -7,19 +7,54 @@ import { LevelSelector } from './components/LevelSelector';
 import { JsonModal } from './components/JsonModal';
 import { Paintbrush, Play, Plus, Sparkles, BookOpen } from 'lucide-react';
 
-const STORAGE_KEY = 'kitty_cat_level_builder_state_v5';
+import { COLOR_PALETTE, getColorDef } from './engine/palette';
+
+const STORAGE_KEY = 'kitty_cat_level_builder_state_v12';
+
+function sanitizeLevel(lvl: LevelConfig): LevelConfig {
+  const allowedColors = new Set(COLOR_PALETTE.map(c => c.id));
+  const sanitizedCells = lvl.grid.cells.map(row =>
+    row.map(cell => {
+      if (!cell) return null;
+      if (allowedColors.has(cell.color)) return cell;
+      const mapped = getColorDef(cell.color).id;
+      return { ...cell, color: allowedColors.has(mapped) ? mapped : 'pink' };
+    })
+  );
+  const sanitizedQueues = lvl.queues.map(queue =>
+    queue.map(box => {
+      if (allowedColors.has(box.color)) return box;
+      const mapped = getColorDef(box.color).id;
+      return { ...box, color: allowedColors.has(mapped) ? mapped : 'pink' };
+    })
+  );
+  return {
+    ...lvl,
+    grid: {
+      ...lvl.grid,
+      cells: sanitizedCells
+    },
+    queues: sanitizedQueues
+  };
+}
 
 export const App: React.FC = () => {
   const [currentLevel, setCurrentLevel] = useState<LevelConfig>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        return JSON.parse(saved);
+      const savedStr = localStorage.getItem(STORAGE_KEY);
+      if (savedStr) {
+        const saved: LevelConfig = JSON.parse(savedStr);
+        // If saved level is one of the premade levels, load the fresh definition
+        const premade = PREMADE_LEVELS.find(l => l.id === saved.id);
+        if (premade) {
+          return JSON.parse(JSON.stringify(premade));
+        }
+        return sanitizeLevel(saved);
       }
     } catch {
       // Fallback
     }
-    return PREMADE_LEVELS[0]; // Default to Snail Garden
+    return JSON.parse(JSON.stringify(PREMADE_LEVELS[0]));
   });
 
   const [mode, setMode] = useState<'editor' | 'playtest'>('editor');
@@ -43,7 +78,7 @@ export const App: React.FC = () => {
   const handleSelectLevel = (lvl: LevelConfig) => {
     // Deep clone to avoid mutating preset reference
     const cloned: LevelConfig = JSON.parse(JSON.stringify(lvl));
-    setCurrentLevel(cloned);
+    setCurrentLevel(sanitizeLevel(cloned));
   };
 
   const handleNewLevel = () => {
@@ -159,7 +194,7 @@ export const App: React.FC = () => {
         currentLevel={currentLevel}
         onClose={() => setJsonModalState(prev => ({ ...prev, isOpen: false }))}
         onImport={imported => {
-          setCurrentLevel(imported);
+          setCurrentLevel(sanitizeLevel(imported));
           setMode('editor');
         }}
       />

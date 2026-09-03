@@ -104,6 +104,7 @@ export function recalculateAllExposures(
 
 /**
  * Finds all exposed cells on the grid that match a given color.
+ * Rule: Scans from the bottom row first, then continues on the next row above it.
  */
 export function findQualifyingSlots(
   grid: (CellData | null)[][],
@@ -112,7 +113,7 @@ export function findQualifyingSlots(
   cols: number
 ): { r: number; c: number }[] {
   const matches: { r: number; c: number }[] = [];
-  for (let r = 0; r < rows; r++) {
+  for (let r = rows - 1; r >= 0; r--) {
     for (let c = 0; c < cols; c++) {
       const cell = grid[r][c];
       if (cell && cell.state === 'exposed' && cell.color === color) {
@@ -124,9 +125,15 @@ export function findQualifyingSlots(
 }
 
 /**
- * Checks for any horizontal rows where all cell slots are sealed.
- * Rule: "If a line of cell slot all turned into sealed cell the whole line will be cleared from the level"
- * Returns list of row indices that are fully sealed.
+ * Checks for horizontal rows where all cell slots are sealed, from the bottom row upward.
+ * Rule: "The lower row must be cleared before the upper row can be clear,
+ * the higher row can not be clear first then leave an empty space between the 2 rows."
+ *
+ * Scans from the lowest row (rows - 1) upwards:
+ * - If a row has slots and is fully sealed, it clears.
+ * - If a row has slots and is NOT fully sealed, we STOP immediately,
+ *   preventing any higher rows from clearing ahead of it.
+ * - Completely empty rows (already cleared) are skipped.
  */
 export function findClearedLines(
   grid: (CellData | null)[][],
@@ -135,7 +142,7 @@ export function findClearedLines(
 ): number[] {
   const clearedRows: number[] = [];
 
-  for (let r = 0; r < rows; r++) {
+  for (let r = rows - 1; r >= 0; r--) {
     let hasSlots = false;
     let allSealed = true;
 
@@ -150,9 +157,18 @@ export function findClearedLines(
       }
     }
 
-    // A row is cleared if it had slots and every slot in it is sealed
-    if (hasSlots && allSealed) {
+    if (!hasSlots) {
+      // Empty row (already cleared or empty canvas below); continue checking upwards
+      continue;
+    }
+
+    if (allSealed) {
+      // Bottom-most active row is fully sealed: it clears!
       clearedRows.push(r);
+    } else {
+      // Lower row still has unsealed slots. Stop scanning upwards to prevent
+      // higher rows from clearing first and leaving a gap.
+      break;
     }
   }
 

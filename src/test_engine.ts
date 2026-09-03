@@ -1,4 +1,4 @@
-import { shouldCellBeExposed, recalculateAllExposures, findClearedLines } from './engine/exposure';
+import { shouldCellBeExposed, recalculateAllExposures, findClearedLines, findQualifyingSlots } from './engine/exposure';
 import { PREMADE_LEVELS } from './data/premadeLevels';
 import { CellData } from './types';
 
@@ -68,19 +68,48 @@ if (s1 && s2 && s3 && s4) {
   console.error('✗ Neighbors of sealed cell failed to expose:', { s1, s2, s3, s4 });
 }
 
-// 2. Test Line Clear Logic
-console.log('\nTest 2: Line Clear Detection');
+// 2. Test Line Clear Logic (Bottom-Up Rule)
+console.log('\nTest 2: Line Clear Detection (Bottom-Up Rule)');
 const rowClearGrid: (CellData | null)[][] = [
   [{ color: 'pink', state: 'sealed' }, { color: 'pink', state: 'sealed' }, { color: 'pink', state: 'sealed' }],
   [{ color: 'pink', state: 'sealed' }, { color: 'pink', state: 'exposed' }, { color: 'pink', state: 'sealed' }],
   [{ color: 'pink', state: 'sealed' }, { color: 'pink', state: 'sealed' }, { color: 'pink', state: 'sealed' }]
 ];
 
+// Row 2 is bottom and fully sealed. Row 1 has an exposed cell. Row 0 is fully sealed.
+// Under the bottom-up rule: ONLY row 2 should clear! Row 0 must NOT clear ahead of row 1.
 const cleared = findClearedLines(rowClearGrid, 3, 3);
-if (cleared.length === 2 && cleared.includes(0) && cleared.includes(2)) {
-  console.log('✓ Rows 0 and 2 correctly identified for line clear, row 1 preserved.');
+if (cleared.length === 1 && cleared[0] === 2) {
+  console.log('✓ Bottom-most row (Row 2) clears; Row 0 correctly prevented from clearing ahead of Row 1 (no gap created).');
 } else {
-  console.error('✗ Line clear detection failed:', cleared);
+  console.error('✗ Line clear bottom-up detection failed, got:', cleared);
+}
+
+// When row 1 also becomes fully sealed, both row 1 and row 0 clear together
+rowClearGrid[1][1]!.state = 'sealed';
+const clearedAll = findClearedLines(rowClearGrid, 3, 3);
+if (clearedAll.length === 3 && clearedAll.includes(2) && clearedAll.includes(1) && clearedAll.includes(0)) {
+  console.log('✓ When lower rows are sealed, all contiguous sealed rows clear together from the bottom up.');
+} else {
+  console.error('✗ Sequential line clear failed, got:', clearedAll);
+}
+
+// 2b. Test Exposed Slot Scanning Order (Bottom Row First)
+console.log('\nTest 2b: Exposed Slot Scanning Order (Bottom Row First)');
+const scanTestGrid: (CellData | null)[][] = [
+  [{ color: 'pink', state: 'exposed' }, { color: 'blue', state: 'closed' }], // Row 0
+  [{ color: 'pink', state: 'exposed' }, { color: 'pink', state: 'exposed' }]  // Row 1 (bottom)
+];
+const qualifyingMatches = findQualifyingSlots(scanTestGrid, 'pink', 2, 2);
+if (
+  qualifyingMatches.length === 3 &&
+  qualifyingMatches[0].r === 1 && qualifyingMatches[0].c === 0 &&
+  qualifyingMatches[1].r === 1 && qualifyingMatches[1].c === 1 &&
+  qualifyingMatches[2].r === 0 && qualifyingMatches[2].c === 0
+) {
+  console.log('✓ Exposed slots scan from bottom row (row 1) first, then upwards to row 0.');
+} else {
+  console.error('✗ Exposed slots scanning order failed:', qualifyingMatches);
 }
 
 // 3. Test Premade Levels

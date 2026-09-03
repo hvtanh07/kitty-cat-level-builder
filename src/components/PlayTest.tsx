@@ -162,28 +162,41 @@ export const PlayTest: React.FC<PlayTestProps> = ({
     return () => cancelAnimationFrame(animId);
   }, [gameState.flyingCats.length, speedMultiplier, getSlotCoords, getCellCoords]);
 
+  // Clear shake animation after 500ms
+  useEffect(() => {
+    if (gameState.shakingQueueIndex !== null) {
+      const timer = setTimeout(() => {
+        setGameState(prev => ({ ...prev, shakingQueueIndex: null }));
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [gameState.shakingQueueIndex]);
+
   // Handle Box Tap from Queue
+  // Allows sending the next box to parking slots even while current cats are extracting!
   const handleTapQueue = (qIdx: number) => {
     if (gameState.status !== 'playing') return;
-    if (gameState.flyingCats.length > 0) return; // Wait for current swarm to land
 
-    // Save history for Undo booster
-    setHistory(prev => [...prev.slice(-5), gameState]);
+    setGameState(currentState => {
+      if (currentState.status !== 'playing') return currentState;
 
-    const { nextState, moved } = tapQueueBox(gameState, qIdx);
-    if (!moved) {
-      setGameState(nextState);
-      return;
-    }
+      const { nextState, moved } = tapQueueBox(currentState, qIdx);
+      if (!moved) {
+        return nextState;
+      }
 
-    // Immediately dispatch matching cats from parking slots
-    const stateAfterDispatch = dispatchCats(
-      nextState,
-      getSlotCoords,
-      getCellCoords
-    );
+      // Save history for Undo booster
+      setHistory(prev => [...prev.slice(-5), currentState]);
 
-    setGameState(stateAfterDispatch);
+      // Immediately dispatch matching cats from parking slots
+      const stateAfterDispatch = dispatchCats(
+        nextState,
+        getSlotCoords,
+        getCellCoords
+      );
+
+      return stateAfterDispatch;
+    });
   };
 
   // Booster handlers

@@ -98,7 +98,7 @@ const LVL1_ASCII = [
   "        ",
   "YYYYGGGG",
   "YYYYGGGG",
-  "BBYYGGGR",
+  "BBYYGGRR",
   "BBBBRRRR",
   "BBBBRRRR"
 ];
@@ -111,28 +111,28 @@ const lvl1Grid = parseAsciiLevel(LVL1_ASCII, {
 
 // ==========================================
 // Level 2 (Screenshot media_1788432161786.jpg)
-// 10 cols x 10 rows: 60 cells (10 Indigo, 10 Cyan, 10 Lavender, 10 Lime, 10 Yellow, 10 Red)
+// 10 cols x 10 rows: 60 cells (10 Orange, 10 Blue, 10 Pink, 10 Green, 10 Yellow, 10 Red)
 // 2 Queues of 3 boxes of 10
-// Left: Red 10, Lavender 10, Cyan 10
-// Right: Yellow 10, Lime 10, Indigo 10
+// Left: Red 10, Pink 10, Orange 10
+// Right: Yellow 10, Green 10, Blue 10
 // ==========================================
 const LVL2_ASCII = [
   "          ",
   "          ",
   "          ",
   "          ",
-  "IIIIICCCCC",
-  "IIIIICCCCC",
-  "LLLLLGGGGG",
-  "LLLLLGGGGG",
+  "OOOOOBBBBB",
+  "OOOOOBBBBB",
+  "PPPPPGGGGG",
+  "PPPPPGGGGG",
   "YYYYYRRRRR",
   "YYYYYRRRRR"
 ];
 const lvl2Grid = parseAsciiLevel(LVL2_ASCII, {
-  I: 'indigo',
-  C: 'cyan',
-  L: 'lavender',
-  G: 'lime',
+  O: 'orange',
+  B: 'blue',
+  P: 'pink',
+  G: 'green',
   Y: 'yellow',
   R: 'red'
 });
@@ -167,149 +167,192 @@ const lvl3Grid = parseAsciiLevel(LVL3_ASCII, {
 // ==========================================
 // Level 4 (Screenshot media_1788432161738.jpg)
 // 10 cols x 10 rows: Devil Smiley Face with horns
-// White/Red horns, Yellow face, White/Indigo eyes, Red smile, bottom exposed Indigo row
+// Red horns, Yellow face, Blue eyes, Red smile, bottom exposed Blue row
 // 2 Queues
 // ==========================================
-const LVL4_ASCII = [
-  "WRIIIIIIIRW",
-  "WRYYYYYYRW ",
-  "IIYYYYYYII ",
-  "IYWWYYWWIY ",
-  "IYWIYYIWIY ",
-  "IYYYYYYYYI ",
-  "IYRYYYYRYI ",
-  "IYRRRRRRYI ",
-  "IIYYYYYYII ",
-  "IIIIIIIIII "
-];
-// Normalize to 10 cols
 const LVL4_ASCII_NORM = [
-  "WRIIIIIIIR",
-  "WRYYYYYYRW",
-  "IIYYYYYYII",
-  "IYWWYYWWIY",
-  "IYWIYYIWIY",
-  "IYYYYYYYYI",
-  "IYRYYYYRYI",
-  "IYRRRRRRYI",
-  "IIYYYYYYII",
-  "IIIIIIIIII"
+  "RRBBBBBBRR",
+  "RRYYYYYYRR",
+  "BBYYYYYYBB",
+  "BYBYYYYBYB",
+  "BYBYYYYBYB",
+  "BYYYYYYYYB",
+  "BYRYYYYRYB",
+  "BYRRRRRRYB",
+  "BBYYYYYYBB",
+  "BBBBBBBBBB"
 ];
 const lvl4Grid = parseAsciiLevel(LVL4_ASCII_NORM, {
-  W: 'white',
   R: 'red',
-  I: 'indigo',
+  B: 'blue',
   Y: 'yellow'
 });
 
-// Level 5: Sweet Strawberry (2 Queues)
+// ==========================================
+// Level 5 (Screenshot media_1788451058313.jpg)
+// 10 cols x 10 rows: 100 cells (Geometric Harmony)
+// 2 Queues of 5 boxes of 10 cats
+// ==========================================
 const LVL5_ASCII = [
-  "   GG GG   ",
-  "  GGGGGGG  ",
-  "  RRRRRRR  ",
-  " RRYRRRYRR ",
-  " RRRRRRRRR ",
-  " RRRRYRRRR ",
-  "  RRRRRRR  ",
-  "   RRRRR   ",
-  "     R     "
+  "PPPPOOOOPP", // 0
+  "PPPPOOOOPP", // 1
+  "YYPPBBGGYY", // 2
+  "YYPPBBGGYY", // 3
+  "YYPPOOGGYY", // 4
+  "CCYYYYYYCC", // 5
+  "BBOOPPOOYY", // 6
+  "BBOOCCCCCC", // 7
+  "BBOOOOCCCC", // 8
+  "GGCCCCCCGG"  // 9
 ];
-const lvl5Grid = parseAsciiLevel(LVL5_ASCII, { G: 'green', R: 'red', Y: 'yellow' });
+const lvl5Grid = parseAsciiLevel(LVL5_ASCII, {
+  P: 'pink',
+  O: 'orange',
+  Y: 'yellow',
+  C: 'cyan',
+  B: 'blue',
+  G: 'green'
+});
 
-// Level 6: Rubber Ducky (3 Queues)
+// ==========================================
+// Level 6 (Screenshot media_1788451058319.jpg)
+// 15 cols x 15 rows: 225 cells (Mighty Oak Tree)
+// 3 Queues: Green 110, Brown 25, Blue 90
+// Front boxes: Green 10, Brown 10, Green 10
+// ==========================================
 const LVL6_ASCII = [
-  "     YYYY    ",
-  "    YYXPYY   ",
-  "   OYYYYYY   ",
-  "  OOOOYYYY   ",
-  "   YYYYYYYY  ",
-  "  YYYYYYYYYY ",
-  "  YYYYYYYYYY ",
-  "   YYYYYYYY  ",
-  "BBBBBBBBBBBBB",
-  " CCCCCCCCCCC "
+  "BBBBBBBBBBBBBBB", // 0
+  "BBBBBGGGGGBBBBB", // 1
+  "BBBGGGGGGGGGBBB", // 2
+  "BBBGGGGGGGGGBBB", // 3
+  "BBGGGGGGGGGGGBB", // 4
+  "BBGGGGGGGGGGGBB", // 5
+  "BBGGGGGGGGGGGBB", // 6
+  "BBGGGGGGGGGGGBB", // 7
+  "BBGGGGGGGGGGGBB", // 8
+  "BBBGGGGGGGGGBBB", // 9
+  "BBBBGDDDDDGGBBB", // 10
+  "BBBBBDDDDDBBBBB", // 11
+  "BBBBBDDDDDBBBBB", // 12
+  "GGGGGDDDDDGGGGG", // 13
+  "GGGGGDDDDDGGGGG"  // 14
 ];
-const lvl6Grid = parseAsciiLevel(LVL6_ASCII, { Y: 'yellow', O: 'orange', X: 'gray', P: 'pink', B: 'blue', C: 'cyan' });
+const lvl6Grid = parseAsciiLevel(LVL6_ASCII, {
+  B: 'blue',
+  G: 'green',
+  D: 'brown'
+});
 
-// Level 7: Rainbow Butterfly (3 Queues)
+// ==========================================
+// Level 7 (Screenshot media_1788451058311.jpg)
+// 10 cols x 10 rows: 100 cells (Retro Rocket)
+// 2 Queues: Red 30, Pink 30, Orange 20, Cyan 20
+// Front boxes: Cyan 10, Red 10
+// ==========================================
 const LVL7_ASCII = [
-  " C         C ",
-  "  C  DDD  C  ",
-  " BBBBDDDDBBB ",
-  "BBBYYYYYYYBBB",
-  "BLLYYYYYYYLLB",
-  " LLLLGGGGLLLL",
-  "  LLGDDDGGLL ",
-  "  PPGDDDGGPP ",
-  "  PPPP  PPPP "
+  "PCCPRRPCCP", // 0
+  "POOPRROOPP", // 1
+  "POOPRROOPP", // 2
+  "POOPRRRROO", // 3
+  "PRRRRRRRRP", // 4
+  "PRRRPRRRPP", // 5
+  "PPPPRRPPPP", // 6
+  "POOOOOOOOP", // 7
+  "CCCCRRCCCC", // 8
+  "CCCCRRCCCC"  // 9
 ];
-const lvl7Grid = parseAsciiLevel(LVL7_ASCII, { C: 'cyan', D: 'dark_brown', B: 'blue', Y: 'yellow', L: 'lime', G: 'green', P: 'pink' });
+const lvl7Grid = parseAsciiLevel(LVL7_ASCII, {
+  P: 'pink',
+  C: 'cyan',
+  R: 'red',
+  O: 'orange'
+});
 
-// Level 8: Retro Gamepad (3 Queues)
+// ==========================================
+// Level 8 (Screenshot media_1788451058324.jpg)
+// 15 cols x 15 rows: 225 cells (Tuxedo Cat Face)
+// 3 Queues: Brown 100, Blue 75, Yellow 25, Green 15, Red 10
+// Front boxes: Red 10, Brown 10, Brown 10
+// ==========================================
 const LVL8_ASCII = [
-  "  XXXXXXXXXXX  ",
-  " XXXXXXXXXXXXX ",
-  "XX  X     X  XX",
-  "XX XXX   R   XX",
-  "XX  X   Y B  XX",
-  "XXXXX    G   XX",
-  "XXXXX       XXX",
-  "XXXXX  DDD  XXX",
-  " XXXX       XXX",
-  "  XXXXXXXXXXX  ",
-  "   XX     XX   "
+  "BBBBBBBBBBBBBBB", // 0
+  "BBBBBBBBBBBBBBB", // 1
+  "BBDDDBBBBBDDDBB", // 2
+  "BBDDDBBBBBDDDBB", // 3
+  "BBDDDDDBBDDDDDB", // 4
+  "BBDDDDDDDDDDDDB", // 5
+  "BDDDDDDDDDDDDDB", // 6
+  "BDDGGGDDDDGGGDB", // 7
+  "BDDGGGGDDGGGGGB", // 8
+  "BDDDDYYYYYYYDDD", // 9
+  "BDDDDYRRYYYDDDB", // 10
+  "BDDDYYYYYYYYDDB", // 11
+  "BBDDDYYYYYYDDBB", // 12
+  "BDRBDDDDDDDDRDB", // 13
+  "RRRBDDDDDDDDRRR"  // 14
 ];
-const lvl8Grid = parseAsciiLevel(LVL8_ASCII, { X: 'gray', R: 'red', Y: 'yellow', B: 'blue', G: 'green', D: 'dark_brown' });
+const lvl8Grid = parseAsciiLevel(LVL8_ASCII, {
+  B: 'blue',
+  D: 'brown',
+  G: 'green',
+  Y: 'yellow',
+  R: 'red'
+});
 
-// Level 9: Sunflower Blossom (4 Queues)
+// ==========================================
+// Level 9 (Screenshot media_1788451058306.jpg)
+// 10 cols x 10 rows: 100 cells (Elephant Mascot)
+// 2 Queues: Blue 30, Cyan 20, Green 20, Pink 10, Orange 10, Yellow 10
+// Front boxes: Blue 10, Pink 10
+// ==========================================
 const LVL9_ASCII = [
-  "     YYYY     ",
-  "   YYYYYYYY   ",
-  "  YYYRRRRYYY  ",
-  " YYYRRDDDDRYY ",
-  " YYYRDDDDDRYY ",
-  " YYYRDDDDDRYY ",
-  " YYYRRDDDDRYY ",
-  "  YYYRRRRYYY  ",
-  "   YYYYYYYY   ",
-  "     YYYY     ",
-  "      GG      ",
-  "    LLGGLL    ",
-  "   LLLLGGLLLL ",
-  "      GG      "
+  "YYYYYYYYYY", // 0
+  "BBBOBBBBOB", // 1
+  "BBBBGGGGBB", // 2
+  "BCOOGGOOCB", // 3
+  "CCOOGGOOCC", // 4
+  "CCBBGGCCCC", // 5
+  "CCBBGGCCCC", // 6
+  "BGGGCCGGGB", // 7
+  "GPPBBBBPPG", // 8
+  "PPPBPPPBBB"  // 9
 ];
-const lvl9Grid = parseAsciiLevel(LVL9_ASCII, { Y: 'yellow', R: 'orange', D: 'brown', G: 'green', L: 'lime' });
+const lvl9Grid = parseAsciiLevel(LVL9_ASCII, {
+  Y: 'yellow',
+  B: 'blue',
+  O: 'orange',
+  G: 'green',
+  C: 'cyan',
+  P: 'pink'
+});
 
 // Level 10: Snail Garden (Original screenshot masterpiece Lv10!)
 const SNAIL_ASCII = [
   "   PPPPPPPPP   ", // 0
   "  PPPPPPPPPPP  ", // 1
-  " LLPPPPPPPPPPP ", // 2
-  " LLPPPPBBBBBP  ", // 3
-  "PLXLPBBBBBBBBBP", // 4
-  "PLXLPBBBYYYYYBP", // 5
-  "PLLLPBBYYYYYYBP", // 6
-  "PLLLPBYYYYYYYBP", // 7
-  "PLLLPBYYBBBYYBP", // 8
-  "PLLLPBYYBYYYYBP", // 9
-  "PLLLPBYYBYYYYBP", // 10
-  "PLLLPBYYYYYYYBP", // 11
-  "PLLLPBYYYYYYYBP", // 12
-  "PLLLPBBBBBBBGBP", // 13
-  "PLLLPBBBBBBBGBP", // 14
-  " RLLGGGGGGGGGBR", // 15
-  " RLLGGGGGGGGGBR", // 16
-  "DDRLLLLGGGGDDDD"  // 17
+  " GGPPPPPPPPPPP ", // 2
+  " GGPPPPBBBBBP  ", // 3
+  "PGDGPBBBBBBBBBP", // 4
+  "PGDGPBBBYYYYYBP", // 5
+  "PGGGPBBYYYYYYBP", // 6
+  "PGGGPBYYYYYYYBP", // 7
+  "PGGGPBYYBBBYYBP", // 8
+  "PGGGPBYYBYYYYBP", // 9
+  "PGGGPBYYBYYYYBP", // 10
+  "PGGGPBYYYYYYYBP", // 11
+  "PGGGPBYYYYYYYBP", // 12
+  "PGGGPBBBBBBBGBP", // 13
+  "PGGGPBBBBBBBGBP", // 14
+  " DGGGGGGGGGGGBD", // 15
+  " DGGGGGGGGGGGBD", // 16
+  "DDDGGGGGGGGDDDD"  // 17
 ];
 const snailGrid = parseAsciiLevel(SNAIL_ASCII, {
   P: 'pink',
   B: 'blue',
   Y: 'yellow',
   G: 'green',
-  L: 'lime',
-  R: 'brown',
-  D: 'dark_brown',
-  X: 'gray'
+  D: 'brown'
 });
 
 export const PREMADE_LEVELS: LevelConfig[] = [
@@ -350,17 +393,17 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cells: lvl2Grid
     },
     queues: [
-      // Left Queue: Red 10, Lavender 10, Cyan 10
+      // Left Queue: Red 10, Pink 10, Orange 10
       [
         { id: 'b-2-1', color: 'red', count: 10 },
-        { id: 'b-2-2', color: 'lavender', count: 10 },
-        { id: 'b-2-3', color: 'cyan', count: 10 }
+        { id: 'b-2-2', color: 'pink', count: 10 },
+        { id: 'b-2-3', color: 'orange', count: 10 }
       ],
-      // Right Queue: Yellow 10, Lime 10, Indigo 10
+      // Right Queue: Yellow 10, Green 10, Blue 10
       [
         { id: 'b-2-4', color: 'yellow', count: 10 },
-        { id: 'b-2-5', color: 'lime', count: 10 },
-        { id: 'b-2-6', color: 'indigo', count: 10 }
+        { id: 'b-2-5', color: 'green', count: 10 },
+        { id: 'b-2-6', color: 'blue', count: 10 }
       ]
     ]
   },
@@ -405,9 +448,9 @@ export const PREMADE_LEVELS: LevelConfig[] = [
     },
     queues: (() => {
       const q = generateBalancedQueues(lvl4Grid, 2, 10);
-      // Front boxes match screenshot (Indigo 10 on both queues)
+      // Front boxes match (Blue 10 on both queues)
       for (let i = 0; i < 2; i++) {
-        const idx = q[i].findIndex(b => b.color === 'indigo');
+        const idx = q[i].findIndex(b => b.color === 'blue');
         if (idx > 0) {
           [q[i][0], q[i][idx]] = [q[i][idx], q[i][0]];
         }
@@ -417,10 +460,10 @@ export const PREMADE_LEVELS: LevelConfig[] = [
     })()
   },
 
-  // Level 5: Sweet Strawberry (2 Queues)
+  // Level 5: Geometric Harmony (Screenshot Lv5, 2 Queues)
   {
-    id: 'lvl-5-strawberry',
-    name: 'Sweet Strawberry',
+    id: 'lvl-5-geometric',
+    name: 'Geometric Harmony',
     difficulty: 'Medium',
     parkingSlotsCount: 5,
     grid: {
@@ -428,27 +471,57 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cols: LVL5_ASCII[0].length,
       cells: lvl5Grid
     },
-    queues: generateBalancedQueues(lvl5Grid, 2, 10)
+    queues: [
+      // Left Queue: Cyan 10, Blue 10, Orange 10, Yellow 10, Cyan 10
+      [
+        { id: 'b-5-1', color: 'cyan', count: 10 },
+        { id: 'b-5-2', color: 'blue', count: 10, isMystery: true },
+        { id: 'b-5-3', color: 'orange', count: 10, isMystery: true },
+        { id: 'b-5-4', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-5-5', color: 'cyan', count: 10, isMystery: true }
+      ],
+      // Right Queue: Green 10, Yellow 10, Pink 10, Orange 10, Pink 10
+      [
+        { id: 'b-5-6', color: 'green', count: 10 },
+        { id: 'b-5-7', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-5-8', color: 'pink', count: 10, isMystery: true },
+        { id: 'b-5-9', color: 'orange', count: 10, isMystery: true },
+        { id: 'b-5-10', color: 'pink', count: 10, isMystery: true }
+      ]
+    ]
   },
 
-  // Level 6: Rubber Ducky (3 Queues)
+  // Level 6: Mighty Oak Tree (Screenshot Lv6, 3 Queues)
   {
-    id: 'lvl-6-ducky-pond',
-    name: 'Rubber Ducky Pond',
-    difficulty: 'Medium',
+    id: 'lvl-6-tree',
+    name: 'Mighty Oak Tree',
+    difficulty: 'Hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL6_ASCII.length,
       cols: LVL6_ASCII[0].length,
       cells: lvl6Grid
     },
-    queues: generateBalancedQueues(lvl6Grid, 3, 10)
+    queues: (() => {
+      const q = generateBalancedQueues(lvl6Grid, 3, 10);
+      // Ensure front boxes match: Green 10, Brown 10, Green 10
+      const setFront = (qIdx: number, color: string) => {
+        const queue = q[qIdx];
+        const idx = queue.findIndex(b => b.color === color);
+        if (idx > 0) [queue[0], queue[idx]] = [queue[idx], queue[0]];
+        if (queue.length > 0) queue[0].isMystery = false;
+      };
+      setFront(0, 'green');
+      setFront(1, 'brown');
+      setFront(2, 'green');
+      return q;
+    })()
   },
 
-  // Level 7: Rainbow Butterfly (3 Queues)
+  // Level 7: Retro Rocket (Screenshot Lv7, 2 Queues)
   {
-    id: 'lvl-7-butterfly',
-    name: 'Rainbow Butterfly',
+    id: 'lvl-7-rocket',
+    name: 'Retro Rocket',
     difficulty: 'Medium',
     parkingSlotsCount: 5,
     grid: {
@@ -456,27 +529,57 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cols: LVL7_ASCII[0].length,
       cells: lvl7Grid
     },
-    queues: generateBalancedQueues(lvl7Grid, 3, 10)
+    queues: [
+      // Left Queue: Cyan 10, Orange 10, Red 10, Pink 10, Red 10
+      [
+        { id: 'b-7-1', color: 'cyan', count: 10 },
+        { id: 'b-7-2', color: 'orange', count: 10, isMystery: true },
+        { id: 'b-7-3', color: 'red', count: 10, isMystery: true },
+        { id: 'b-7-4', color: 'pink', count: 10, isMystery: true },
+        { id: 'b-7-5', color: 'red', count: 10, isMystery: true }
+      ],
+      // Right Queue: Red 10, Cyan 10, Pink 10, Orange 10, Pink 10
+      [
+        { id: 'b-7-6', color: 'red', count: 10 },
+        { id: 'b-7-7', color: 'cyan', count: 10, isMystery: true },
+        { id: 'b-7-8', color: 'pink', count: 10, isMystery: true },
+        { id: 'b-7-9', color: 'orange', count: 10, isMystery: true },
+        { id: 'b-7-10', color: 'pink', count: 10, isMystery: true }
+      ]
+    ]
   },
 
-  // Level 8: Retro Gamepad (3 Queues)
+  // Level 8: Tuxedo Cat (Screenshot Lv8, 3 Queues)
   {
-    id: 'lvl-8-gamepad',
-    name: 'Retro Gamepad',
-    difficulty: 'Hard',
+    id: 'lvl-8-cat',
+    name: 'Tuxedo Cat',
+    difficulty: 'Expert',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL8_ASCII.length,
       cols: LVL8_ASCII[0].length,
       cells: lvl8Grid
     },
-    queues: generateBalancedQueues(lvl8Grid, 3, 10)
+    queues: (() => {
+      const q = generateBalancedQueues(lvl8Grid, 3, 10);
+      // Ensure front boxes match: Red 10, Brown 10, Brown 10
+      const setFront = (qIdx: number, color: string) => {
+        const queue = q[qIdx];
+        const idx = queue.findIndex(b => b.color === color);
+        if (idx > 0) [queue[0], queue[idx]] = [queue[idx], queue[0]];
+        if (queue.length > 0) queue[0].isMystery = false;
+      };
+      setFront(0, 'red');
+      setFront(1, 'brown');
+      setFront(2, 'brown');
+      return q;
+    })()
   },
 
-  // Level 9: Sunflower Blossom (4 Queues)
+  // Level 9: Elephant Mascot (Screenshot Lv9, 2 Queues)
   {
-    id: 'lvl-9-sunflower',
-    name: 'Sunflower Blossom',
+    id: 'lvl-9-elephant',
+    name: 'Elephant Mascot',
     difficulty: 'Hard',
     parkingSlotsCount: 5,
     grid: {
@@ -484,7 +587,24 @@ export const PREMADE_LEVELS: LevelConfig[] = [
       cols: LVL9_ASCII[0].length,
       cells: lvl9Grid
     },
-    queues: generateBalancedQueues(lvl9Grid, 4, 10)
+    queues: [
+      // Left Queue: Blue 10, Cyan 10, Green 10, Yellow 10, Blue 10
+      [
+        { id: 'b-9-1', color: 'blue', count: 10 },
+        { id: 'b-9-2', color: 'cyan', count: 10, isMystery: true },
+        { id: 'b-9-3', color: 'green', count: 10, isMystery: true },
+        { id: 'b-9-4', color: 'yellow', count: 10, isMystery: true },
+        { id: 'b-9-5', color: 'blue', count: 10, isMystery: true }
+      ],
+      // Right Queue: Pink 10, Orange 10, Cyan 10, Green 10, Blue 10
+      [
+        { id: 'b-9-6', color: 'pink', count: 10 },
+        { id: 'b-9-7', color: 'orange', count: 10, isMystery: true },
+        { id: 'b-9-8', color: 'cyan', count: 10, isMystery: true },
+        { id: 'b-9-9', color: 'green', count: 10, isMystery: true },
+        { id: 'b-9-10', color: 'blue', count: 10, isMystery: true }
+      ]
+    ]
   },
 
   // Level 10: Snail Garden (Screenshot Lv10 Masterpiece - 3 Queues)
@@ -500,18 +620,18 @@ export const PREMADE_LEVELS: LevelConfig[] = [
     },
     queues: (() => {
       const q = generateBalancedQueues(snailGrid, 3, 10);
-      // Front boxes match screenshot: Yellow 10, Green 10, Lime 10
+      // Front boxes match: Yellow 10, Green 10, Blue 10
       const findAndSwapFront = (queueIdx: number, color: string) => {
         const queue = q[queueIdx];
-        const boxIdx = queue.findIndex(b => b.color === color && b.count === 10);
+        const boxIdx = queue.findIndex(b => b.color === color);
         if (boxIdx > 0) {
           [queue[0], queue[boxIdx]] = [queue[boxIdx], queue[0]];
         }
-        queue[0].isMystery = false;
+        if (queue.length > 0) queue[0].isMystery = false;
       };
       findAndSwapFront(0, 'yellow');
       findAndSwapFront(1, 'green');
-      findAndSwapFront(2, 'lime');
+      findAndSwapFront(2, 'blue');
       return q;
     })()
   }

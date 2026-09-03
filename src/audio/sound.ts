@@ -4,6 +4,7 @@ class SoundEngine {
   public isMuted: boolean = false;
 
   private initCtx() {
+    if (typeof window === 'undefined') return;
     if (!this.ctx) {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (AudioCtx) {

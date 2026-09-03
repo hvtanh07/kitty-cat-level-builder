@@ -62,19 +62,22 @@ This application is a complete **Level Builder and Play Test Suite** for a casua
 3. Tapping the **front box** of any queue moves it into the first empty parking slot (tray capacity default 5, configurable 3–7).
 4. If all parking slots are full, the tap is rejected with a shake animation and sound.
 5. When the front box moves, the next box in the queue steps forward. If it was marked `isMystery: true`, it automatically reveals its color and count (`?` becomes visible).
+6. **Concurrent Box Sending**: Sending a box to a parking slot and having it extract cats to cells does **not** block the player. You can tap and send the next box to an open parking slot immediately while cats are actively in flight. Multiple boxes can park and dispatch cats concurrently.
 
 ### C. Cat Swarm Dispatch & Cascades (`src/engine/gameEngine.ts`)
-1. Once a box arrives at a parking slot, it scans the grid for qualifying slots:
+1. Once a box arrives at a parking slot, it scans the grid for qualifying slots (`findQualifyingSlots`):
    - `slot.state === 'exposed'` (lid is open).
    - `slot.color === box.color` (matching color).
+   - **Bottom-Up Scanning Order**: Scanning scans from the **bottom row first** (`rows - 1`), then continues on the next row above it towards row 0. Cats always fill exposed slots in lower rows before filling slots above.
 2. The box dispatches `N = Math.min(box.count, qualifyingSlots.length)` cats.
 3. Cats travel along parabolic flight trajectories (`FlyingCat`) to the target cells.
 4. When a cat lands:
    - The cell lid closes and becomes `'sealed'` (marked with a paw print).
    - Adjacent `'closed'` neighbors of the newly sealed cell re-evaluate exposure and open their lids if eligible.
-5. **Row Clear Rule**:
-   - When all non-empty cell slots in a horizontal row become `'sealed'`, the **entire row is cleared** (`null`).
-   - Cleared cells become unoccupied space, exposing adjacent cells above and below!
+5. **Row Clear Rule (Bottom-Up Only)**:
+   - When all non-empty cell slots in a horizontal row become `'sealed'`, the row is cleared (`null`).
+   - **Order Rule**: Lower rows must be cleared before upper rows can clear. A higher row cannot clear first and leave an empty space/gap between rows. Line clears scan from the bottom-most active row upwards and stop as soon as an unsealed row is encountered.
+   - Cleared cells become unoccupied space, exposing adjacent cells above!
 6. **Cascade Check**:
    - Any parked box with remaining cats (or other parked boxes) can now immediately dispatch cats if newly exposed matching cells opened up!
    - Cascades loop automatically until no more parked boxes can dispatch.
@@ -171,7 +174,7 @@ kitty-cat-level-builder/
     ├── types/
     │   └── index.ts           # All domain types, level schema, and game state interfaces
     ├── engine/
-    │   ├── palette.ts         # 12 vibrant game colors with bevel, shadow, and rim properties
+    │   ├── palette.ts         # 8 vibrant game colors (Red, Blue, Green, Yellow, Pink, Orange, Brown, Cyan)
     │   ├── exposure.ts        # Pure functions for 1/4 side exposure rule & line clear detector
     │   └── gameEngine.ts      # Pure simulation engine: moves, cat dispatch, cascades, win/lose
     ├── audio/
@@ -222,15 +225,15 @@ kitty-cat-level-builder/
 ---
 
 ## 7. Premade Levels Reference (10 Levels Progression)
-1. **Level 1** (Replicated from screenshot `media_1788432161736.jpg`): 8x10 grid, 40 cells (10 Yellow, 10 Green, 10 Blue, 10 Red). **1 single Queue** of 4 boxes of 10 cats: `[Red 10, Blue 10, Yellow 10, Green 10]`.
-2. **Level 2** (Replicated from screenshot `media_1788432161786.jpg`): 10x10 grid, 60 cells (10 Indigo, 10 Cyan, 10 Lavender, 10 Lime, 10 Yellow, 10 Red). **2 Queues** with Red 10 and Yellow 10 in front.
-3. **Level 3** (Replicated from screenshot `media_1788432161741.jpg`): 9x10 grid, 81 cells with center hole. Red/Pink top, Orange/Green bottom, Yellow cross, Blue border frame. **1 single Queue** with Yellow 10 in front.
-4. **Level 4** (Replicated from screenshot `media_1788432161738.jpg`): 10x10 grid, 100 cells. Devil Smiley Face with White/Red horns, Yellow face, White/Indigo eyes, Red smile, bottom exposed Indigo row. **2 Queues** with Indigo 10 in front.
-5. **Level 5 - Sweet Strawberry**: 9x11, 58 cells, **2 Queues**. Red strawberry with seed dots and green leaf crown.
-6. **Level 6 - Rubber Ducky Pond**: 10x13, 85 cells, **3 Queues**. Yellow duck on water ripples.
-7. **Level 7 - Rainbow Butterfly**: 9x13, 84 cells, **3 Queues**. Symmetrical colorful wings.
-8. **Level 8 - Retro Gamepad**: 11x15, 94 cells, **3 Queues**. Classic gaming controller with mystery boxes.
-9. **Level 9 - Sunflower Blossom**: 14x14, 112 cells, **4 Queues**. Rich floral layout.
-10. **Level 10 - Snail Garden**: 18x15, 253 cells, **3 Queues**. The grand Lv10 snail masterpiece from the original screenshot!
+1. **Level 1** (Replicated from screenshot `media_1788432161736.jpg`): 10x8 grid, 40 cells (10 Yellow, 10 Green, 10 Blue, 10 Red). **1 single Queue** of 4 boxes of 10 cats: `[Red 10, Blue 10, Yellow 10, Green 10]`.
+2. **Level 2** (Replicated from screenshot `media_1788432161786.jpg`): 10x10 grid, 60 cells (10 Orange, 10 Blue, 10 Pink, 10 Green, 10 Yellow, 10 Red). **2 Queues** with Red 10 and Yellow 10 in front.
+3. **Level 3** (Replicated from screenshot `media_1788432161741.jpg`): 10x9 grid, 81 cells with center hole. Red/Pink top, Orange/Green bottom, Yellow cross, Blue border frame. **1 single Queue** with Yellow 10 in front.
+4. **Level 4** (Replicated from screenshot `media_1788432161738.jpg`): 10x10 grid, 100 cells. Devil Smiley Face with Red horns, Yellow face, Blue eyes, Red smile, bottom exposed Blue row. **2 Queues** with Blue 10 in front.
+5. **Level 5 - Geometric Harmony** (Replicated from screenshot `media_1788451058313.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Front boxes: Cyan 10 and Green 10 matching the bottom row.
+6. **Level 6 - Mighty Oak Tree** (Replicated from screenshot `media_1788451058319.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Grand oak tree with green foliage, brown trunk, and summer sky. Front boxes: Green 10, Brown 10, Green 10 matching the bottom row.
+7. **Level 7 - Retro Rocket** (Replicated from screenshot `media_1788451058311.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical rocket ship with red fuselage, orange wings, and cyan cockpit. Front boxes: Cyan 10 and Red 10 matching the bottom row.
+8. **Level 8 - Tuxedo Cat** (Replicated from screenshot `media_1788451058324.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Iconic tuxedo cat face with glowing green eyes, white muzzle, and red collar. Front boxes: Red 10, Brown 10, Brown 10 matching the bottom row.
+9. **Level 9 - Elephant Mascot** (Replicated from screenshot `media_1788451058306.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical character with green trunk, cyan cheeks, and pink feet. Front boxes: Blue 10 and Pink 10 matching the bottom row.
+10. **Level 10 - Snail Garden** (Original screenshot masterpiece Lv10!): 18x15, 253 cells. **3 Queues**. The grand Lv10 snail masterpiece!
 
-All levels have bottom cells exposed and are mathematically balanced.
+All levels have bottom cells exposed, are 100% mathematically balanced, and are fully solvable.
