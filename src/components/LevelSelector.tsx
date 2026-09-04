@@ -41,7 +41,7 @@ export const LevelSelector: React.FC<LevelSelectorProps> = ({
       >
         {levels.map((lvl, idx) => (
           <option key={lvl.id} value={lvl.id}>
-            #{idx + 1}: {lvl.name} ({lvl.difficulty || 'Normal'})
+            #{idx + 1}: {lvl.id}
           </option>
         ))}
       </select>

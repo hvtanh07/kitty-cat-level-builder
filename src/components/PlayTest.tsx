@@ -265,7 +265,7 @@ export const PlayTest: React.FC<PlayTestProps> = ({
           {/* Level Indicator & Progress Bar */}
           <div className="flex-1 flex flex-col items-center px-2">
             <div className="flex items-center justify-between w-full max-w-[170px] text-xs font-black text-amber-950 mb-1">
-              <span>{level.name}</span>
+              <span className="truncate max-w-[120px]" title={level.id}>{level.id}</span>
               <span>{clearedPercent}%</span>
             </div>
             <div className="w-full max-w-[170px] h-3 bg-amber-950/20 rounded-full p-0.5 shadow-inner">

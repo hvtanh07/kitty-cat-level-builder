@@ -367,8 +367,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-1-blocks',
-    name: 'Level 1',
-    difficulty: 'Easy',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL1_ASCII.length,
@@ -390,8 +388,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-2-quadrants',
-    name: 'Level 2',
-    difficulty: 'Easy',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL2_ASCII.length,
@@ -416,11 +412,9 @@ export const PREMADE_LEVELS: LevelConfig[] = [
 
   // ============================================================
   // Level 3 (Screenshot media_1788432161741.jpg)
-  // ==========================================
+  // ============================================================
   {
     id: 'lvl-3-mandala',
-    name: 'Level 3',
-    difficulty: 'Easy',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL3_ASCII.length,
@@ -444,8 +438,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-4-devil-face',
-    name: 'Level 4',
-    difficulty: 'Medium',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL4_ASCII_NORM.length,
@@ -469,8 +461,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 5: Geometric Harmony (Screenshot Lv5, 2 Queues)
   {
     id: 'lvl-5-geometric',
-    name: 'Geometric Harmony',
-    difficulty: 'Medium',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL5_ASCII.length,
@@ -500,8 +490,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 6: Mighty Oak Tree (Screenshot Lv6, 3 Queues)
   {
     id: 'lvl-6-tree',
-    name: 'Mighty Oak Tree',
-    difficulty: 'Hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL6_ASCII.length,
@@ -546,8 +534,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 7: Retro Rocket (Screenshot Lv7, 2 Queues)
   {
     id: 'lvl-7-rocket',
-    name: 'Retro Rocket',
-    difficulty: 'Medium',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL7_ASCII.length,
@@ -577,8 +563,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 8: Tuxedo Cat (Screenshot Lv8, 3 Queues)
   {
     id: 'lvl-8-cat',
-    name: 'Tuxedo Cat',
-    difficulty: 'Expert',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL8_ASCII.length,
@@ -622,8 +606,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 9: Elephant Mascot (Screenshot Lv9, 2 Queues)
   {
     id: 'lvl-9-elephant',
-    name: 'Elephant Mascot',
-    difficulty: 'Hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL9_ASCII.length,
@@ -653,8 +635,6 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 10: Snail Garden (Screenshot Lv10 Masterpiece - 3 Queues)
   {
     id: 'lvl-10-snail',
-    name: 'Snail Garden',
-    difficulty: 'Expert',
     parkingSlotsCount: 5,
     grid: {
       rows: SNAIL_ASCII.length,

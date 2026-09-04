@@ -2,11 +2,12 @@ import { LevelConfig } from '../types';
 import { PREMADE_LEVELS } from './premadeLevels';
 import { COLOR_PALETTE, getColorDef } from '../engine/palette';
 
-export const LEVEL_LIST_STORAGE_KEY = 'kitty_cat_level_list_v1';
-export const ACTIVE_LEVEL_ID_KEY = 'kitty_cat_active_level_id_v1';
+export const LEVEL_LIST_STORAGE_KEY = 'kitty_cat_level_list_v2';
+export const ACTIVE_LEVEL_ID_KEY = 'kitty_cat_active_level_id_v2';
 
 /**
- * Ensures all cells and boxes in a level conform to the active 8-color palette.
+ * Ensures all cells and boxes in a level conform to the active 8-color palette,
+ * and strips any legacy name or difficulty parameters from the json format.
  */
 export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
   const allowedColors = new Set(COLOR_PALETTE.map(c => c.id));
@@ -25,14 +26,19 @@ export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
       return { ...box, color: allowedColors.has(mapped) ? mapped : 'pink' };
     })
   );
-  return {
-    ...lvl,
+
+  const cleanLevel: LevelConfig = {
+    id: lvl.id || `lvl-${Date.now()}`,
     grid: {
       ...lvl.grid,
       cells: sanitizedCells
     },
-    queues: sanitizedQueues
+    parkingSlotsCount: lvl.parkingSlotsCount || 5,
+    queues: sanitizedQueues,
+    ...(lvl.settings ? { settings: lvl.settings } : {})
   };
+
+  return cleanLevel;
 }
 
 /**
@@ -98,20 +104,18 @@ export function overrideLevel(
 }
 
 /**
- * Saves the current level design as a new level with a unique ID and custom name.
+ * Saves the current level design as a new level with a unique ID.
  */
 export function saveAsNewLevel(
   levels: LevelConfig[],
   currentLevel: LevelConfig,
-  customName?: string
+  customId?: string
 ): { updatedLevels: LevelConfig[]; newLevel: LevelConfig } {
-  const newId = `lvl-custom-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
-  const levelName = customName?.trim() || `${currentLevel.name} (Copy)`;
+  const newId = customId?.trim() || `lvl-custom-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
 
   const newLevel: LevelConfig = {
     ...JSON.parse(JSON.stringify(currentLevel)),
-    id: newId,
-    name: levelName
+    id: newId
   };
 
   const sanitized = sanitizeLevel(newLevel);
@@ -138,16 +142,14 @@ export function deleteLevel(
     return { updatedLevels: defaults, nextLevel: defaults[0] };
   }
 
-  // Pick adjacent level (same index or previous)
-  const nextIndex = Math.min(Math.max(0, targetIndex), filtered.length - 1);
-  const nextLevel = filtered[nextIndex];
-
   saveLevelList(filtered);
-  return { updatedLevels: filtered, nextLevel };
+  // Pick next adjacent level
+  const nextIndex = Math.min(Math.max(0, targetIndex), filtered.length - 1);
+  return { updatedLevels: filtered, nextLevel: filtered[nextIndex] };
 }
 
 /**
- * Resets the level list back to the default 10 premade levels.
+ * Restores the 10 original premade levels, wiping any edits.
  */
 export function resetToDefaultLevels(): LevelConfig[] {
   const defaults: LevelConfig[] = JSON.parse(JSON.stringify(PREMADE_LEVELS));

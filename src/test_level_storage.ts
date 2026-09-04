@@ -30,8 +30,8 @@ if (levels.length === 10) {
 
 // Test 2: Save as New Level
 const baseLevel = levels[0];
-const { updatedLevels: afterNew, newLevel } = saveAsNewLevel(levels, baseLevel, 'My Custom Fun Level');
-if (afterNew.length === 11 && newLevel.name === 'My Custom Fun Level' && newLevel.id !== baseLevel.id) {
+const { updatedLevels: afterNew, newLevel } = saveAsNewLevel(levels, baseLevel, 'lvl-custom-fun');
+if (afterNew.length === 11 && newLevel.id === 'lvl-custom-fun' && newLevel.id !== baseLevel.id) {
   console.log('✓ Save as New Level correctly appended a new unique level (11 total)');
 } else {
   throw new Error(`Failed to save as new level: ${afterNew.length}`);
@@ -40,11 +40,11 @@ if (afterNew.length === 11 && newLevel.name === 'My Custom Fun Level' && newLeve
 // Test 3: Override Level
 const modifiedLevel = {
   ...newLevel,
-  name: 'My Custom Fun Level - Overridden!'
+  parkingSlotsCount: 7
 };
 const afterOverride = overrideLevel(afterNew, modifiedLevel);
 const found = afterOverride.find(l => l.id === newLevel.id);
-if (afterOverride.length === 11 && found && found.name === 'My Custom Fun Level - Overridden!') {
+if (afterOverride.length === 11 && found && found.parkingSlotsCount === 7) {
   console.log('✓ Override Level correctly updated target level properties');
 } else {
   throw new Error('Failed to override level');

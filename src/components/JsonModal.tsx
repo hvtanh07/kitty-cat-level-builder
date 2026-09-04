@@ -23,7 +23,15 @@ export const JsonModal: React.FC<JsonModalProps> = ({
 
   if (!isOpen) return null;
 
-  const exportString = JSON.stringify(currentLevel, null, 2);
+  // Ensure exported JSON strictly excludes name and difficulty
+  const cleanExportLevel: LevelConfig = {
+    id: currentLevel.id,
+    grid: currentLevel.grid,
+    parkingSlotsCount: currentLevel.parkingSlotsCount,
+    queues: currentLevel.queues,
+    ...(currentLevel.settings ? { settings: currentLevel.settings } : {})
+  };
+  const exportString = JSON.stringify(cleanExportLevel, null, 2);
 
   const handleCopy = async () => {
     try {
@@ -36,7 +44,7 @@ export const JsonModal: React.FC<JsonModalProps> = ({
   };
 
   const handleDownload = () => {
-    const filename = `${currentLevel.name.toLowerCase().replace(/\s+/g, '_')}_level.json`;
+    const filename = `${currentLevel.id.toLowerCase().replace(/\s+/g, '_')}_level.json`;
     const blob = new Blob([exportString], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -64,11 +72,15 @@ export const JsonModal: React.FC<JsonModalProps> = ({
   const validateAndLoad = (rawJson: string) => {
     setErrorMessage(null);
     try {
-      const parsed = JSON.parse(rawJson) as LevelConfig;
+      const parsed = JSON.parse(rawJson) as any;
+
+      // Strip legacy name and difficulty if present
+      delete parsed.name;
+      delete parsed.difficulty;
 
       // Basic schema validations
-      if (!parsed.name || typeof parsed.name !== 'string') {
-        throw new Error('Level must have a valid "name" field.');
+      if (!parsed.id || typeof parsed.id !== 'string') {
+        parsed.id = `lvl-${Date.now()}`;
       }
       if (!parsed.grid || !parsed.grid.cells || !Array.isArray(parsed.grid.cells)) {
         throw new Error('Level must have a valid "grid.cells" 2D array.');
@@ -77,7 +89,7 @@ export const JsonModal: React.FC<JsonModalProps> = ({
         throw new Error('Level must have a valid "queues" array.');
       }
 
-      onImport(parsed);
+      onImport(parsed as LevelConfig);
       onClose();
     } catch (err: unknown) {
       setErrorMessage(

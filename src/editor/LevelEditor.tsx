@@ -386,30 +386,18 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     >
       {/* Top Header & Action Controls */}
       <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-3xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
-        {/* Level Name & Settings */}
+        {/* Level ID & Settings */}
         <div className="flex items-center gap-3">
-          <input
-            type="text"
-            value={level.name}
-            onChange={e => onChange({ ...level, name: e.target.value })}
-            className="text-lg font-black text-slate-800 bg-amber-50/50 border border-amber-900/20 rounded-xl px-3 py-1 focus:ring-2 focus:ring-amber-500 focus:outline-none"
-            placeholder="Level Name"
-          />
-          <select
-            value={level.difficulty || 'Medium'}
-            onChange={e =>
-              onChange({
-                ...level,
-                difficulty: e.target.value as LevelConfig['difficulty']
-              })
-            }
-            className="text-xs font-bold text-slate-700 bg-amber-50/50 border border-amber-900/20 rounded-xl px-2.5 py-1.5 focus:outline-none"
-          >
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-            <option value="Expert">Expert</option>
-          </select>
+          <div className="flex items-center gap-1.5 bg-amber-50/50 border border-amber-900/20 rounded-xl px-3 py-1.5 shadow-xs">
+            <span className="text-[11px] font-black text-amber-900/60 uppercase tracking-wider">Level ID:</span>
+            <input
+              type="text"
+              value={level.id}
+              onChange={e => onChange({ ...level, id: e.target.value })}
+              className="text-sm font-mono font-black text-slate-800 bg-transparent focus:outline-none min-w-[140px]"
+              placeholder="level-id"
+            />
+          </div>
           <div className="flex items-center gap-1 text-xs font-bold text-slate-600">
             <span>Slots:</span>
             <input

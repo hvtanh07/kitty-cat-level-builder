@@ -122,11 +122,12 @@ export interface GridConfig {
 
 export interface LevelConfig {
   id: string;
-  name: string;
-  difficulty?: 'Easy' | 'Medium' | 'Hard' | 'Expert';
   grid: GridConfig;
   parkingSlotsCount: number; // Default 5
   queues: CatBoxData[][];     // Queues of cat boxes (index 0 is front)
+  settings?: {
+    autoExposeRule?: boolean;
+  };
 }
 ```
 
@@ -134,8 +135,6 @@ export interface LevelConfig {
 ```json
 {
   "id": "lvl-custom",
-  "name": "My Custom Level",
-  "difficulty": "Medium",
   "parkingSlotsCount": 5,
   "grid": {
     "rows": 3,

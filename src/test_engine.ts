@@ -141,7 +141,7 @@ PREMADE_LEVELS.forEach((lvl, idx) => {
     }
   }
 
-  console.log(`✓ Level ${idx + 1}: "${lvl.name}" (${rowCount}x${colCount}) - ${totalCells} cells, ${totalCats} cats, bottom cells exposed: ${hasExposedBottom}`);
+  console.log(`✓ Level ${idx + 1}: "${lvl.id}" (${rowCount}x${colCount}) - ${totalCells} cells, ${totalCats} cats, bottom cells exposed: ${hasExposedBottom}`);
 });
 
 // 4. Test Play Test State Preservation

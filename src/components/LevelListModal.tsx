@@ -3,17 +3,16 @@ import { LevelConfig } from '../types';
 import { getColorDef } from '../engine/palette';
 import {
   Layers,
+  Search,
   Plus,
   Copy,
   Trash2,
-  Check,
-  RotateCcw,
-  X,
-  Search,
   CheckCircle2,
-  Sparkles,
+  FolderOpen,
+  X,
+  RotateCcw,
   Save,
-  FolderOpen
+  AlertCircle
 } from 'lucide-react';
 
 interface LevelListModalProps {
@@ -22,7 +21,7 @@ interface LevelListModalProps {
   currentLevelId: string;
   onClose: () => void;
   onSelectLevel: (level: LevelConfig) => void;
-  onSaveAsNew: (level: LevelConfig, customName?: string) => void;
+  onSaveAsNew: (source?: LevelConfig, customId?: string) => void;
   onOverrideCurrent: () => void;
   onDeleteLevel: (levelId: string) => void;
   onResetToDefaults: () => void;
@@ -46,9 +45,7 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
   if (!isOpen) return null;
 
   const filteredLevels = levels.filter(lvl =>
-    lvl.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    lvl.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (lvl.difficulty && lvl.difficulty.toLowerCase().includes(searchQuery.toLowerCase()))
+    lvl.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -63,7 +60,7 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
             <div>
               <h2 className="text-lg font-black text-amber-950">Level Data List</h2>
               <p className="text-xs font-semibold text-amber-900/70">
-                Manage, save, duplicate, and organize all levels ({levels.length} total)
+                Manage, load, duplicate, and organize all {levels.length} puzzle levels
               </p>
             </div>
           </div>
@@ -72,14 +69,14 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
             <button
               onClick={() => setShowResetConfirm(true)}
               title="Restore original 10 premade levels"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs border border-amber-900/15 transition active:scale-95"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/70 hover:bg-white text-amber-950 font-bold text-xs border border-amber-900/15 transition active:scale-95"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5 text-amber-800" />
               <span>Restore Defaults</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl text-amber-900/60 hover:text-amber-950 hover:bg-amber-200/60 transition"
+              className="p-1.5 rounded-full hover:bg-black/10 text-amber-950 transition"
             >
               <X className="w-5 h-5" />
             </button>
@@ -88,23 +85,26 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
 
         {/* Reset Confirmation Banner */}
         {showResetConfirm && (
-          <div className="bg-rose-50 border-b border-rose-200 px-6 py-3 flex items-center justify-between animate-in slide-in-from-top-2">
-            <span className="text-xs font-bold text-rose-900">
-              ⚠️ Are you sure you want to reset all levels back to the original 10 premade levels? Any custom level designs will be lost.
-            </span>
+          <div className="px-6 py-3 bg-rose-50 border-b border-rose-200 flex items-center justify-between gap-4 animate-in slide-in-from-top-2 duration-150">
+            <div className="flex items-center gap-2 text-rose-900 text-xs font-bold">
+              <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+              <span>
+                Are you sure you want to restore the original 10 premade levels? All custom levels and modifications will be reset.
+              </span>
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => {
                   onResetToDefaults();
                   setShowResetConfirm(false);
                 }}
-                className="px-3 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold transition shadow-sm"
+                className="px-3 py-1 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-black text-xs transition"
               >
                 Yes, Reset All
               </button>
               <button
                 onClick={() => setShowResetConfirm(false)}
-                className="px-3 py-1 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-xs font-bold transition"
+                className="px-3 py-1 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-bold text-xs transition"
               >
                 Cancel
               </button>
@@ -112,15 +112,15 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
           </div>
         )}
 
-        {/* Search & Actions Bar */}
-        <div className="px-6 py-3 bg-amber-50/50 border-b border-amber-900/10 flex items-center justify-between gap-4">
+        {/* Toolbar: Search & Action Buttons */}
+        <div className="px-6 py-3 bg-amber-50/50 border-b border-amber-900/10 flex flex-wrap items-center justify-between gap-3">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-900/50" />
             <input
               type="text"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder="Search levels by name or difficulty..."
+              placeholder="Search levels by ID..."
               className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-white border border-amber-900/15 text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
@@ -132,7 +132,15 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs shadow-sm transition active:scale-95"
             >
               <Save className="w-3.5 h-3.5" />
-              <span>Override Current Level</span>
+              <span>Override Active</span>
+            </button>
+            <button
+              onClick={() => onSaveAsNew()}
+              title="Save current canvas as a brand new level"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-extrabold text-xs border border-amber-900/15 shadow-sm transition active:scale-95"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>New Level</span>
             </button>
           </div>
         </div>
@@ -156,7 +164,6 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
 
             // Total cats in queues
             const totalCats = lvl.queues.flat().reduce((sum, b) => sum + b.count, 0);
-
             const isConfirmingDelete = deletingLevelId === lvl.id;
 
             return (
@@ -175,8 +182,8 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
                       <span className="px-2 py-0.5 rounded-lg bg-amber-900/10 text-amber-950 font-black text-[11px]">
                         #{index + 1}
                       </span>
-                      <h3 className="font-black text-sm text-slate-800 truncate max-w-[200px]" title={lvl.name}>
-                        {lvl.name}
+                      <h3 className="font-mono font-black text-sm text-slate-800 truncate max-w-[240px]" title={lvl.id}>
+                        {lvl.id}
                       </h3>
                       {isCurrent && (
                         <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">
@@ -185,20 +192,6 @@ export const LevelListModal: React.FC<LevelListModalProps> = ({
                         </span>
                       )}
                     </div>
-
-                    <span
-                      className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full capitalize ${
-                        lvl.difficulty === 'Easy'
-                          ? 'bg-emerald-100 text-emerald-800'
-                          : lvl.difficulty === 'Medium'
-                          ? 'bg-blue-100 text-blue-800'
-                          : lvl.difficulty === 'Hard'
-                          ? 'bg-amber-100 text-amber-800'
-                          : 'bg-purple-100 text-purple-800'
-                      }`}
-                    >
-                      {lvl.difficulty || 'Normal'}
-                    </span>
                   </div>
 
                   {/* Specs & Stats */}

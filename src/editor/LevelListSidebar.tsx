@@ -35,10 +35,8 @@ export const LevelListSidebar: React.FC<LevelListSidebarProps> = ({
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
-  const filteredLevels = levels.filter(
-    lvl =>
-      lvl.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (lvl.difficulty && lvl.difficulty.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredLevels = levels.filter(lvl =>
+    lvl.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -134,8 +132,8 @@ export const LevelListSidebar: React.FC<LevelListSidebarProps> = ({
                   <span className="text-[10px] font-black text-amber-900/70">
                     #{idx + 1}
                   </span>
-                  <span className="text-xs font-black text-slate-800 truncate" title={lvl.name}>
-                    {lvl.name}
+                  <span className="text-xs font-mono font-black text-slate-800 truncate" title={lvl.id}>
+                    {lvl.id}
                   </span>
                   {isCurrent && (
                     <CheckCircle2 className="w-3 h-3 text-emerald-600 flex-shrink-0" />

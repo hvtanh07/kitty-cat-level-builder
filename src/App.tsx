@@ -80,28 +80,28 @@ export const App: React.FC = () => {
   const handleOverrideLevel = () => {
     const updated = overrideLevel(levelList, currentLevel);
     setLevelList(updated);
-    showToast(`Level "${currentLevel.name}" overridden & saved!`, 'success');
+    showToast(`Level "${currentLevel.id}" overridden & saved!`, 'success');
   };
 
   // Save current design as a new level
-  const handleSaveAsNew = (source?: LevelConfig, customName?: string) => {
+  const handleSaveAsNew = (source?: LevelConfig, customId?: string) => {
     const target = source || currentLevel;
-    let chosenName = customName;
+    let chosenId = customId;
 
-    if (!chosenName) {
+    if (!chosenId) {
       const promptRes = window.prompt(
-        'Enter name for the new level:',
-        `${target.name} (Copy)`
+        'Enter ID for the new level:',
+        `${target.id}-copy`
       );
       if (promptRes === null) return; // Cancelled
-      chosenName = promptRes.trim() || `${target.name} (Copy)`;
+      chosenId = promptRes.trim() || `${target.id}-copy`;
     }
 
-    const { updatedLevels, newLevel } = saveAsNewLevel(levelList, target, chosenName);
+    const { updatedLevels, newLevel } = saveAsNewLevel(levelList, target, chosenId);
     setLevelList(updatedLevels);
     setCurrentLevel(newLevel);
     setMode('editor');
-    showToast(`New level "${newLevel.name}" created & saved!`, 'success');
+    showToast(`New level "${newLevel.id}" created & saved!`, 'success');
   };
 
   // Delete level
@@ -115,7 +115,7 @@ export const App: React.FC = () => {
       return;
     }
 
-    const confirmed = window.confirm(`Are you sure you want to delete "${target.name}"?`);
+    const confirmed = window.confirm(`Are you sure you want to delete "${target.id}"?`);
     if (!confirmed) return;
 
     const { updatedLevels, nextLevel } = deleteLevel(levelList, idToDelete);
@@ -123,7 +123,7 @@ export const App: React.FC = () => {
     if (currentLevel.id === idToDelete) {
       setCurrentLevel(nextLevel);
     }
-    showToast(`Level "${target.name}" deleted.`, 'info');
+    showToast(`Level "${target.id}" deleted.`, 'info');
   };
 
   // Reset to default 10 premade levels
@@ -138,10 +138,9 @@ export const App: React.FC = () => {
   const handleNewBlankLevel = () => {
     const emptyRows = 14;
     const emptyCols = 14;
+    const newId = `lvl-custom-${Date.now()}`;
     const blank: LevelConfig = {
-      id: `custom-lvl-${Date.now()}`,
-      name: `Custom Level ${levelList.length + 1}`,
-      difficulty: 'Medium',
+      id: newId,
       parkingSlotsCount: 5,
       grid: {
         rows: emptyRows,
@@ -150,11 +149,11 @@ export const App: React.FC = () => {
       },
       queues: [[], [], []]
     };
-    const { updatedLevels, newLevel } = saveAsNewLevel(levelList, blank, blank.name);
+    const { updatedLevels, newLevel } = saveAsNewLevel(levelList, blank, newId);
     setLevelList(updatedLevels);
     setCurrentLevel(newLevel);
     setMode('editor');
-    showToast(`Created blank level "${newLevel.name}"!`, 'success');
+    showToast(`Created blank level "${newLevel.id}"!`, 'success');
   };
 
   // Next level in Play Test
@@ -293,10 +292,10 @@ export const App: React.FC = () => {
           const sanitized = sanitizeLevel(imported);
           setCurrentLevel(sanitized);
           // Also offer to save imported level to the list
-          const { updatedLevels } = saveAsNewLevel(levelList, sanitized, sanitized.name);
+          const { updatedLevels } = saveAsNewLevel(levelList, sanitized, sanitized.id);
           setLevelList(updatedLevels);
           setMode('editor');
-          showToast(`Imported & added "${sanitized.name}" to level list!`, 'success');
+          showToast(`Imported & added "${sanitized.id}" to level list!`, 'success');
         }}
       />
     </div>
