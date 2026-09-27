@@ -135,6 +135,15 @@ export const LevelListSidebar: React.FC<LevelListSidebarProps> = ({
                   <span className="text-xs font-mono font-black text-slate-800 truncate" title={lvl.id}>
                     {lvl.id}
                   </span>
+                  <span
+                    className={`px-1 py-0.2 rounded text-[8px] font-black uppercase tracking-wider ${
+                      lvl.difficulty === 'hard'
+                        ? 'bg-rose-100 text-rose-700 border border-rose-200'
+                        : 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                    }`}
+                  >
+                    {lvl.difficulty === 'hard' ? 'Hard' : 'Normal'}
+                  </span>
                   {isCurrent && (
                     <CheckCircle2 className="w-3 h-3 text-emerald-600 flex-shrink-0" />
                   )}

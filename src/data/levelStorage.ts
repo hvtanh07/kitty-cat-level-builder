@@ -43,6 +43,7 @@ export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
 
   const cleanLevel: LevelConfig = {
     id: lvl.id || `lvl-${Date.now()}`,
+    difficulty: lvl.difficulty === 'hard' ? 'hard' : 'normal',
     grid: {
       ...lvl.grid,
       cells: sanitizedCells

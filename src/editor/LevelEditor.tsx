@@ -628,6 +628,32 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               title="Parking Slot Capacity"
             />
           </div>
+
+          {/* Difficulty Setting (Normal / Hard) */}
+          <div className="flex items-center gap-1 bg-amber-50/50 border border-amber-900/20 rounded-xl p-0.5 shadow-xs">
+            <button
+              type="button"
+              onClick={() => onChange({ ...level, difficulty: 'normal' })}
+              className={`px-2.5 py-1 rounded-lg font-black text-[11px] transition ${
+                (level.difficulty || 'normal') === 'normal'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'text-emerald-950 hover:bg-emerald-100/50'
+              }`}
+            >
+              Normal
+            </button>
+            <button
+              type="button"
+              onClick={() => onChange({ ...level, difficulty: 'hard' })}
+              className={`px-2.5 py-1 rounded-lg font-black text-[11px] transition ${
+                level.difficulty === 'hard'
+                  ? 'bg-rose-600 text-white shadow-xs'
+                  : 'text-rose-950 hover:bg-rose-100/50'
+              }`}
+            >
+              Hard
+            </button>
+          </div>
         </div>
 
         {/* Action Buttons: Override, Save as New, Delete, Import, Export, Play Test */}

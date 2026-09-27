@@ -572,6 +572,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-1-blocks',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL1_ASCII.length,
@@ -593,6 +594,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-2-quadrants',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL2_ASCII.length,
@@ -620,6 +622,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-3-mandala',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL3_ASCII.length,
@@ -643,6 +646,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // ============================================================
   {
     id: 'lvl-4-devil-face',
+    difficulty: 'hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL4_ASCII_NORM.length,
@@ -666,6 +670,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 5: Geometric Harmony (Screenshot Lv5, 2 Queues)
   {
     id: 'lvl-5-geometric',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL5_ASCII.length,
@@ -695,6 +700,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 6: Mighty Oak Tree (Screenshot Lv6, 3 Queues)
   {
     id: 'lvl-6-tree',
+    difficulty: 'hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL6_ASCII.length,
@@ -739,6 +745,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 7: Retro Rocket (Screenshot Lv7, 2 Queues)
   {
     id: 'lvl-7-rocket',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL7_ASCII.length,
@@ -768,6 +775,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 8: Tuxedo Cat (Screenshot Lv8, 3 Queues)
   {
     id: 'lvl-8-cat',
+    difficulty: 'hard',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL8_ASCII.length,
@@ -811,6 +819,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 9: Elephant Mascot (Screenshot Lv9, 2 Queues)
   {
     id: 'lvl-9-elephant',
+    difficulty: 'normal',
     parkingSlotsCount: 5,
     grid: {
       rows: LVL9_ASCII.length,
@@ -840,6 +849,7 @@ export const PREMADE_LEVELS: LevelConfig[] = [
   // Level 10: Snail Garden (Screenshot Lv10 Masterpiece - 3 Queues)
   {
     id: 'lvl-10-snail',
+    difficulty: 'hard',
     parkingSlotsCount: 5,
     grid: {
       rows: SNAIL_ASCII.length,

@@ -23,9 +23,10 @@ export const JsonModal: React.FC<JsonModalProps> = ({
 
   if (!isOpen) return null;
 
-  // Ensure exported JSON strictly excludes name and difficulty
+  // Ensure exported JSON includes difficulty ('normal' | 'hard')
   const cleanExportLevel: LevelConfig = {
     id: currentLevel.id,
+    difficulty: currentLevel.difficulty || 'normal',
     grid: currentLevel.grid,
     parkingSlotsCount: currentLevel.parkingSlotsCount,
     queues: currentLevel.queues,
@@ -74,9 +75,12 @@ export const JsonModal: React.FC<JsonModalProps> = ({
     try {
       const parsed = JSON.parse(rawJson) as any;
 
-      // Strip legacy name and difficulty if present
+      // Strip legacy name if present
       delete parsed.name;
-      delete parsed.difficulty;
+      // Validate difficulty: 'normal' | 'hard' (default 'normal')
+      if (parsed.difficulty !== 'hard') {
+        parsed.difficulty = 'normal';
+      }
 
       // Basic schema validations
       if (!parsed.id || typeof parsed.id !== 'string') {

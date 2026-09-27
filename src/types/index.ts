@@ -24,6 +24,7 @@ export interface GridConfig {
 export interface LevelConfig {
   id: string;
   author?: string;
+  difficulty?: 'normal' | 'hard';
   grid: GridConfig;
   parkingSlotsCount: number; // Number of parking slots (default 5)
   queues: CatBoxData[][]; // Array of queues (each queue is a stack/list of CatBoxData, index 0 is front)

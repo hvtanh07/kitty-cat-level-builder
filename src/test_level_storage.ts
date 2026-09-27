@@ -38,14 +38,15 @@ if (afterNew.length === 11 && newLevel.id === 'lvl-custom-fun' && newLevel.id !=
 }
 
 // Test 3: Override Level
-const modifiedLevel = {
+const modifiedLevel: typeof newLevel = {
   ...newLevel,
-  parkingSlotsCount: 7
+  parkingSlotsCount: 7,
+  difficulty: 'hard'
 };
 const afterOverride = overrideLevel(afterNew, modifiedLevel);
 const found = afterOverride.find(l => l.id === newLevel.id);
-if (afterOverride.length === 11 && found && found.parkingSlotsCount === 7) {
-  console.log('✓ Override Level correctly updated target level properties');
+if (afterOverride.length === 11 && found && found.parkingSlotsCount === 7 && found.difficulty === 'hard') {
+  console.log('✓ Override Level correctly updated target level properties (including difficulty: hard)');
 } else {
   throw new Error('Failed to override level');
 }
