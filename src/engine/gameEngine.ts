@@ -28,6 +28,7 @@ export interface GameState {
   shakingParkingIndex: number | null;
   stats: GameStats;
   initialCellCount: number;
+  revealedGroups: Set<number>;
 }
 
 export function createInitialGameState(level: LevelConfig): GameState {
@@ -39,8 +40,28 @@ export function createInitialGameState(level: LevelConfig): GameState {
     row.map(cell => (cell ? { ...cell, state: cell.state || 'closed' } : null))
   );
 
+  // Initialize revealed groups - check if any pre-sealed cell touches a hidden group
+  const revealedGroups = new Set<number>();
+  const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c]?.state === 'sealed') {
+        for (const [dr, dc] of directions) {
+          const nr = r + dr;
+          const nc = c + dc;
+          if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+            const neighbor = grid[nr][nc];
+            if (neighbor?.hiddenGroup) {
+              revealedGroups.add(neighbor.hiddenGroup);
+            }
+          }
+        }
+      }
+    }
+  }
+
   // Recalculate exposures according to the 1/4 side exposure rule, preserving already exposed cells
-  grid = recalculateAllExposures(grid, rows, cols, true);
+  grid = recalculateAllExposures(grid, rows, cols, true, revealedGroups);
 
   // Count total initial cells
   let initialCellCount = 0;
@@ -83,7 +104,8 @@ export function createInitialGameState(level: LevelConfig): GameState {
       linesCleared: 0,
       startTime: Date.now()
     },
-    initialCellCount
+    initialCellCount,
+    revealedGroups
   };
 }
 
@@ -166,6 +188,8 @@ export function dispatchCats(
   const newFlyingCats: FlyingCat[] = [...state.flyingCats];
   let dispatchedAny = false;
 
+  const newlySealed: { r: number; c: number }[] = [];
+
   for (let slotIdx = 0; slotIdx < nextParking.length; slotIdx++) {
     const box = nextParking[slotIdx];
     if (!box || box.count <= 0) continue;
@@ -187,6 +211,7 @@ export function dispatchCats(
         ...nextGrid[target.r][target.c]!,
         state: 'sealed'
       };
+      newlySealed.push({ r: target.r, c: target.c });
 
       const toCoords = getCellCoords ? getCellCoords(target.r, target.c) : { x: 200, y: 200 };
 
@@ -209,14 +234,58 @@ export function dispatchCats(
   // Remove empty boxes from parking slots
   nextParking = nextParking.map(box => (box && box.count <= 0 ? null : box));
 
-  // Recalculate exposures for remaining unfilled cells
-  nextGrid = recalculateAllExposures(nextGrid, state.rows, state.cols);
+  // 1. Process Countdown for all Locked Cells on the grid
+  let anyUnlocked = false;
+  const sealedCount = newlySealed.length;
+  if (sealedCount > 0) {
+    for (let r = 0; r < state.rows; r++) {
+      for (let c = 0; c < state.cols; c++) {
+        const cell = nextGrid[r][c];
+        if (cell && cell.lockCount && cell.lockCount > 0) {
+          cell.lockCount = Math.max(0, cell.lockCount - sealedCount);
+          if (cell.lockCount === 0) {
+            delete cell.lockCount;
+            anyUnlocked = true;
+          }
+        }
+      }
+    }
+  }
+  if (anyUnlocked) {
+    sounds.playUnlock();
+  }
+
+  // 2. Process Hidden Groups Revelation (connected to any newly sealed cell)
+  const nextRevealedGroups = new Set<number>(state.revealedGroups);
+  let anyRevealed = false;
+  const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+
+  for (const sealedPos of newlySealed) {
+    for (const [dr, dc] of directions) {
+      const nr = sealedPos.r + dr;
+      const nc = sealedPos.c + dc;
+      if (nr >= 0 && nr < state.rows && nc >= 0 && nc < state.cols) {
+        const neighbor = nextGrid[nr][nc];
+        if (neighbor && neighbor.hiddenGroup && !nextRevealedGroups.has(neighbor.hiddenGroup)) {
+          nextRevealedGroups.add(neighbor.hiddenGroup);
+          anyRevealed = true;
+        }
+      }
+    }
+  }
+  if (anyRevealed) {
+    sounds.playReveal();
+  }
+
+  // 3. Recalculate exposures for remaining unfilled cells using updated revealed groups
+  nextGrid = recalculateAllExposures(nextGrid, state.rows, state.cols, true, nextRevealedGroups);
 
   const updatedState = {
     ...state,
     grid: nextGrid,
     parkingSlots: nextParking,
     flyingCats: newFlyingCats,
+    revealedGroups: nextRevealedGroups,
     stats: {
       ...state.stats,
       catsDispatched: state.stats.catsDispatched + (dispatchedAny ? 1 : 0)
@@ -245,7 +314,7 @@ export function processLineClears(state: GameState): GameState {
   }
 
   // Recalculate exposures because cleared rows are now empty space
-  nextGrid = recalculateAllExposures(nextGrid, state.rows, state.cols);
+  nextGrid = recalculateAllExposures(nextGrid, state.rows, state.cols, true, state.revealedGroups);
 
   const updatedState = {
     ...state,

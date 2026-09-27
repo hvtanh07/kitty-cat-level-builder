@@ -1,4 +1,4 @@
-import { LevelConfig } from '../types';
+import { LevelConfig, CellData } from '../types';
 import { PREMADE_LEVELS } from './premadeLevels';
 import { COLOR_PALETTE, getColorDef } from '../engine/palette';
 
@@ -14,9 +14,23 @@ export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
   const sanitizedCells = lvl.grid.cells.map(row =>
     row.map(cell => {
       if (!cell) return null;
-      if (allowedColors.has(cell.color)) return cell;
-      const mapped = getColorDef(cell.color).id;
-      return { ...cell, color: allowedColors.has(mapped) ? mapped : 'pink' };
+      const color = allowedColors.has(cell.color) ? cell.color : (getColorDef(cell.color).id || 'pink');
+      const cleanCell: CellData = {
+        ...cell,
+        color: allowedColors.has(color) ? color : 'pink',
+        state: cell.state || 'closed'
+      };
+      if (typeof cell.hiddenGroup === 'number' && cell.hiddenGroup > 0) {
+        cleanCell.hiddenGroup = cell.hiddenGroup;
+      } else {
+        delete cleanCell.hiddenGroup;
+      }
+      if (typeof cell.lockCount === 'number' && cell.lockCount > 0) {
+        cleanCell.lockCount = Math.round(cell.lockCount);
+      } else {
+        delete cleanCell.lockCount;
+      }
+      return cleanCell;
     })
   );
   const sanitizedQueues = lvl.queues.map(queue =>

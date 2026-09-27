@@ -188,6 +188,51 @@ class SoundEngine {
       osc.stop(this.ctx.currentTime + idx * 0.15 + 0.3);
     });
   }
+
+  playUnlock() {
+    if (this.isMuted) return;
+    this.initCtx();
+    if (!this.ctx) return;
+
+    // Metallic padlock snap
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(680, this.ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(1100, this.ctx.currentTime + 0.08);
+
+    gain.gain.setValueAtTime(0.3, this.ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.1);
+
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start();
+    osc.stop(this.ctx.currentTime + 0.1);
+  }
+
+  playReveal() {
+    if (this.isMuted) return;
+    this.initCtx();
+    if (!this.ctx) return;
+
+    // Magical mystery sparkle
+    const notes = [659.25, 880, 1174.66, 1567.98];
+    notes.forEach((f, idx) => {
+      if (!this.ctx) return;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(f, this.ctx.currentTime + idx * 0.05);
+
+      gain.gain.setValueAtTime(0.2, this.ctx.currentTime + idx * 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + idx * 0.05 + 0.25);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(this.ctx.currentTime + idx * 0.05);
+      osc.stop(this.ctx.currentTime + idx * 0.05 + 0.25);
+    });
+  }
 }
 
 export const sounds = new SoundEngine();

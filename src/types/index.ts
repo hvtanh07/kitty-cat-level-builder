@@ -4,6 +4,8 @@ export interface CellData {
   id?: string;
   color: string; // Color identifier from palette (e.g. 'pink', 'blue', 'yellow', 'green', 'lime', 'brown', 'dark_brown', 'gray', 'orange', 'purple')
   state?: CellState; // Override initial state if needed, otherwise calculated
+  hiddenGroup?: number; // Group ID for hidden cells (e.g. 1, 2, 3...)
+  lockCount?: number; // Number of cell seals required to unlock this cell (e.g. 1 to 99)
 }
 
 export interface CatBoxData {

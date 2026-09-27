@@ -366,6 +366,7 @@ export const PlayTest: React.FC<PlayTestProps> = ({
                       c={c}
                       size={gameState.cols > 15 ? 18 : gameState.cols > 12 ? 21 : 25}
                       isClearing={isClearing}
+                      isRevealed={cell?.hiddenGroup ? gameState.revealedGroups.has(cell.hiddenGroup) : true}
                     />
                   </div>
                 );

@@ -10,11 +10,22 @@ export function shouldCellBeExposed(
   r: number,
   c: number,
   rows: number,
-  cols: number
+  cols: number,
+  revealedGroups?: Set<number>
 ): boolean {
   const currentCell = grid[r]?.[c];
   if (!currentCell) return false;
   if (currentCell.state === 'sealed') return false; // Already sealed
+
+  // Rule: Locked cell will not become exposed like normal cell until unlocked
+  if (currentCell.lockCount && currentCell.lockCount > 0) {
+    return false;
+  }
+
+  // Rule: Hidden cell true color and exposure only reviewed when revealed
+  if (currentCell.hiddenGroup && (!revealedGroups || !revealedGroups.has(currentCell.hiddenGroup))) {
+    return false;
+  }
 
   const directions = [
     [-1, 0], // North
@@ -47,11 +58,13 @@ export function shouldCellBeExposed(
 /**
  * Exposes the bottom-most non-null cell in every column of the grid.
  * In casual block puzzle games, bottom cells are open and accessible at level start.
+ * Skips cells that are locked or unrevealed hidden.
  */
 export function exposeBottomCells(
   grid: (CellData | null)[][],
   rows: number,
-  cols: number
+  cols: number,
+  revealedGroups?: Set<number>
 ): (CellData | null)[][] {
   const nextGrid: (CellData | null)[][] = grid.map(row =>
     row.map(cell => (cell ? { ...cell } : null))
@@ -59,8 +72,13 @@ export function exposeBottomCells(
 
   for (let c = 0; c < cols; c++) {
     for (let r = rows - 1; r >= 0; r--) {
-      if (nextGrid[r][c] !== null) {
-        nextGrid[r][c]!.state = 'exposed';
+      const cell = nextGrid[r][c];
+      if (cell !== null) {
+        const isLocked = !!(cell.lockCount && cell.lockCount > 0);
+        const isHidden = !!(cell.hiddenGroup && (!revealedGroups || !revealedGroups.has(cell.hiddenGroup)));
+        if (!isLocked && !isHidden) {
+          cell.state = 'exposed';
+        }
         break; // Bottom-most cell in this column
       }
     }
@@ -73,13 +91,15 @@ export function exposeBottomCells(
  * Recalculates exposure for cells across the entire grid.
  * If preserveExposed is true (default), any cell that is already 'exposed' remains exposed,
  * and any closed cell that now qualifies turns 'exposed'.
+ * Respects locked cells and unrevealed hidden groups.
  * Returns a new grid copy with updated states.
  */
 export function recalculateAllExposures(
   grid: (CellData | null)[][],
   rows: number,
   cols: number,
-  preserveExposed: boolean = true
+  preserveExposed: boolean = true,
+  revealedGroups?: Set<number>
 ): (CellData | null)[][] {
   const nextGrid: (CellData | null)[][] = grid.map(row =>
     row.map(cell => (cell ? { ...cell } : null))
@@ -89,11 +109,19 @@ export function recalculateAllExposures(
     for (let c = 0; c < cols; c++) {
       const cell = nextGrid[r][c];
       if (cell && cell.state !== 'sealed') {
+        const isLocked = !!(cell.lockCount && cell.lockCount > 0);
+        const isHidden = !!(cell.hiddenGroup && (!revealedGroups || !revealedGroups.has(cell.hiddenGroup)));
+
+        if (isLocked || isHidden) {
+          cell.state = 'closed';
+          continue;
+        }
+
         if (preserveExposed && cell.state === 'exposed') {
           // Already exposed: keep exposed!
           continue;
         }
-        const exposed = shouldCellBeExposed(nextGrid, r, c, rows, cols);
+        const exposed = shouldCellBeExposed(nextGrid, r, c, rows, cols, revealedGroups);
         cell.state = exposed ? 'exposed' : 'closed';
       }
     }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { LevelConfig, CellData, CatBoxData, CellState } from '../types';
 import { COLOR_PALETTE, getColorDef } from '../engine/palette';
 import { recalculateAllExposures, exposeBottomCells } from '../engine/exposure';
@@ -28,7 +28,10 @@ import {
   Lock,
   Unlock,
   Save,
-  Copy
+  Copy,
+  HelpCircle,
+  Plus,
+  Minus
 } from 'lucide-react';
 
 interface LevelEditorProps {
@@ -47,6 +50,7 @@ interface LevelEditorProps {
 }
 
 type EditorTool = 'brush' | 'bucket' | 'eraser' | 'picker' | 'rect';
+type PaintMode = 'color' | 'hidden' | 'lock';
 
 export const LevelEditor: React.FC<LevelEditorProps> = ({
   level,
@@ -63,6 +67,9 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
   canDelete = true
 }) => {
   const [activeTool, setActiveTool] = useState<EditorTool>('brush');
+  const [paintMode, setPaintMode] = useState<PaintMode>('color');
+  const [activeHiddenGroup, setActiveHiddenGroup] = useState<number>(1);
+  const [activeLockCount, setActiveLockCount] = useState<number>(5);
   const [activeColor, setActiveColor] = useState<string>('pink');
   const [activeState, setActiveState] = useState<CellState>('closed');
   const [symmetryH, setSymmetryH] = useState<boolean>(false);
@@ -72,6 +79,17 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const rows = level.grid.rows;
   const cols = level.grid.cols;
+
+  const [rowInput, setRowInput] = useState<string>(String(rows));
+  const [colInput, setColInput] = useState<string>(String(cols));
+
+  useEffect(() => {
+    setRowInput(String(rows));
+  }, [rows]);
+
+  useEffect(() => {
+    setColInput(String(cols));
+  }, [cols]);
 
   // History for Undo inside editor
   const [editorHistory, setEditorHistory] = useState<(CellData | null)[][][]>([]);
@@ -98,13 +116,11 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     return cells.map(row => row.map(cell => (cell ? { ...cell } : null)));
   };
 
-  // Update cell with symmetry support
+  // Update cell with symmetry support and paint mode
   const applyPaintToCell = (
     grid: (CellData | null)[][],
     r: number,
-    c: number,
-    color: string | null,
-    state: CellState
+    c: number
   ) => {
     const targets: [number, number][] = [[r, c]];
 
@@ -120,48 +136,168 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
 
     targets.forEach(([tr, tc]) => {
       if (tr >= 0 && tr < rows && tc >= 0 && tc < cols) {
-        if (color === null) {
-          grid[tr][tc] = null;
-        } else {
-          grid[tr][tc] = { color, state };
+        if (paintMode === 'color') {
+          if (activeTool === 'eraser') {
+            grid[tr][tc] = null;
+          } else {
+            const existing = grid[tr][tc];
+            grid[tr][tc] = {
+              color: activeColor,
+              state: activeState,
+              hiddenGroup: existing?.hiddenGroup,
+              lockCount: existing?.lockCount
+            };
+          }
+        } else if (paintMode === 'hidden') {
+          const existing = grid[tr][tc];
+          if (activeTool === 'eraser') {
+            if (existing) {
+              const next = { ...existing };
+              delete next.hiddenGroup;
+              grid[tr][tc] = next;
+            }
+          } else {
+            grid[tr][tc] = {
+              ...(existing || { color: activeColor, state: activeState }),
+              hiddenGroup: activeHiddenGroup
+            };
+          }
+        } else if (paintMode === 'lock') {
+          const existing = grid[tr][tc];
+          if (activeTool === 'eraser') {
+            if (existing) {
+              const next = { ...existing };
+              delete next.lockCount;
+              grid[tr][tc] = next;
+            }
+          } else {
+            grid[tr][tc] = {
+              ...(existing || { color: activeColor, state: activeState }),
+              lockCount: activeLockCount
+            };
+          }
         }
       }
     });
   };
 
-  // Flood fill algorithm
-  const floodFill = (startR: number, startC: number, newColor: string) => {
+  // Flood fill algorithm with support for colors, hidden groups, and locks
+  const floodFill = (startR: number, startC: number) => {
     pushHistory(level.grid.cells);
     const grid = cloneGrid(level.grid.cells);
     const targetCell = grid[startR][startC];
-    const targetColor = targetCell ? targetCell.color : null;
 
-    if (targetColor === newColor) return;
+    if (paintMode === 'color') {
+      const targetColor = targetCell ? targetCell.color : null;
+      if (targetColor === activeColor) return;
 
-    const queue: [number, number][] = [[startR, startC]];
-    const visited = new Set<string>();
+      const queue: [number, number][] = [[startR, startC]];
+      const visited = new Set<string>();
 
-    while (queue.length > 0) {
-      const [r, c] = queue.pop()!;
-      const key = `${r}-${c}`;
-      if (visited.has(key)) continue;
-      visited.add(key);
+      while (queue.length > 0) {
+        const [r, c] = queue.pop()!;
+        const key = `${r}-${c}`;
+        if (visited.has(key)) continue;
+        visited.add(key);
 
-      const cell = grid[r][c];
-      const currentColor = cell ? cell.color : null;
+        const cell = grid[r][c];
+        const currentColor = cell ? cell.color : null;
 
-      if (currentColor === targetColor) {
-        grid[r][c] = { color: newColor, state: activeState };
+        if (currentColor === targetColor) {
+          const existing = grid[r][c];
+          grid[r][c] = {
+            color: activeColor,
+            state: activeState,
+            hiddenGroup: existing?.hiddenGroup,
+            lockCount: existing?.lockCount
+          };
 
-        const neighbors: [number, number][] = [
-          [r - 1, c],
-          [r + 1, c],
-          [r, c - 1],
-          [r, c + 1]
-        ];
-        for (const [nr, nc] of neighbors) {
-          if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited.has(`${nr}-${nc}`)) {
-            queue.push([nr, nc]);
+          const neighbors: [number, number][] = [
+            [r - 1, c],
+            [r + 1, c],
+            [r, c - 1],
+            [r, c + 1]
+          ];
+          for (const [nr, nc] of neighbors) {
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited.has(`${nr}-${nc}`)) {
+              queue.push([nr, nc]);
+            }
+          }
+        }
+      }
+    } else if (paintMode === 'hidden') {
+      const targetGroup = targetCell?.hiddenGroup || 0;
+      const newGroup = activeTool === 'eraser' ? 0 : activeHiddenGroup;
+      if (targetGroup === newGroup) return;
+
+      const queue: [number, number][] = [[startR, startC]];
+      const visited = new Set<string>();
+
+      while (queue.length > 0) {
+        const [r, c] = queue.pop()!;
+        const key = `${r}-${c}`;
+        if (visited.has(key)) continue;
+        visited.add(key);
+
+        const cell = grid[r][c];
+        if (!cell) continue;
+
+        const currentGroup = cell.hiddenGroup || 0;
+        if (currentGroup === targetGroup) {
+          if (newGroup === 0) {
+            delete cell.hiddenGroup;
+          } else {
+            cell.hiddenGroup = newGroup;
+          }
+
+          const neighbors: [number, number][] = [
+            [r - 1, c],
+            [r + 1, c],
+            [r, c - 1],
+            [r, c + 1]
+          ];
+          for (const [nr, nc] of neighbors) {
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited.has(`${nr}-${nc}`)) {
+              queue.push([nr, nc]);
+            }
+          }
+        }
+      }
+    } else if (paintMode === 'lock') {
+      const targetLock = targetCell?.lockCount || 0;
+      const newLock = activeTool === 'eraser' ? 0 : activeLockCount;
+      if (targetLock === newLock) return;
+
+      const queue: [number, number][] = [[startR, startC]];
+      const visited = new Set<string>();
+
+      while (queue.length > 0) {
+        const [r, c] = queue.pop()!;
+        const key = `${r}-${c}`;
+        if (visited.has(key)) continue;
+        visited.add(key);
+
+        const cell = grid[r][c];
+        if (!cell) continue;
+
+        const currentLock = cell.lockCount || 0;
+        if (currentLock === targetLock) {
+          if (newLock === 0) {
+            delete cell.lockCount;
+          } else {
+            cell.lockCount = newLock;
+          }
+
+          const neighbors: [number, number][] = [
+            [r - 1, c],
+            [r + 1, c],
+            [r, c - 1],
+            [r, c + 1]
+          ];
+          for (const [nr, nc] of neighbors) {
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited.has(`${nr}-${nc}`)) {
+              queue.push([nr, nc]);
+            }
           }
         }
       }
@@ -179,14 +315,20 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     if (activeTool === 'picker') {
       const cell = level.grid.cells[r][c];
       if (cell) {
-        setActiveColor(cell.color);
+        if (paintMode === 'color') {
+          setActiveColor(cell.color);
+        } else if (paintMode === 'hidden') {
+          if (cell.hiddenGroup) setActiveHiddenGroup(cell.hiddenGroup);
+        } else if (paintMode === 'lock') {
+          if (cell.lockCount) setActiveLockCount(cell.lockCount);
+        }
         setActiveTool('brush');
       }
       return;
     }
 
     if (activeTool === 'bucket') {
-      floodFill(r, c, activeColor);
+      floodFill(r, c);
       return;
     }
 
@@ -203,7 +345,27 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
 
         for (let rowIdx = minR; rowIdx <= maxR; rowIdx++) {
           for (let colIdx = minC; colIdx <= maxC; colIdx++) {
-            grid[rowIdx][colIdx] = { color: activeColor, state: activeState };
+            if (paintMode === 'color') {
+              const existing = grid[rowIdx][colIdx];
+              grid[rowIdx][colIdx] = {
+                color: activeColor,
+                state: activeState,
+                hiddenGroup: existing?.hiddenGroup,
+                lockCount: existing?.lockCount
+              };
+            } else if (paintMode === 'hidden') {
+              const existing = grid[rowIdx][colIdx];
+              grid[rowIdx][colIdx] = {
+                ...(existing || { color: activeColor, state: activeState }),
+                hiddenGroup: activeHiddenGroup
+              };
+            } else if (paintMode === 'lock') {
+              const existing = grid[rowIdx][colIdx];
+              grid[rowIdx][colIdx] = {
+                ...(existing || { color: activeColor, state: activeState }),
+                lockCount: activeLockCount
+              };
+            }
           }
         }
 
@@ -220,8 +382,7 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     // Brush or Eraser
     pushHistory(level.grid.cells);
     const grid = cloneGrid(level.grid.cells);
-    const colorToApply = activeTool === 'eraser' ? null : activeColor;
-    applyPaintToCell(grid, r, c, colorToApply, activeState);
+    applyPaintToCell(grid, r, c);
     const updated = recalculateAllExposures(grid, rows, cols);
     onChange({
       ...level,
@@ -235,8 +396,7 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     if (activeTool !== 'brush' && activeTool !== 'eraser') return;
 
     const grid = cloneGrid(level.grid.cells);
-    const colorToApply = activeTool === 'eraser' ? null : activeColor;
-    applyPaintToCell(grid, r, c, colorToApply, activeState);
+    applyPaintToCell(grid, r, c);
     const updated = recalculateAllExposures(grid, rows, cols);
     onChange({
       ...level,
@@ -268,24 +428,77 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
     });
   };
 
-  // Resize grid
+  // Resize grid: add/remove rows from the top (anchoring existing blocks at the bottom)
   const handleResize = (newRows: number, newCols: number) => {
+    const clampedRows = Math.max(1, Math.min(100, newRows));
+    const clampedCols = Math.max(1, Math.min(100, newCols));
+    if (clampedRows === rows && clampedCols === cols) return;
+
     pushHistory(level.grid.cells);
-    const newGrid: (CellData | null)[][] = Array.from({ length: newRows }, (_, r) =>
-      Array.from({ length: newCols }, (_, c) => {
-        return level.grid.cells[r]?.[c] || null;
+    const rowOffset = clampedRows - rows; // e.g. +2 when adding 2 rows, -2 when removing 2 rows
+
+    const newGrid: (CellData | null)[][] = Array.from({ length: clampedRows }, (_, r) =>
+      Array.from({ length: clampedCols }, (_, c) => {
+        // Rows added/removed from top: existing rows are shifted by rowOffset
+        const oldR = r - rowOffset;
+        if (oldR >= 0 && oldR < rows && c < cols) {
+          return level.grid.cells[oldR]?.[c] || null;
+        }
+        return null;
       })
     );
 
-    const updated = recalculateAllExposures(newGrid, newRows, newCols);
+    const updated = recalculateAllExposures(newGrid, clampedRows, clampedCols);
     onChange({
       ...level,
       grid: {
-        rows: newRows,
-        cols: newCols,
+        rows: clampedRows,
+        cols: clampedCols,
         cells: updated
       }
     });
+  };
+
+  const handleRowInputChange = (valStr: string) => {
+    setRowInput(valStr);
+    const val = parseInt(valStr, 10);
+    if (!isNaN(val) && val >= 1 && val <= 100 && val !== rows) {
+      handleResize(val, cols);
+    }
+  };
+
+  const handleRowInputBlur = () => {
+    const val = parseInt(rowInput, 10);
+    if (isNaN(val) || val < 1) {
+      setRowInput(String(Math.max(1, rows)));
+      if (rows < 1) handleResize(1, cols);
+    } else if (val > 100) {
+      setRowInput('100');
+      if (rows !== 100) handleResize(100, cols);
+    } else if (val !== rows) {
+      handleResize(val, cols);
+    }
+  };
+
+  const handleColInputChange = (valStr: string) => {
+    setColInput(valStr);
+    const val = parseInt(valStr, 10);
+    if (!isNaN(val) && val >= 1 && val <= 100 && val !== cols) {
+      handleResize(rows, val);
+    }
+  };
+
+  const handleColInputBlur = () => {
+    const val = parseInt(colInput, 10);
+    if (isNaN(val) || val < 1) {
+      setColInput(String(Math.max(1, cols)));
+      if (cols < 1) handleResize(rows, 1);
+    } else if (val > 100) {
+      setColInput('100');
+      if (cols !== 100) handleResize(rows, 100);
+    } else if (val !== cols) {
+      handleResize(rows, val);
+    }
   };
 
   // Clear all grid cells
@@ -523,7 +736,7 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
                       cell={cell}
                       r={r}
                       c={c}
-                      size={cols > 18 ? 20 : cols > 14 ? 24 : 28}
+                      size={Math.max(10, Math.min(28, Math.floor(520 / Math.max(cols, rows))))}
                       isEditor={true}
                       isSelected={isSelected}
                       onClick={() => handleCellClick(r, c)}
@@ -577,29 +790,81 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               </div>
             </div>
 
-            {/* Dimensions (Sliders) */}
-            <div className="flex flex-col gap-1.5 text-xs">
-              <div className="flex justify-between font-bold text-slate-600">
-                <span>Rows: {rows}</span>
-                <span>Cols: {cols}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="range"
-                  min={6}
-                  max={24}
-                  value={rows}
-                  onChange={e => handleResize(parseInt(e.target.value), cols)}
-                  className="w-full accent-amber-600"
-                />
-                <input
-                  type="range"
-                  min={6}
-                  max={24}
-                  value={cols}
-                  onChange={e => handleResize(rows, parseInt(e.target.value))}
-                  className="w-full accent-amber-600"
-                />
+            {/* Dimensions (Text Boxes with Steppers) */}
+            <div className="flex flex-col gap-2 text-xs">
+              <span className="font-extrabold text-slate-700">Grid Dimensions:</span>
+              <div className="grid grid-cols-2 gap-2">
+                {/* Rows Input */}
+                <div className="flex flex-col gap-1 bg-amber-50/70 p-2 rounded-xl border border-amber-900/15">
+                  <div className="flex items-center justify-between">
+                    <span className="font-extrabold text-[11px] text-amber-950 uppercase">Rows</span>
+                    <span className="text-[10px] text-slate-400 font-semibold">(1-100)</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => handleResize(Math.max(1, rows - 1), cols)}
+                      title="Decrease Rows (removes row from top)"
+                      className="p-1 rounded bg-white hover:bg-amber-100 text-amber-950 border border-amber-900/20 active:scale-95 transition"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      max={100}
+                      value={rowInput}
+                      onChange={e => handleRowInputChange(e.target.value)}
+                      onBlur={handleRowInputBlur}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') handleRowInputBlur();
+                      }}
+                      className="w-full py-1 text-center font-black text-xs text-amber-950 bg-white border border-amber-900/20 rounded-lg shadow-inner focus:outline-amber-600"
+                    />
+                    <button
+                      onClick={() => handleResize(Math.min(100, rows + 1), cols)}
+                      title="Increase Rows (adds row to top)"
+                      className="p-1 rounded bg-white hover:bg-amber-100 text-amber-950 border border-amber-900/20 active:scale-95 transition"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Cols Input */}
+                <div className="flex flex-col gap-1 bg-amber-50/70 p-2 rounded-xl border border-amber-900/15">
+                  <div className="flex items-center justify-between">
+                    <span className="font-extrabold text-[11px] text-amber-950 uppercase">Cols</span>
+                    <span className="text-[10px] text-slate-400 font-semibold">(1-100)</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => handleResize(rows, Math.max(1, cols - 1))}
+                      title="Decrease Columns"
+                      className="p-1 rounded bg-white hover:bg-amber-100 text-amber-950 border border-amber-900/20 active:scale-95 transition"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      max={100}
+                      value={colInput}
+                      onChange={e => handleColInputChange(e.target.value)}
+                      onBlur={handleColInputBlur}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter') handleColInputBlur();
+                      }}
+                      className="w-full py-1 text-center font-black text-xs text-amber-950 bg-white border border-amber-900/20 rounded-lg shadow-inner focus:outline-amber-600"
+                    />
+                    <button
+                      onClick={() => handleResize(rows, Math.min(100, cols + 1))}
+                      title="Increase Columns"
+                      className="p-1 rounded bg-white hover:bg-amber-100 text-amber-950 border border-amber-900/20 active:scale-95 transition"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -635,16 +900,76 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
             </div>
           </div>
 
-          {/* 2. Design Tools Combined with Color Palette (BELOW Grid Canvas Options) */}
+          {/* 2. Design Tools Combined with Mode Options & Palette */}
           <div className="bg-white/80 backdrop-blur-sm border border-amber-900/20 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
-            <span className="text-xs font-extrabold text-slate-700">Design Tools</span>
+            {/* Mode Switcher Tabs */}
+            <div className="flex rounded-xl bg-amber-950/10 p-1 gap-1">
+              <button
+                onClick={() => setPaintMode('color')}
+                className={`flex-1 py-1.5 px-2 rounded-lg font-extrabold text-xs flex items-center justify-center gap-1.5 transition ${
+                  paintMode === 'color'
+                    ? 'bg-amber-600 text-white shadow-sm'
+                    : 'text-amber-950 hover:bg-white/60'
+                }`}
+              >
+                <Paintbrush className="w-3.5 h-3.5" />
+                <span>Color</span>
+              </button>
+              <button
+                onClick={() => setPaintMode('hidden')}
+                className={`flex-1 py-1.5 px-2 rounded-lg font-extrabold text-xs flex items-center justify-center gap-1.5 transition ${
+                  paintMode === 'hidden'
+                    ? 'bg-purple-700 text-white shadow-sm'
+                    : 'text-purple-950 hover:bg-white/60'
+                }`}
+              >
+                <HelpCircle className="w-3.5 h-3.5" />
+                <span>Hidden</span>
+              </button>
+              <button
+                onClick={() => setPaintMode('lock')}
+                className={`flex-1 py-1.5 px-2 rounded-lg font-extrabold text-xs flex items-center justify-center gap-1.5 transition ${
+                  paintMode === 'lock'
+                    ? 'bg-slate-800 text-white shadow-sm'
+                    : 'text-slate-800 hover:bg-white/60'
+                }`}
+              >
+                <Lock className="w-3.5 h-3.5" />
+                <span>Locked</span>
+              </button>
+            </div>
+
+            {/* Common Tools: Brush, Bucket, Eraser, Eyedropper, Rect */}
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-extrabold text-slate-700">
+                {paintMode === 'color'
+                  ? 'Drawing Tools'
+                  : paintMode === 'hidden'
+                  ? 'Hidden Cell Painter'
+                  : 'Lock Painter'}
+              </span>
+              <span className="text-[10px] font-bold text-slate-400 capitalize">
+                Tool: {activeTool}
+              </span>
+            </div>
+
             <div className="grid grid-cols-5 gap-1.5">
               <button
                 onClick={() => setActiveTool('brush')}
-                title="Brush: Click or drag to paint"
+                title={
+                  paintMode === 'color'
+                    ? 'Brush: Paint color'
+                    : paintMode === 'hidden'
+                    ? `Brush: Tag with Hidden Group ${activeHiddenGroup}`
+                    : `Brush: Tag with Lock Count ${activeLockCount}`
+                }
                 className={`p-2.5 rounded-xl flex items-center justify-center transition ${
                   activeTool === 'brush'
-                    ? 'bg-amber-600 text-white shadow'
+                    ? paintMode === 'color'
+                      ? 'bg-amber-600 text-white shadow'
+                      : paintMode === 'hidden'
+                      ? 'bg-purple-700 text-white shadow'
+                      : 'bg-slate-800 text-white shadow'
                     : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
                 }`}
               >
@@ -652,10 +977,20 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               </button>
               <button
                 onClick={() => setActiveTool('bucket')}
-                title="Paint Bucket: Flood fill region"
+                title={
+                  paintMode === 'color'
+                    ? 'Paint Bucket: Flood fill color'
+                    : paintMode === 'hidden'
+                    ? `Paint Bucket: Flood fill Hidden Group ${activeHiddenGroup}`
+                    : `Paint Bucket: Flood fill Lock Count ${activeLockCount}`
+                }
                 className={`p-2.5 rounded-xl flex items-center justify-center transition ${
                   activeTool === 'bucket'
-                    ? 'bg-amber-600 text-white shadow'
+                    ? paintMode === 'color'
+                      ? 'bg-amber-600 text-white shadow'
+                      : paintMode === 'hidden'
+                      ? 'bg-purple-700 text-white shadow'
+                      : 'bg-slate-800 text-white shadow'
                     : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
                 }`}
               >
@@ -663,10 +998,16 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               </button>
               <button
                 onClick={() => setActiveTool('eraser')}
-                title="Eraser: Remove block to void"
+                title={
+                  paintMode === 'color'
+                    ? 'Eraser: Remove block to empty'
+                    : paintMode === 'hidden'
+                    ? 'Eraser: Remove hidden group tag'
+                    : 'Eraser: Remove lock from block'
+                }
                 className={`p-2.5 rounded-xl flex items-center justify-center transition ${
                   activeTool === 'eraser'
-                    ? 'bg-amber-600 text-white shadow'
+                    ? 'bg-rose-600 text-white shadow'
                     : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
                 }`}
               >
@@ -674,10 +1015,20 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               </button>
               <button
                 onClick={() => setActiveTool('picker')}
-                title="Eyedropper: Pick color from canvas"
+                title={
+                  paintMode === 'color'
+                    ? 'Eyedropper: Pick color from canvas'
+                    : paintMode === 'hidden'
+                    ? 'Eyedropper: Pick hidden group from canvas'
+                    : 'Eyedropper: Pick lock count from canvas'
+                }
                 className={`p-2.5 rounded-xl flex items-center justify-center transition ${
                   activeTool === 'picker'
-                    ? 'bg-amber-600 text-white shadow'
+                    ? paintMode === 'color'
+                      ? 'bg-amber-600 text-white shadow'
+                      : paintMode === 'hidden'
+                      ? 'bg-purple-700 text-white shadow'
+                      : 'bg-slate-800 text-white shadow'
                     : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
                 }`}
               >
@@ -691,7 +1042,11 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
                 title="Rectangle: Click 2 points to fill box"
                 className={`p-2.5 rounded-xl flex items-center justify-center transition ${
                   activeTool === 'rect'
-                    ? 'bg-amber-600 text-white shadow'
+                    ? paintMode === 'color'
+                      ? 'bg-amber-600 text-white shadow'
+                      : paintMode === 'hidden'
+                      ? 'bg-purple-700 text-white shadow'
+                      : 'bg-slate-800 text-white shadow'
                     : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
                 }`}
               >
@@ -726,65 +1081,262 @@ export const LevelEditor: React.FC<LevelEditorProps> = ({
               </div>
             </div>
 
-            {/* Cell State Override */}
-            <div className="flex items-center justify-between pt-1 text-xs">
-              <span className="font-bold text-slate-600">Initial State:</span>
-              <div className="flex items-center gap-1">
-                {(['closed', 'exposed', 'sealed'] as CellState[]).map(st => (
-                  <button
-                    key={st}
-                    onClick={() => setActiveState(st)}
-                    className={`px-2 py-1 rounded-lg capitalize font-bold text-[10px] transition ${
-                      activeState === st
-                        ? 'bg-amber-600 text-white'
-                        : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
-                    }`}
-                  >
-                    {st}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/* Mode-Specific Sub-Panel */}
+            {paintMode === 'color' && (
+              <>
+                {/* Cell State Override */}
+                <div className="flex items-center justify-between pt-1 text-xs">
+                  <span className="font-bold text-slate-600">Initial State:</span>
+                  <div className="flex items-center gap-1">
+                    {(['closed', 'exposed', 'sealed'] as CellState[]).map(st => (
+                      <button
+                        key={st}
+                        onClick={() => setActiveState(st)}
+                        className={`px-2 py-1 rounded-lg capitalize font-bold text-[10px] transition ${
+                          activeState === st
+                            ? 'bg-amber-600 text-white'
+                            : 'bg-amber-50 text-slate-700 hover:bg-amber-100'
+                        }`}
+                      >
+                        {st}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-            {/* Expose Bottom Row Helper */}
-            <button
-              onClick={handleExposeBottomRow}
-              title="Exposes bottom-most cell of each column (matching screenshot gameplay)"
-              className="w-full mt-1 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-amber-800" />
-              <span>Expose Bottom Cells</span>
-            </button>
+                {/* Expose Bottom Row Helper */}
+                <button
+                  onClick={handleExposeBottomRow}
+                  title="Exposes bottom-most cell of each column (matching screenshot gameplay)"
+                  className="w-full mt-1 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-amber-800" />
+                  <span>Expose Bottom Cells</span>
+                </button>
 
-            {/* Combined Color Palette */}
-            <div className="pt-2 border-t border-amber-900/10 flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-extrabold text-slate-600 uppercase tracking-wider">Active Color:</span>
-                <span className="text-xs font-black text-amber-950 capitalize">{getColorDef(activeColor).name}</span>
-              </div>
-              <div className="grid grid-cols-4 gap-2">
-                {COLOR_PALETTE.map(c => {
-                  const isSelected = activeColor === c.id;
-                  return (
+                {/* Combined Color Palette */}
+                <div className="pt-2 border-t border-amber-900/10 flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-extrabold text-slate-600 uppercase tracking-wider">
+                      Active Color:
+                    </span>
+                    <span className="text-xs font-black text-amber-950 capitalize">
+                      {getColorDef(activeColor).name}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-2">
+                    {COLOR_PALETTE.map(c => {
+                      const isSelected = activeColor === c.id;
+                      return (
+                        <button
+                          key={c.id}
+                          onClick={() => {
+                            setActiveColor(c.id);
+                            if (activeTool === 'eraser') setActiveTool('brush');
+                          }}
+                          style={{
+                            backgroundColor: c.hex,
+                            boxShadow: isSelected
+                              ? `0 0 0 3px white, 0 0 0 5px ${c.dark}`
+                              : undefined
+                          }}
+                          title={c.name}
+                          className={`h-9 rounded-xl transition transform active:scale-90 relative ${
+                            isSelected ? 'scale-105 z-10' : 'hover:scale-95'
+                          }`}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {paintMode === 'hidden' && (
+              <div className="pt-2 border-t border-purple-900/10 flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold text-purple-950 uppercase tracking-wider">
+                    Hidden Group ID:
+                  </span>
+                  <span className="text-xs font-black text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md">
+                    Group {activeHiddenGroup}
+                  </span>
+                </div>
+
+                {/* Group Selector Quick Buttons */}
+                <div className="grid grid-cols-5 gap-1.5">
+                  {[1, 2, 3, 4, 5].map(grp => (
                     <button
-                      key={c.id}
+                      key={grp}
                       onClick={() => {
-                        setActiveColor(c.id);
+                        setActiveHiddenGroup(grp);
                         if (activeTool === 'eraser') setActiveTool('brush');
                       }}
-                      style={{
-                        backgroundColor: c.hex,
-                        boxShadow: isSelected ? `0 0 0 3px white, 0 0 0 5px ${c.dark}` : undefined
-                      }}
-                      title={c.name}
-                      className={`h-9 rounded-xl transition transform active:scale-90 relative ${
-                        isSelected ? 'scale-105 z-10' : 'hover:scale-95'
+                      className={`py-1.5 rounded-lg font-black text-xs transition ${
+                        activeHiddenGroup === grp && activeTool !== 'eraser'
+                          ? 'bg-purple-700 text-white shadow'
+                          : 'bg-purple-50 text-purple-900 hover:bg-purple-100'
                       }`}
+                    >
+                      G{grp}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Number Stepper */}
+                <div className="flex items-center justify-between bg-purple-50/70 p-2 rounded-xl border border-purple-200">
+                  <span className="text-xs font-bold text-purple-900">Custom Group #:</span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={() =>
+                        setActiveHiddenGroup(prev => Math.max(1, prev - 1))
+                      }
+                      className="p-1 rounded bg-white hover:bg-purple-100 text-purple-900 border border-purple-200"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      max={99}
+                      value={activeHiddenGroup}
+                      onChange={e =>
+                        setActiveHiddenGroup(Math.max(1, parseInt(e.target.value) || 1))
+                      }
+                      className="w-12 py-0.5 text-center font-black text-xs text-purple-900 bg-white border border-purple-200 rounded"
                     />
-                  );
-                })}
+                    <button
+                      onClick={() => setActiveHiddenGroup(prev => prev + 1)}
+                      className="p-1 rounded bg-white hover:bg-purple-100 text-purple-900 border border-purple-200"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Clear Hidden Group Tag Button */}
+                <button
+                  onClick={() => setActiveTool('eraser')}
+                  className={`w-full py-1.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition ${
+                    activeTool === 'eraser'
+                      ? 'bg-rose-600 text-white shadow'
+                      : 'bg-purple-100/70 hover:bg-purple-200 text-purple-950'
+                  }`}
+                >
+                  <Eraser className="w-3.5 h-3.5" />
+                  <span>Remove Hidden Tag (Eraser)</span>
+                </button>
+
+                {/* Mechanics Info */}
+                <div className="bg-purple-50 border border-purple-200/80 rounded-xl p-2.5 text-[11px] text-purple-950 flex flex-col gap-1 leading-snug">
+                  <div className="font-extrabold flex items-center gap-1">
+                    <HelpCircle className="w-3.5 h-3.5 text-purple-700" />
+                    <span>Hidden Group Logic:</span>
+                  </div>
+                  <p className="text-purple-900/80">
+                    • In Play Test, hidden cells conceal their color.
+                  </p>
+                  <p className="text-purple-900/80">
+                    • When <b>any cell</b> in a group touches a <b>sealed cell</b>, the entire group reveals together!
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
+
+            {paintMode === 'lock' && (
+              <div className="pt-2 border-t border-slate-900/10 flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold text-slate-800 uppercase tracking-wider">
+                    Required Seals:
+                  </span>
+                  <span className="text-xs font-black text-slate-800 bg-slate-100 px-2 py-0.5 rounded-md flex items-center gap-1">
+                    <Lock className="w-3 h-3 text-amber-600" />
+                    {activeLockCount} Seals
+                  </span>
+                </div>
+
+                {/* Presets */}
+                <div className="grid grid-cols-5 gap-1.5">
+                  {[3, 5, 8, 10, 15].map(cnt => (
+                    <button
+                      key={cnt}
+                      onClick={() => {
+                        setActiveLockCount(cnt);
+                        if (activeTool === 'eraser') setActiveTool('brush');
+                      }}
+                      className={`py-1.5 rounded-lg font-black text-xs transition ${
+                        activeLockCount === cnt && activeTool !== 'eraser'
+                          ? 'bg-slate-800 text-white shadow'
+                          : 'bg-slate-100 text-slate-800 hover:bg-slate-200'
+                      }`}
+                    >
+                      {cnt}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Number Stepper */}
+                <div className="flex items-center justify-between bg-slate-50 p-2 rounded-xl border border-slate-200">
+                  <span className="text-xs font-bold text-slate-700">Seals Count:</span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={() =>
+                        setActiveLockCount(prev => Math.max(1, prev - 1))
+                      }
+                      className="p-1 rounded bg-white hover:bg-slate-100 text-slate-800 border border-slate-200"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      max={99}
+                      value={activeLockCount}
+                      onChange={e =>
+                        setActiveLockCount(Math.max(1, parseInt(e.target.value) || 1))
+                      }
+                      className="w-12 py-0.5 text-center font-black text-xs text-slate-900 bg-white border border-slate-200 rounded"
+                    />
+                    <button
+                      onClick={() => setActiveLockCount(prev => prev + 1)}
+                      className="p-1 rounded bg-white hover:bg-slate-100 text-slate-800 border border-slate-200"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Clear Lock Button */}
+                <button
+                  onClick={() => setActiveTool('eraser')}
+                  className={`w-full py-1.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition ${
+                    activeTool === 'eraser'
+                      ? 'bg-rose-600 text-white shadow'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
+                  }`}
+                >
+                  <Unlock className="w-3.5 h-3.5" />
+                  <span>Remove Lock (Eraser)</span>
+                </button>
+
+                {/* Mechanics Info */}
+                <div className="bg-slate-100 border border-slate-200/80 rounded-xl p-2.5 text-[11px] text-slate-800 flex flex-col gap-1 leading-snug">
+                  <div className="font-extrabold flex items-center gap-1">
+                    <Lock className="w-3.5 h-3.5 text-amber-700" />
+                    <span>Locked Cell Logic:</span>
+                  </div>
+                  <p className="text-slate-700">
+                    • Locked cells will not open or become exposed.
+                  </p>
+                  <p className="text-slate-700">
+                    • Every sealed cell decrements the countdown.
+                  </p>
+                  <p className="text-slate-700">
+                    • When count reaches 0, the lock breaks open!
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

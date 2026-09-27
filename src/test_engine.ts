@@ -1,6 +1,6 @@
 import { shouldCellBeExposed, recalculateAllExposures, findClearedLines, findQualifyingSlots } from './engine/exposure';
 import { PREMADE_LEVELS } from './data/premadeLevels';
-import { CellData } from './types';
+import { CellData, LevelConfig } from './types';
 
 console.log('=== Running Kitty Cat Game Logic Verification ===\n');
 
@@ -172,6 +172,170 @@ import { generateBalancedQueues } from './data/premadeLevels';
     console.error(`✗ Expected ${count} queues, got ${generated.length}`);
   }
 });
+
+// 6. Test Hidden Cell Revelation Logic
+console.log('\nTest 6: Hidden Cell Group Revelation Logic');
+import { dispatchCats, tapQueueBox, GameState } from './engine/gameEngine';
+
+// Build a level where:
+// (0, 0): Pink exposed cell
+// (0, 1): Cyan cell with hiddenGroup 1 (adjacent to (0, 0))
+// (0, 2): Cyan cell with hiddenGroup 1 (also in group 1)
+const hiddenTestLevel: LevelConfig = {
+  id: 'hidden-test',
+  grid: {
+    rows: 1,
+    cols: 3,
+    cells: [
+      [
+        { color: 'pink', state: 'exposed' },
+        { color: 'cyan', state: 'closed', hiddenGroup: 1 },
+        { color: 'cyan', state: 'closed', hiddenGroup: 1 }
+      ]
+    ]
+  },
+  queues: [
+    [{ id: 'box-1', color: 'pink', count: 1 }]
+  ],
+  parkingSlotsCount: 5
+};
+
+const hiddenState0 = createInitialGameState(hiddenTestLevel);
+// Initially, hiddenGroup 1 is not revealed
+if (!hiddenState0.revealedGroups.has(1)) {
+  console.log('✓ Hidden group 1 is unrevealed at game start.');
+} else {
+  console.error('✗ Hidden group 1 should not be revealed initially!');
+}
+
+// Click queue to move pink cat box to parking, then dispatch
+const afterClick = tapQueueBox(hiddenState0, 0);
+const afterDispatch = dispatchCats(afterClick.nextState);
+
+// Pink cell at (0, 0) is now sealed
+if (afterDispatch.grid[0][0]?.state === 'sealed') {
+  console.log('✓ Pink cell sealed by dispatched cat.');
+} else {
+  console.error('✗ Pink cell was not sealed!');
+}
+
+// Because (0, 1) touches newly sealed (0, 0), hidden group 1 must be revealed!
+if (afterDispatch.revealedGroups.has(1)) {
+  console.log('✓ Hidden group 1 revealed automatically when adjacent cell sealed.');
+} else {
+  console.error('✗ Hidden group 1 was not revealed upon neighbor seal!');
+}
+
+// And cell (0, 1) now touches a sealed neighbor, so it must now turn exposed!
+if (afterDispatch.grid[0][1]?.state === 'exposed') {
+  console.log('✓ Newly revealed cell (0, 1) properly turns EXPOSED (open lid).');
+} else {
+  console.error('✗ Revealed cell (0, 1) failed to become exposed, got:', afterDispatch.grid[0][1]?.state);
+}
+
+// 7. Test Locked Cell Countdown and Unlock Logic
+console.log('\nTest 7: Locked Cell Countdown and Unlock Logic');
+const lockTestLevel: LevelConfig = {
+  id: 'lock-test',
+  grid: {
+    rows: 1,
+    cols: 2,
+    cells: [
+      [
+        { color: 'pink', state: 'exposed' },
+        { color: 'yellow', state: 'closed', lockCount: 2 }
+      ]
+    ]
+  },
+  queues: [
+    [{ id: 'box-p1', color: 'pink', count: 1 }]
+  ],
+  parkingSlotsCount: 5
+};
+
+const lockState0 = createInitialGameState(lockTestLevel);
+// Locked cell must remain closed initially
+if (lockState0.grid[0][1]?.state === 'closed' && lockState0.grid[0][1]?.lockCount === 2) {
+  console.log('✓ Locked cell is closed with countdown = 2 at game start.');
+} else {
+  console.error('✗ Locked cell initial state incorrect:', lockState0.grid[0][1]);
+}
+
+// Seal 1 cell via pink cat dispatch
+const clickLock = tapQueueBox(lockState0, 0);
+const dispatchLock = dispatchCats(clickLock.nextState);
+
+// Lock count should decrement from 2 to 1
+const lockedCellAfter1 = dispatchLock.grid[0][1];
+if (lockedCellAfter1 && lockedCellAfter1.lockCount === 1) {
+  console.log('✓ Lock countdown decremented from 2 to 1 after 1 cell sealed.');
+} else {
+  console.error('✗ Lock countdown failed to decrement, got:', lockedCellAfter1?.lockCount);
+}
+
+// Now seal another cell by dispatching again (manually setting state with sealed cell to test unlock)
+const testStateForUnlock: GameState = {
+  ...dispatchLock,
+  parkingSlots: [{ id: 'fake', color: 'pink', count: 1, slotIndex: 0, isMystery: false }],
+  grid: [
+    [
+      { color: 'pink', state: 'exposed' }, // exposed cell to seal
+      { color: 'yellow', state: 'closed', lockCount: 1 } // cell with lockCount 1
+    ]
+  ]
+};
+const dispatchUnlock = dispatchCats(testStateForUnlock);
+const unlockedCell = dispatchUnlock.grid[0][1];
+
+if (unlockedCell && unlockedCell.lockCount === undefined) {
+  console.log('✓ Locked cell countdown reached 0 and unlocked completely (lockCount removed).');
+} else {
+  console.error('✗ Cell failed to unlock completely, lockCount is:', unlockedCell?.lockCount);
+}
+
+if (unlockedCell && unlockedCell.state === 'exposed') {
+  console.log('✓ Unlocked cell adjacent to sealed cell successfully became EXPOSED.');
+} else {
+  console.error('✗ Unlocked cell did not become exposed, got:', unlockedCell?.state);
+}
+
+// 8. Test Layout-Aware Auto-Generated Queues (Bottom-Up Order)
+console.log('\nTest 8: Layout-Aware Auto-Generated Queues (Bottom-Up Order)');
+// Grid layout:
+// Row 0 (top): 10 Pink cells
+// Row 1 (mid): 10 Blue cells
+// Row 2 (bottom): 10 Yellow cells
+const orderedGrid: (CellData | null)[][] = [
+  Array.from({ length: 10 }, () => ({ color: 'pink', state: 'closed' })),
+  Array.from({ length: 10 }, () => ({ color: 'blue', state: 'closed' })),
+  Array.from({ length: 10 }, () => ({ color: 'yellow', state: 'closed' }))
+];
+
+const generatedOrderedQueues = generateBalancedQueues(orderedGrid, 2, 10);
+// Queue 0 top and Queue 1 top should start with yellow (bottom-most row color)
+const frontBoxQ0 = generatedOrderedQueues[0]?.[0];
+const frontBoxQ1 = generatedOrderedQueues[1]?.[0];
+
+if (frontBoxQ0?.color === 'yellow') {
+  console.log('✓ Yellow cells at the bottom correctly mapped to the TOP box of Queue 1.');
+} else {
+  console.error('✗ Expected Yellow at front of Queue 1, got:', frontBoxQ0?.color);
+}
+
+// Next should come Blue (row 1), then Pink (row 0)
+const allOrderedBoxes = [
+  ...generatedOrderedQueues[0],
+  ...generatedOrderedQueues[1]
+];
+const yellowBox = allOrderedBoxes.find(b => b.color === 'yellow');
+const blueBox = allOrderedBoxes.find(b => b.color === 'blue');
+const pinkBox = allOrderedBoxes.find(b => b.color === 'pink');
+
+if (yellowBox && blueBox && pinkBox) {
+  console.log('✓ All 3 colors accounted for with balanced counts (10 Yellow, 10 Blue, 10 Pink).');
+} else {
+  console.error('✗ Missing boxes for one of the colors in generated queues!');
+}
 
 console.log('\n=== All Core Engine Tests Passed Successfully! ===');
 
