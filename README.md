@@ -46,3 +46,29 @@ npm run build
 ## 📖 Cross-PC Continuity & AI Agent Documentation
 
 For detailed technical specifications, game logic state machine rules, JSON contracts, and instructions for future AI agents to continue developing on another PC, please read **[`guide.md`](./guide.md)**.
+
+## 🤖 Bot Play Test
+
+Headless bots play every level with the same engine as Play Test (`src/engine/`), so you can see how hard each level is for different kinds of players.
+
+```bash
+npm run playtest:bots                       # all 40 levels, full run count (~30-40 min)
+npm run playtest:bots -- --levels 10-20     # a range
+npm run playtest:bots -- --scale 0.2        # fewer games per bot (quick check)
+npm run playtest:bots -- --bots greedy,master
+```
+
+Results go to `bot-report/results.json` (per level × bot) and `bot-report/games.csv` (one line per game).
+
+| Bot | Play style |
+| --- | --- |
+| T1 Random | Taps a random queue, ignores colors |
+| T2 Lazy one-lane | Always taps the first queue that still has boxes |
+| T3 Novice | 70% taps the box that releases the most cats now, 30% random |
+| T4 Greedy | Always taps the box that releases the most cats now |
+| T5 Planner (2-step) | Looks 2 taps ahead using only visible boxes, scores the board |
+| T6 Deep planner (3-step) | Same, 3 taps ahead |
+| T7 Master | Monte Carlo: guesses mystery box colors from the cells still missing, plays each option to the end, picks the most winning one |
+| Solver | Searches every tap order and peeks at mystery boxes: answers "can this level be won at all?" |
+
+Bots wait for all cats to land after each tap (no tapping while cats are flying) and use no boosters. Bots T1–T7 never see the color of a mystery box before it reaches the front.
