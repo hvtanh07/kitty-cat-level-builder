@@ -25,7 +25,8 @@ export interface LevelConfig {
   id: string;
   author?: string;
   difficulty?: 'normal' | 'hard';
-  grid: GridConfig;
+  unlockFeature?: string; // Feature introduced by this level (e.g. 'HiddenCell', 'HiddenBox', 'LockedCell')
+  grid: GridConfig; // Full board. In play, only a square window of cols x cols at the bottom is visible.
   parkingSlotsCount: number; // Number of parking slots (default 5)
   queues: CatBoxData[][]; // Array of queues (each queue is a stack/list of CatBoxData, index 0 is front)
   settings?: {

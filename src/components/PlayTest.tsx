@@ -15,6 +15,7 @@ import {
   boosterShuffleQueues,
   boosterBroomClear
 } from '../engine/gameEngine';
+import { getVisibleWindow } from '../engine/exposure';
 import { CellView } from './CellView';
 import { CatBoxView } from './CatBoxView';
 import { FlyingCat } from './FlyingCat';
@@ -242,6 +243,22 @@ export const PlayTest: React.FC<PlayTestProps> = ({
     Math.max(0, Math.round(((totalCells - currentNonEmpty) / totalCells) * 100))
   );
 
+  // Visible square board: cols x cols window anchored on the lowest remaining row.
+  // Rows above the window are not on the board yet and cannot receive cats.
+  const visibleWindow = getVisibleWindow(gameState.grid, gameState.rows, gameState.cols);
+  const boardSize = visibleWindow.size;
+  const BOARD_INNER_PX = 340;
+  const CELL_GAP_PX = 2;
+  const cellSize = Math.max(
+    8,
+    Math.min(38, Math.floor((BOARD_INNER_PX - CELL_GAP_PX * (boardSize - 1)) / boardSize))
+  );
+  const visibleRowIndices = Array.from({ length: boardSize }, (_, i) => visibleWindow.top + i);
+  let rowsWaitingAbove = 0;
+  for (let r = 0; r < Math.max(0, visibleWindow.top); r++) {
+    if (gameState.grid[r]?.some(cell => cell !== null)) rowsWaitingAbove++;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-60px)] p-2 sm:p-4">
       {/* Play Test Container Frame (Mobile Device Aspect) */}
@@ -347,19 +364,25 @@ export const PlayTest: React.FC<PlayTestProps> = ({
           </button>
         </div>
 
-        {/* Recessed Grid Board Container */}
-        <div className="w-[92%] my-2 p-3 rounded-2xl bg-[#452818] border-4 border-[#331c0e] shadow-[inset_0_4px_12px_rgba(0,0,0,0.6)] flex items-center justify-center overflow-auto min-h-[360px] max-h-[400px]">
+        {/* Rows waiting above the board (shift down into view as bottom rows clear) */}
+        <div className="h-3 -mb-1 text-[10px] font-black text-amber-900/70">
+          {rowsWaitingAbove > 0 ? `+${rowsWaitingAbove} rows above the board` : ''}
+        </div>
+        {/* Recessed Grid Board Container: always a square of boardSize x boardSize */}
+        <div className="my-2 p-3 rounded-2xl bg-[#452818] border-4 border-[#331c0e] shadow-[inset_0_4px_12px_rgba(0,0,0,0.6)] flex items-center justify-center overflow-hidden">
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: `repeat(${gameState.cols}, minmax(0, 1fr))`,
-              gap: '2px'
+              gridTemplateColumns: `repeat(${boardSize}, ${cellSize}px)`,
+              gridTemplateRows: `repeat(${boardSize}, ${cellSize}px)`,
+              gap: `${CELL_GAP_PX}px`
             }}
             className="justify-center items-center"
           >
-            {gameState.grid.map((row, r) =>
-              row.map((cell, c) => {
+            {visibleRowIndices.map(r =>
+              Array.from({ length: boardSize }, (_, c) => {
                 const key = `${r}-${c}`;
+                const cell = r >= 0 && r < gameState.rows ? gameState.grid[r]?.[c] ?? null : null;
                 const isClearing = gameState.clearingRows.includes(r);
                 return (
                   <div
@@ -373,7 +396,7 @@ export const PlayTest: React.FC<PlayTestProps> = ({
                       cell={cell}
                       r={r}
                       c={c}
-                      size={gameState.cols > 15 ? 18 : gameState.cols > 12 ? 21 : 25}
+                      size={cellSize}
                       isClearing={isClearing}
                       isRevealed={cell?.hiddenGroup ? gameState.revealedGroups.has(cell.hiddenGroup) : true}
                     />

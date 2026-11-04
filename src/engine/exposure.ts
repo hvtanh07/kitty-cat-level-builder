@@ -131,17 +131,59 @@ export function recalculateAllExposures(
 }
 
 /**
+ * The part of the board the player can see during play.
+ *
+ * Rule (Tank Top GDD): the visible board is always a square of `cols x cols`
+ * (e.g. 8x8, 10x10, 15x15). Rows flow bottom-up: the window is anchored on the
+ * lowest row that still has cells, so when a bottom row clears, the rows above it
+ * shift down into view. Rows above the window are not on the board yet.
+ *
+ * `top` can be negative when the remaining picture is shorter than the window;
+ * those rows are rendered as empty space above the picture.
+ */
+export interface VisibleWindow {
+  top: number;    // first visible row index (inclusive, may be < 0)
+  bottom: number; // last visible row index (inclusive)
+  size: number;   // side length of the square board
+}
+
+export function getVisibleWindow(
+  grid: (CellData | null)[][],
+  rows: number,
+  cols: number
+): VisibleWindow {
+  const size = Math.max(1, cols);
+  let bottom = rows - 1;
+  for (let r = rows - 1; r >= 0; r--) {
+    if (grid[r]?.some(cell => cell !== null)) {
+      bottom = r;
+      break;
+    }
+  }
+  return { top: bottom - size + 1, bottom, size };
+}
+
+export function isRowVisible(window: VisibleWindow, r: number): boolean {
+  return r >= window.top && r <= window.bottom;
+}
+
+/**
  * Finds all exposed cells on the grid that match a given color.
  * Rule: Scans from the bottom row first, then continues on the next row above it.
+ * When `window` is given, only cells currently visible on the board qualify:
+ * cats cannot fly into cells that have not been pushed down into view yet.
  */
 export function findQualifyingSlots(
   grid: (CellData | null)[][],
   color: string,
   rows: number,
-  cols: number
+  cols: number,
+  window?: VisibleWindow
 ): { r: number; c: number }[] {
   const matches: { r: number; c: number }[] = [];
-  for (let r = rows - 1; r >= 0; r--) {
+  const startRow = window ? Math.min(rows - 1, window.bottom) : rows - 1;
+  const endRow = window ? Math.max(0, window.top) : 0;
+  for (let r = startRow; r >= endRow; r--) {
     for (let c = 0; c < cols; c++) {
       const cell = grid[r][c];
       if (cell && cell.state === 'exposed' && cell.color === color) {

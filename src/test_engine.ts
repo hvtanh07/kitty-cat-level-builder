@@ -113,7 +113,7 @@ if (
 }
 
 // 3. Test Premade Levels
-console.log('\nTest 3: Premade Levels Validation (10 Levels)');
+console.log('\nTest 3: Premade Levels Validation');
 PREMADE_LEVELS.forEach((lvl, idx) => {
   const rowCount = lvl.grid.rows;
   const colCount = lvl.grid.cols;
@@ -336,6 +336,74 @@ if (yellowBox && blueBox && pinkBox) {
 } else {
   console.error('✗ Missing boxes for one of the colors in generated queues!');
 }
+
+// 9. Square visible board: only cells pushed down into view can receive cats
+console.log('\nTest 9: Square Visible Board (cols x cols) and Bottom-Up Row Shift');
+import { getVisibleWindow } from './engine/exposure';
+{
+  // 4 rows x 2 cols -> visible board is 2x2 (bottom two rows)
+  const tallGrid: (CellData | null)[][] = [
+    [{ color: 'blue', state: 'closed' }, { color: 'blue', state: 'closed' }], // row 0 (hidden)
+    [{ color: 'pink', state: 'exposed' }, { color: 'blue', state: 'closed' }], // row 1 (hidden, exposed)
+    [{ color: 'red', state: 'exposed' }, { color: 'red', state: 'exposed' }], // row 2 (visible)
+    [{ color: 'red', state: 'exposed' }, { color: 'red', state: 'exposed' }]  // row 3 (visible, bottom)
+  ];
+  const win = getVisibleWindow(tallGrid, 4, 2);
+  if (win.size !== 2 || win.top !== 2 || win.bottom !== 3) {
+    throw new Error(`Expected window rows 2..3 size 2, got ${JSON.stringify(win)}`);
+  }
+  if (findQualifyingSlots(tallGrid, 'pink', 4, 2, win).length !== 0) {
+    throw new Error('Pink cell above the visible board must not qualify');
+  }
+  console.log('✓ Board is a 2x2 square for a 2-col level; exposed cell above the board does not qualify.');
+
+  // Clear the bottom two rows -> rows above shift down into view
+  const shifted = tallGrid.map((row, r) => (r >= 2 ? [null, null] : row));
+  const win2 = getVisibleWindow(shifted, 4, 2);
+  if (win2.top !== 0 || win2.bottom !== 1) {
+    throw new Error(`Expected window rows 0..1 after clears, got ${JSON.stringify(win2)}`);
+  }
+  if (findQualifyingSlots(shifted, 'pink', 4, 2, win2).length !== 1) {
+    throw new Error('Pink cell should qualify once shifted into the board');
+  }
+  console.log('✓ After bottom rows clear, rows above shift into view and become targetable.');
+
+  // Engine level check: a parked pink box does not dispatch while its cell is above the board
+  const tallLevel: LevelConfig = {
+    id: 'tall-test',
+    parkingSlotsCount: 5,
+    grid: { rows: 4, cols: 2, cells: tallGrid },
+    queues: [[{ id: 'p1', color: 'pink', count: 1 }]]
+  };
+  let st = createInitialGameState(tallLevel);
+  st = tapQueueBox(st, 0).nextState;
+  st = dispatchCats(st);
+  if (st.flyingCats.length !== 0 || st.parkingSlots[0]?.count !== 1) {
+    throw new Error('Pink box must not send cats to a cell above the visible board');
+  }
+  console.log('✓ Engine: parked box keeps its cats until the target cell is on the board.');
+
+  // Empty rows at the very bottom do not take up board space
+  const gapGrid: (CellData | null)[][] = [
+    [{ color: 'pink', state: 'exposed' }, null],
+    [null, null]
+  ];
+  const win3 = getVisibleWindow(gapGrid, 2, 2);
+  if (win3.bottom !== 0) throw new Error('Window should anchor on the lowest non-empty row');
+  console.log('✓ Window anchors on the lowest row that still has cells.');
+}
+
+// 10. Built-in levels come from the level data sheet
+console.log('\nTest 10: Built-in Levels from Level Data Sheet');
+if (PREMADE_LEVELS.length !== 40 || PREMADE_LEVELS[0].id !== '1' || PREMADE_LEVELS[39].id !== '40') {
+  throw new Error(`Expected sheet levels "1".."40", got ${PREMADE_LEVELS.length} levels`);
+}
+PREMADE_LEVELS.forEach(lvl => {
+  if (lvl.grid.cells.length !== lvl.grid.rows || lvl.grid.cells.some(row => row.length !== lvl.grid.cols)) {
+    throw new Error(`Level ${lvl.id} grid size does not match rows/cols`);
+  }
+});
+console.log('✓ 40 sheet levels loaded with consistent grid sizes.');
 
 console.log('\n=== All Core Engine Tests Passed Successfully! ===');
 

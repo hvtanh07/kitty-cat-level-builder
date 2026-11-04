@@ -2,8 +2,8 @@ import { LevelConfig, CellData } from '../types';
 import { PREMADE_LEVELS } from './premadeLevels';
 import { COLOR_PALETTE, getColorDef } from '../engine/palette';
 
-export const LEVEL_LIST_STORAGE_KEY = 'kitty_cat_level_list_v2';
-export const ACTIVE_LEVEL_ID_KEY = 'kitty_cat_active_level_id_v2';
+export const LEVEL_LIST_STORAGE_KEY = 'kitty_cat_level_list_v3';
+export const ACTIVE_LEVEL_ID_KEY = 'kitty_cat_active_level_id_v3';
 
 /**
  * Ensures all cells and boxes in a level conform to the active 8-color palette,
@@ -44,6 +44,7 @@ export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
   const cleanLevel: LevelConfig = {
     id: lvl.id || `lvl-${Date.now()}`,
     difficulty: lvl.difficulty === 'hard' ? 'hard' : 'normal',
+    ...(lvl.unlockFeature ? { unlockFeature: lvl.unlockFeature } : {}),
     grid: {
       ...lvl.grid,
       cells: sanitizedCells
@@ -58,7 +59,7 @@ export function sanitizeLevel(lvl: LevelConfig): LevelConfig {
 
 /**
  * Loads the complete level data list. If none exists in localStorage,
- * initializes with all 10 premade levels.
+ * initializes with all built-in levels from the level data sheet.
  */
 export function loadLevelList(): LevelConfig[] {
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -164,7 +165,7 @@ export function deleteLevel(
 }
 
 /**
- * Restores the 10 original premade levels, wiping any edits.
+ * Restores the built-in levels from the level data sheet, wiping any edits.
  */
 export function resetToDefaultLevels(): LevelConfig[] {
   const defaults: LevelConfig[] = JSON.parse(JSON.stringify(PREMADE_LEVELS));

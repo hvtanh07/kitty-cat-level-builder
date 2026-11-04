@@ -10,7 +10,8 @@ import {
 import {
   recalculateAllExposures,
   findQualifyingSlots,
-  findClearedLines
+  findClearedLines,
+  getVisibleWindow
 } from './exposure';
 import { sounds } from '../audio/sound';
 
@@ -189,13 +190,15 @@ export function dispatchCats(
   let dispatchedAny = false;
 
   const newlySealed: { r: number; c: number }[] = [];
+  // Only cells inside the visible square board can receive cats
+  const visibleWindow = getVisibleWindow(nextGrid, state.rows, state.cols);
 
   for (let slotIdx = 0; slotIdx < nextParking.length; slotIdx++) {
     const box = nextParking[slotIdx];
     if (!box || box.count <= 0) continue;
 
     // Find exposed cells matching box color
-    const qualifying = findQualifyingSlots(nextGrid, box.color, state.rows, state.cols);
+    const qualifying = findQualifyingSlots(nextGrid, box.color, state.rows, state.cols, visibleWindow);
     if (qualifying.length === 0) continue;
 
     const dispatchCount = Math.min(box.count, qualifying.length);
@@ -364,9 +367,10 @@ export function checkWinLose(state: GameState): GameState {
   const parkingFull = state.parkingSlots.every(s => s !== null && s.count > 0);
   if (parkingFull && noCatsInFlight) {
     let canReleaseAny = false;
+    const visibleWindow = getVisibleWindow(state.grid, state.rows, state.cols);
     for (const box of state.parkingSlots) {
       if (!box) continue;
-      const matching = findQualifyingSlots(state.grid, box.color, state.rows, state.cols);
+      const matching = findQualifyingSlots(state.grid, box.color, state.rows, state.cols, visibleWindow);
       if (matching.length > 0) {
         canReleaseAny = true;
         break;
