@@ -1,0 +1,7093 @@
+[
+ {
+  "level": 1,
+  "facts": {
+   "size": "10x8",
+   "cells": 40,
+   "colors": 4,
+   "queues": 1,
+   "boxes": 4,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 8,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 4,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 4,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "seconds": 0.152
+ },
+ {
+  "level": 2,
+  "facts": {
+   "size": "10x10",
+   "cells": 60,
+   "colors": 6,
+   "queues": 2,
+   "boxes": 6,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.845,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.145,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.6,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.25,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 6,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.5,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 11,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    1
+   ]
+  },
+  "seconds": 0.241
+ },
+ {
+  "level": 3,
+  "facts": {
+   "size": "10x9",
+   "cells": 70,
+   "colors": 6,
+   "queues": 1,
+   "boxes": 7,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 9,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 7,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 7,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "seconds": 0.237
+ },
+ {
+  "level": 4,
+  "facts": {
+   "size": "10x10",
+   "cells": 100,
+   "colors": 4,
+   "queues": 2,
+   "boxes": 10,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.675,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.725,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.95,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 10,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.8333333333333333,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 16,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "seconds": 0.675
+ },
+ {
+  "level": 5,
+  "facts": {
+   "size": "12x10",
+   "cells": 120,
+   "colors": 6,
+   "queues": 2,
+   "boxes": 12,
+   "mystery": 0,
+   "hidden": 54,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": "HiddenCell",
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.76,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.56,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.68,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 23,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+   ]
+  },
+  "seconds": 1.056
+ },
+ {
+  "level": 6,
+  "facts": {
+   "size": "15x15",
+   "cells": 205,
+   "colors": 6,
+   "queues": 3,
+   "boxes": 19,
+   "mystery": 0,
+   "hidden": 83,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 13,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.995,
+    "avgTapsWin": 19,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 22.926829268292682,
+    "avgFilledPct": 99.61463414634144,
+    "avgPeakParked": 2.46,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      4
+     ],
+     [
+      "pink",
+      1
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.69,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.14,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.15,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.75,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 19,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 53,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    0,
+    1,
+    1,
+    0,
+    0,
+    2,
+    1,
+    0,
+    1
+   ]
+  },
+  "seconds": 5.079
+ },
+ {
+  "level": 7,
+  "facts": {
+   "size": "16x10",
+   "cells": 150,
+   "colors": 7,
+   "queues": 2,
+   "boxes": 15,
+   "mystery": 0,
+   "hidden": 46,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.945,
+    "avgTapsWin": 15,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 28.000000000000004,
+    "avgFilledPct": 95.92,
+    "avgPeakParked": 3.345,
+    "lossReasons": {
+     "parking_full": 11
+    },
+    "stuckColors": [
+     [
+      "red",
+      31
+     ],
+     [
+      "green",
+      11
+     ],
+     [
+      "cyan",
+      9
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.755,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.56,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.55,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.875,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 15,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 29,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1
+   ]
+  },
+  "seconds": 1.709
+ },
+ {
+  "level": 8,
+  "facts": {
+   "size": "20x15",
+   "cells": 271,
+   "colors": 6,
+   "queues": 3,
+   "boxes": 26,
+   "mystery": 0,
+   "hidden": 85,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 2,
+   "mismatch": [
+    {
+     "color": "blue",
+     "cells": 16,
+     "cats": 10
+    }
+   ]
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 14.022140221402212,
+    "avgFilledPct": 26.654981549815535,
+    "avgPeakParked": 4.775,
+    "lossReasons": {
+     "parking_full": 167,
+     "out_of_boxes": 33
+    },
+    "stuckColors": [
+     [
+      "red",
+      659
+     ],
+     [
+      "green",
+      86
+     ],
+     [
+      "cyan",
+      82
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 97.7859778597786,
+    "avgFilledPct": 97.7859778597786,
+    "avgPeakParked": 4,
+    "lossReasons": {
+     "out_of_boxes": 1
+    },
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 17.712177121771223,
+    "avgFilledPct": 34.621771217712265,
+    "avgPeakParked": 4.725,
+    "lossReasons": {
+     "parking_full": 155,
+     "out_of_boxes": 45
+    },
+    "stuckColors": [
+     [
+      "red",
+      572
+     ],
+     [
+      "cyan",
+      99
+     ],
+     [
+      "green",
+      80
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 17.712177121771223,
+    "avgFilledPct": 35.82287822878227,
+    "avgPeakParked": 4.7,
+    "lossReasons": {
+     "parking_full": 38,
+     "out_of_boxes": 12
+    },
+    "stuckColors": [
+     [
+      "red",
+      142
+     ],
+     [
+      "cyan",
+      23
+     ],
+     [
+      "green",
+      19
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 97.7859778597786,
+    "avgFilledPct": 69.76014760147599,
+    "avgPeakParked": 4.15,
+    "lossReasons": {
+     "out_of_boxes": 13,
+     "parking_full": 7
+    },
+    "stuckColors": [
+     [
+      "red",
+      24
+     ],
+     [
+      "cyan",
+      7
+     ],
+     [
+      "green",
+      4
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 97.7859778597786,
+    "avgFilledPct": 97.7859778597786,
+    "avgPeakParked": 3.875,
+    "lossReasons": {
+     "out_of_boxes": 8
+    },
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 97.7859778597786,
+    "avgFilledPct": 97.7859778597786,
+    "avgPeakParked": 4,
+    "lossReasons": {
+     "out_of_boxes": 6
+    },
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "unknown",
+   "nodes": 50000,
+   "bestFilledPct": 97.7859778597786
+  },
+  "seconds": 13.193
+ },
+ {
+  "level": 9,
+  "facts": {
+   "size": "28x15",
+   "cells": 385,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 38,
+   "mystery": 0,
+   "hidden": 131,
+   "locked": 0,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.43,
+    "avgTapsWin": 38,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 49.350649350649356,
+    "avgFilledPct": 71.72207792207794,
+    "avgPeakParked": 4.41,
+    "lossReasons": {
+     "parking_full": 114
+    },
+    "stuckColors": [
+     [
+      "green",
+      163
+     ],
+     [
+      "yellow",
+      161
+     ],
+     [
+      "brown",
+      149
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 48.05194805194806,
+    "avgFilledPct": 48.05194805194806,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      3
+     ],
+     [
+      "yellow",
+      1
+     ],
+     [
+      "green",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.805,
+    "avgTapsWin": 38,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 51.68831168831169,
+    "avgFilledPct": 90.79740259740257,
+    "avgPeakParked": 3.655,
+    "lossReasons": {
+     "parking_full": 39
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      71
+     ],
+     [
+      "brown",
+      62
+     ],
+     [
+      "green",
+      29
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 38,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.88,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 38,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.6,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 38,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.125,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 38,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 110,
+   "bestFilledPct": 100,
+   "path": [
+    2,
+    0,
+    2,
+    1,
+    0,
+    0,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    1,
+    1,
+    2,
+    2,
+    0
+   ]
+  },
+  "seconds": 26.99
+ },
+ {
+  "level": 10,
+  "facts": {
+   "size": "20x10",
+   "cells": 180,
+   "colors": 6,
+   "queues": 2,
+   "boxes": 18,
+   "mystery": 8,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": "HiddenBox",
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.735,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 11.111111111111116,
+    "avgFilledPct": 77.35000000000004,
+    "avgPeakParked": 3.645,
+    "lossReasons": {
+     "parking_full": 53
+    },
+    "stuckColors": [
+     [
+      "blue",
+      103
+     ],
+     [
+      "pink",
+      53
+     ],
+     [
+      "orange",
+      46
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 31.11111111111111,
+    "avgFilledPct": 31.11111111111111,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      2
+     ],
+     [
+      "brown",
+      1
+     ],
+     [
+      "green",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.85,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 11.111111111111116,
+    "avgFilledPct": 87.1611111111111,
+    "avgPeakParked": 3.105,
+    "lossReasons": {
+     "parking_full": 30
+    },
+    "stuckColors": [
+     [
+      "blue",
+      67
+     ],
+     [
+      "pink",
+      30
+     ],
+     [
+      "orange",
+      26
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.82,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 11.111111111111116,
+    "avgFilledPct": 84.40000000000002,
+    "avgPeakParked": 2.98,
+    "lossReasons": {
+     "parking_full": 9
+    },
+    "stuckColors": [
+     [
+      "blue",
+      22
+     ],
+     [
+      "pink",
+      9
+     ],
+     [
+      "orange",
+      8
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.875,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 33,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1
+   ]
+  },
+  "seconds": 2.413
+ },
+ {
+  "level": 11,
+  "facts": {
+   "size": "25x10",
+   "cells": 229,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 23,
+   "mystery": 10,
+   "hidden": 65,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 0,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      300
+     ],
+     [
+      "yellow",
+      284
+     ],
+     [
+      "orange",
+      242
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      2
+     ],
+     [
+      "blue",
+      2
+     ],
+     [
+      "orange",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      282
+     ],
+     [
+      "orange",
+      279
+     ],
+     [
+      "cyan",
+      276
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 50
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      73
+     ],
+     [
+      "yellow",
+      72
+     ],
+     [
+      "orange",
+      66
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 20
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      32
+     ],
+     [
+      "cyan",
+      28
+     ],
+     [
+      "orange",
+      27
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 8
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      12
+     ],
+     [
+      "cyan",
+      12
+     ],
+     [
+      "orange",
+      10
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 6
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      9
+     ],
+     [
+      "orange",
+      8
+     ],
+     [
+      "cyan",
+      8
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "unsolvable",
+   "nodes": 105,
+   "bestFilledPct": 0
+  },
+  "seconds": 0.295
+ },
+ {
+  "level": 12,
+  "facts": {
+   "size": "25x15",
+   "cells": 340,
+   "colors": 6,
+   "queues": 3,
+   "boxes": 34,
+   "mystery": 16,
+   "hidden": 135,
+   "locked": 0,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 3,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.92,
+    "avgTapsWin": 34,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 49.705882352941174,
+    "avgFilledPct": 94.88235294117646,
+    "avgPeakParked": 3.185,
+    "lossReasons": {
+     "parking_full": 16
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      34
+     ],
+     [
+      "red",
+      19
+     ],
+     [
+      "green",
+      18
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 21.176470588235297,
+    "avgFilledPct": 21.176470588235297,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "red",
+      3
+     ],
+     [
+      "yellow",
+      2
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.955,
+    "avgTapsWin": 34,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 52.64705882352941,
+    "avgFilledPct": 97.8426470588235,
+    "avgPeakParked": 2.68,
+    "lossReasons": {
+     "parking_full": 9
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      24
+     ],
+     [
+      "red",
+      12
+     ],
+     [
+      "cyan",
+      9
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.92,
+    "avgTapsWin": 34,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 52.64705882352941,
+    "avgFilledPct": 96.21176470588235,
+    "avgPeakParked": 3.3,
+    "lossReasons": {
+     "parking_full": 4
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      12
+     ],
+     [
+      "red",
+      4
+     ],
+     [
+      "cyan",
+      4
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 34,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.7,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 34,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.875,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 34,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.1666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 91,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    0,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
+  },
+  "seconds": 17.923
+ },
+ {
+  "level": 13,
+  "facts": {
+   "size": "14x10",
+   "cells": 120,
+   "colors": 7,
+   "queues": 2,
+   "boxes": 12,
+   "mystery": 5,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 2,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.975,
+    "avgTapsWin": 12,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 97.5,
+    "avgPeakParked": 2.625,
+    "lossReasons": {
+     "parking_full": 5
+    },
+    "stuckColors": [
+     [
+      "blue",
+      10
+     ],
+     [
+      "brown",
+      5
+     ],
+     [
+      "orange",
+      5
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.815,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.35,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 20,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "seconds": 0.927
+ },
+ {
+  "level": 14,
+  "facts": {
+   "size": "20x15",
+   "cells": 285,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 30,
+   "mystery": 27,
+   "hidden": 53,
+   "locked": 0,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.28,
+    "avgTapsWin": 30,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 61.40350877192983,
+    "avgFilledPct": 69.17017543859644,
+    "avgPeakParked": 4.695,
+    "lossReasons": {
+     "parking_full": 144
+    },
+    "stuckColors": [
+     [
+      "orange",
+      182
+     ],
+     [
+      "cyan",
+      172
+     ],
+     [
+      "yellow",
+      169
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 54.03508771929825,
+    "avgFilledPct": 54.03508771929825,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "yellow",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.775,
+    "avgTapsWin": 30,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 72.63157894736842,
+    "avgFilledPct": 92.60701754385963,
+    "avgPeakParked": 4.105,
+    "lossReasons": {
+     "parking_full": 45
+    },
+    "stuckColors": [
+     [
+      "orange",
+      65
+     ],
+     [
+      "cyan",
+      48
+     ],
+     [
+      "yellow",
+      44
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 30,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.88,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 30,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.95,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 30,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 30,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 76,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    2
+   ]
+  },
+  "seconds": 11.936
+ },
+ {
+  "level": 15,
+  "facts": {
+   "size": "19x15",
+   "cells": 205,
+   "colors": 8,
+   "queues": 4,
+   "boxes": 22,
+   "mystery": 2,
+   "hidden": 0,
+   "locked": 28,
+   "difficultyTag": "normal",
+   "unlockFeature": "LockedCell",
+   "startExposed": 7,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.77,
+    "avgTapsWin": 22,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 79.24878048780488,
+    "avgPeakParked": 3.525,
+    "lossReasons": {
+     "parking_full": 46
+    },
+    "stuckColors": [
+     [
+      "brown",
+      53
+     ],
+     [
+      "orange",
+      53
+     ],
+     [
+      "pink",
+      48
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 22,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.995,
+    "avgTapsWin": 22,
+    "medianTapsLoss": 14,
+    "medianFilledPctLoss": 48.78048780487805,
+    "avgFilledPct": 99.74390243902438,
+    "avgPeakParked": 2.015,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      2
+     ],
+     [
+      "pink",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 22,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 22,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 0.95,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 22,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.125,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 22,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 80,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    2,
+    3,
+    3,
+    2,
+    2,
+    0,
+    1,
+    1,
+    3,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    3,
+    0
+   ]
+  },
+  "seconds": 13.244
+ },
+ {
+  "level": 16,
+  "facts": {
+   "size": "25x10",
+   "cells": 230,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 23,
+   "mystery": 10,
+   "hidden": 69,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.345,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 30.434782608695656,
+    "avgFilledPct": 57.21739130434783,
+    "avgPeakParked": 4.505,
+    "lossReasons": {
+     "parking_full": 131
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      197
+     ],
+     [
+      "blue",
+      163
+     ],
+     [
+      "cyan",
+      95
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 20.869565217391305,
+    "avgFilledPct": 20.869565217391305,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "green",
+      2
+     ],
+     [
+      "yellow",
+      2
+     ],
+     [
+      "orange",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.865,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 13,
+    "medianFilledPctLoss": 40,
+    "avgFilledPct": 92.15652173913044,
+    "avgPeakParked": 3.51,
+    "lossReasons": {
+     "parking_full": 27
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      35
+     ],
+     [
+      "blue",
+      24
+     ],
+     [
+      "red",
+      23
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.08,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.25,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 65,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    0,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    0,
+    2,
+    1,
+    2,
+    2,
+    0,
+    1,
+    0,
+    0,
+    0,
+    2,
+    0,
+    1,
+    0
+   ]
+  },
+  "seconds": 9.335
+ },
+ {
+  "level": 17,
+  "facts": {
+   "size": "20x15",
+   "cells": 285,
+   "colors": 7,
+   "queues": 4,
+   "boxes": 29,
+   "mystery": 12,
+   "hidden": 72,
+   "locked": 37,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 13,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.185,
+    "avgTapsWin": 29,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 10.87719298245614,
+    "avgFilledPct": 41.033333333333346,
+    "avgPeakParked": 4.795,
+    "lossReasons": {
+     "parking_full": 163
+    },
+    "stuckColors": [
+     [
+      "orange",
+      221
+     ],
+     [
+      "pink",
+      182
+     ],
+     [
+      "yellow",
+      117
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 7.017543859649122,
+    "avgFilledPct": 7.017543859649122,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      2
+     ],
+     [
+      "pink",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.91,
+    "avgTapsWin": 29,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 55.78947368421052,
+    "avgFilledPct": 95.3,
+    "avgPeakParked": 3.405,
+    "lossReasons": {
+     "parking_full": 18
+    },
+    "stuckColors": [
+     [
+      "blue",
+      22
+     ],
+     [
+      "orange",
+      20
+     ],
+     [
+      "pink",
+      16
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 29,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.66,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 29,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.45,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 29,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.375,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 29,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 110,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    1,
+    3,
+    0,
+    1,
+    3,
+    3,
+    2,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    1,
+    1,
+    0,
+    2,
+    2,
+    1,
+    3,
+    0
+   ]
+  },
+  "seconds": 23.67
+ },
+ {
+  "level": 18,
+  "facts": {
+   "size": "30x15",
+   "cells": 410,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 42,
+   "mystery": 20,
+   "hidden": 112,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.18,
+    "avgTapsWin": 42,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 40.487804878048784,
+    "avgFilledPct": 50.95243902439023,
+    "avgPeakParked": 4.78,
+    "lossReasons": {
+     "parking_full": 164
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      202
+     ],
+     [
+      "brown",
+      167
+     ],
+     [
+      "cyan",
+      163
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 50,
+    "avgFilledPct": 50,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      2
+     ],
+     [
+      "cyan",
+      2
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.765,
+    "avgTapsWin": 42,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 42.19512195121952,
+    "avgFilledPct": 87.56097560975611,
+    "avgPeakParked": 3.8,
+    "lossReasons": {
+     "parking_full": 47
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      70
+     ],
+     [
+      "brown",
+      42
+     ],
+     [
+      "cyan",
+      34
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.36,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.6,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.75,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 121,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    2,
+    0,
+    2,
+    2,
+    2,
+    2,
+    0,
+    2,
+    1,
+    1,
+    2
+   ]
+  },
+  "seconds": 30.818
+ },
+ {
+  "level": 19,
+  "facts": {
+   "size": "20x15",
+   "cells": 280,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 28,
+   "mystery": 13,
+   "hidden": 48,
+   "locked": 28,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 11,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.085,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 68.92857142857143,
+    "avgFilledPct": 68.37321428571431,
+    "avgPeakParked": 4.915,
+    "lossReasons": {
+     "parking_full": 183
+    },
+    "stuckColors": [
+     [
+      "pink",
+      257
+     ],
+     [
+      "brown",
+      181
+     ],
+     [
+      "yellow",
+      166
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 55.714285714285715,
+    "avgFilledPct": 55.714285714285715,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "green",
+      2
+     ],
+     [
+      "cyan",
+      1
+     ],
+     [
+      "brown",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.595,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 73.92857142857143,
+    "avgFilledPct": 88.78035714285714,
+    "avgPeakParked": 4.165,
+    "lossReasons": {
+     "parking_full": 81
+    },
+    "stuckColors": [
+     [
+      "pink",
+      112
+     ],
+     [
+      "yellow",
+      83
+     ],
+     [
+      "brown",
+      81
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.66,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 72.5,
+    "avgFilledPct": 91.15,
+    "avgPeakParked": 3.8,
+    "lossReasons": {
+     "parking_full": 17
+    },
+    "stuckColors": [
+     [
+      "pink",
+      17
+     ],
+     [
+      "brown",
+      17
+     ],
+     [
+      "yellow",
+      17
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0.2,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 76.78571428571428,
+    "avgFilledPct": 81.53571428571425,
+    "avgPeakParked": 4.8,
+    "lossReasons": {
+     "parking_full": 16
+    },
+    "stuckColors": [
+     [
+      "pink",
+      27
+     ],
+     [
+      "yellow",
+      18
+     ],
+     [
+      "red",
+      16
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0.875,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 77.5,
+    "avgFilledPct": 97.1875,
+    "avgPeakParked": 4.125,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "pink",
+      1
+     ],
+     [
+      "brown",
+      1
+     ],
+     [
+      "red",
+      1
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0.8333333333333334,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 72.5,
+    "avgFilledPct": 95.41666666666667,
+    "avgPeakParked": 4.166666666666667,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "pink",
+      1
+     ],
+     [
+      "brown",
+      1
+     ],
+     [
+      "yellow",
+      1
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 344,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    0,
+    1,
+    2,
+    0
+   ]
+  },
+  "seconds": 13.947
+ },
+ {
+  "level": 20,
+  "facts": {
+   "size": "10x10",
+   "cells": 100,
+   "colors": 5,
+   "queues": 2,
+   "boxes": 12,
+   "mystery": 10,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.48,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.35,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.375,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 12,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.6666666666666667,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 23,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1
+   ]
+  },
+  "seconds": 1.204
+ },
+ {
+  "level": 21,
+  "facts": {
+   "size": "25x10",
+   "cells": 230,
+   "colors": 6,
+   "queues": 3,
+   "boxes": 23,
+   "mystery": 10,
+   "hidden": 56,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.65,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 14,
+    "medianFilledPctLoss": 44.34782608695652,
+    "avgFilledPct": 79.80434782608694,
+    "avgPeakParked": 4.065,
+    "lossReasons": {
+     "parking_full": 70
+    },
+    "stuckColors": [
+     [
+      "blue",
+      104
+     ],
+     [
+      "yellow",
+      68
+     ],
+     [
+      "green",
+      59
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 19.130434782608695,
+    "avgFilledPct": 19.130434782608695,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      4
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.98,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 40.869565217391305,
+    "avgFilledPct": 98.7913043478261,
+    "avgPeakParked": 3.125,
+    "lossReasons": {
+     "parking_full": 4
+    },
+    "stuckColors": [
+     [
+      "blue",
+      8
+     ],
+     [
+      "orange",
+      4
+     ],
+     [
+      "cyan",
+      4
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.9,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.125,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 64,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    2,
+    1,
+    0,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    2,
+    2,
+    1,
+    2,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    2,
+    0
+   ]
+  },
+  "seconds": 9.219
+ },
+ {
+  "level": 22,
+  "facts": {
+   "size": "40x15",
+   "cells": 466,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 48,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 18,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 5,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.445,
+    "avgTapsWin": 48,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 35.407725321888414,
+    "avgFilledPct": 63.56759656652359,
+    "avgPeakParked": 4.415,
+    "lossReasons": {
+     "parking_full": 111
+    },
+    "stuckColors": [
+     [
+      "red",
+      142
+     ],
+     [
+      "brown",
+      126
+     ],
+     [
+      "green",
+      114
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 4.29184549356223,
+    "avgFilledPct": 4.29184549356223,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "blue",
+      2
+     ],
+     [
+      "orange",
+      2
+     ],
+     [
+      "brown",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.885,
+    "avgTapsWin": 48,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 40.772532188841204,
+    "avgFilledPct": 93.82403433476392,
+    "avgPeakParked": 3.56,
+    "lossReasons": {
+     "parking_full": 23
+    },
+    "stuckColors": [
+     [
+      "brown",
+      29
+     ],
+     [
+      "green",
+      21
+     ],
+     [
+      "red",
+      21
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 48,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 48,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.55,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 48,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.25,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 48,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 137,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    0,
+    2,
+    2,
+    1,
+    0,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    2,
+    2,
+    2,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ]
+  },
+  "seconds": 63.363
+ },
+ {
+  "level": 23,
+  "facts": {
+   "size": "20x10",
+   "cells": 180,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 18,
+   "mystery": 8,
+   "hidden": 54,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 0,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "orange",
+      286
+     ],
+     [
+      "pink",
+      215
+     ],
+     [
+      "yellow",
+      176
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "red",
+      2
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "orange",
+      276
+     ],
+     [
+      "pink",
+      234
+     ],
+     [
+      "yellow",
+      172
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 50
+    },
+    "stuckColors": [
+     [
+      "orange",
+      73
+     ],
+     [
+      "pink",
+      60
+     ],
+     [
+      "yellow",
+      40
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 20
+    },
+    "stuckColors": [
+     [
+      "orange",
+      28
+     ],
+     [
+      "pink",
+      26
+     ],
+     [
+      "yellow",
+      17
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 8
+    },
+    "stuckColors": [
+     [
+      "orange",
+      14
+     ],
+     [
+      "pink",
+      10
+     ],
+     [
+      "green",
+      7
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 6
+    },
+    "stuckColors": [
+     [
+      "orange",
+      7
+     ],
+     [
+      "yellow",
+      6
+     ],
+     [
+      "pink",
+      6
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "unsolvable",
+   "nodes": 105,
+   "bestFilledPct": 0
+  },
+  "seconds": 0.498
+ },
+ {
+  "level": 24,
+  "facts": {
+   "size": "25x15",
+   "cells": 330,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 35,
+   "mystery": 16,
+   "hidden": 42,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 0,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "brown",
+      336
+     ],
+     [
+      "orange",
+      326
+     ],
+     [
+      "yellow",
+      223
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      2
+     ],
+     [
+      "orange",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "brown",
+      339
+     ],
+     [
+      "orange",
+      335
+     ],
+     [
+      "yellow",
+      220
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 50
+    },
+    "stuckColors": [
+     [
+      "brown",
+      85
+     ],
+     [
+      "orange",
+      77
+     ],
+     [
+      "yellow",
+      55
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 20
+    },
+    "stuckColors": [
+     [
+      "brown",
+      38
+     ],
+     [
+      "orange",
+      25
+     ],
+     [
+      "yellow",
+      23
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 8
+    },
+    "stuckColors": [
+     [
+      "brown",
+      15
+     ],
+     [
+      "orange",
+      10
+     ],
+     [
+      "blue",
+      8
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 6
+    },
+    "stuckColors": [
+     [
+      "brown",
+      10
+     ],
+     [
+      "orange",
+      9
+     ],
+     [
+      "yellow",
+      8
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "unsolvable",
+   "nodes": 105,
+   "bestFilledPct": 0
+  },
+  "seconds": 0.743
+ },
+ {
+  "level": 25,
+  "facts": {
+   "size": "29x10",
+   "cells": 264,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 28,
+   "mystery": 13,
+   "hidden": 0,
+   "locked": 58,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 4,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 24.242424242424242,
+    "avgFilledPct": 24.751893939393884,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 200
+    },
+    "stuckColors": [
+     [
+      "blue",
+      361
+     ],
+     [
+      "green",
+      189
+     ],
+     [
+      "brown",
+      182
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 21.969696969696972,
+    "avgFilledPct": 21.969696969696972,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "green",
+      2
+     ],
+     [
+      "cyan",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.2,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 32.57575757575758,
+    "avgFilledPct": 56.39772727272725,
+    "avgPeakParked": 4.8,
+    "lossReasons": {
+     "parking_full": 160
+    },
+    "stuckColors": [
+     [
+      "pink",
+      185
+     ],
+     [
+      "blue",
+      160
+     ],
+     [
+      "brown",
+      158
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.16,
+    "avgTapsWin": 28,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 71.21212121212122,
+    "avgFilledPct": 72.4772727272727,
+    "avgPeakParked": 4.84,
+    "lossReasons": {
+     "parking_full": 42
+    },
+    "stuckColors": [
+     [
+      "pink",
+      47
+     ],
+     [
+      "brown",
+      42
+     ],
+     [
+      "cyan",
+      42
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 28,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 28,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 28,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 77,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    2,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    2,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ]
+  },
+  "seconds": 7.912
+ },
+ {
+  "level": 26,
+  "facts": {
+   "size": "30x15",
+   "cells": 405,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 42,
+   "mystery": 20,
+   "hidden": 107,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.49,
+    "avgTapsWin": 42,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 42.96296296296296,
+    "avgFilledPct": 74.12222222222225,
+    "avgPeakParked": 4.275,
+    "lossReasons": {
+     "parking_full": 102
+    },
+    "stuckColors": [
+     [
+      "orange",
+      139
+     ],
+     [
+      "pink",
+      90
+     ],
+     [
+      "red",
+      90
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 13,
+    "medianFilledPctLoss": 22.71604938271605,
+    "avgFilledPct": 22.71604938271605,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "red",
+      2
+     ],
+     [
+      "green",
+      2
+     ],
+     [
+      "pink",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.915,
+    "avgTapsWin": 42,
+    "medianTapsLoss": 27,
+    "medianFilledPctLoss": 59.01234567901235,
+    "avgFilledPct": 95.85061728395063,
+    "avgPeakParked": 3.295,
+    "lossReasons": {
+     "parking_full": 17
+    },
+    "stuckColors": [
+     [
+      "orange",
+      23
+     ],
+     [
+      "brown",
+      15
+     ],
+     [
+      "pink",
+      14
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.98,
+    "avgTapsWin": 42,
+    "medianTapsLoss": 28,
+    "medianFilledPctLoss": 61.48148148148148,
+    "avgFilledPct": 99.22962962962964,
+    "avgPeakParked": 2.92,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      2
+     ],
+     [
+      "orange",
+      1
+     ],
+     [
+      "brown",
+      1
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.75,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.625,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 42,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 119,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    0,
+    1,
+    2,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    2,
+    1,
+    0,
+    2,
+    2,
+    2
+   ]
+  },
+  "seconds": 31.002
+ },
+ {
+  "level": 27,
+  "facts": {
+   "size": "25x10",
+   "cells": 230,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 23,
+   "mystery": 0,
+   "hidden": 104,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 6,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.375,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 37.39130434782608,
+    "avgFilledPct": 54.52608695652173,
+    "avgPeakParked": 4.59,
+    "lossReasons": {
+     "parking_full": 125
+    },
+    "stuckColors": [
+     [
+      "orange",
+      169
+     ],
+     [
+      "yellow",
+      136
+     ],
+     [
+      "pink",
+      102
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 6,
+    "medianFilledPctLoss": 7.826086956521738,
+    "avgFilledPct": 7.826086956521738,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "blue",
+      2
+     ],
+     [
+      "pink",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.785,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 14,
+    "medianFilledPctLoss": 53.04347826086957,
+    "avgFilledPct": 89.8521739130435,
+    "avgPeakParked": 3.765,
+    "lossReasons": {
+     "parking_full": 43
+    },
+    "stuckColors": [
+     [
+      "pink",
+      45
+     ],
+     [
+      "orange",
+      45
+     ],
+     [
+      "yellow",
+      44
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.88,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 18,
+    "medianFilledPctLoss": 66.95652173913044,
+    "avgFilledPct": 95.16521739130434,
+    "avgPeakParked": 3.38,
+    "lossReasons": {
+     "parking_full": 6
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      9
+     ],
+     [
+      "cyan",
+      7
+     ],
+     [
+      "pink",
+      5
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 65,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    2,
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    1
+   ]
+  },
+  "seconds": 9.338
+ },
+ {
+  "level": 28,
+  "facts": {
+   "size": "21x15",
+   "cells": 289,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 32,
+   "mystery": 15,
+   "hidden": 0,
+   "locked": 50,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.415,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 44.29065743944637,
+    "avgFilledPct": 66.88408304498276,
+    "avgPeakParked": 4.41,
+    "lossReasons": {
+     "parking_full": 117
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      185
+     ],
+     [
+      "orange",
+      111
+     ],
+     [
+      "pink",
+      91
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 8.650519031141869,
+    "avgFilledPct": 8.650519031141869,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      1
+     ],
+     [
+      "pink",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.755,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 47.404844290657444,
+    "avgFilledPct": 87.93944636678205,
+    "avgPeakParked": 3.94,
+    "lossReasons": {
+     "parking_full": 49
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      75
+     ],
+     [
+      "orange",
+      49
+     ],
+     [
+      "pink",
+      46
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.86,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 48.096885813148795,
+    "avgFilledPct": 92.73356401384082,
+    "avgPeakParked": 3.96,
+    "lossReasons": {
+     "parking_full": 7
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      7
+     ],
+     [
+      "red",
+      7
+     ],
+     [
+      "orange",
+      7
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 32,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.45,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 32,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.875,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 32,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 94,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    0,
+    1,
+    2,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "seconds": 16.221
+ },
+ {
+  "level": 29,
+  "facts": {
+   "size": "24x10",
+   "cells": 224,
+   "colors": 7,
+   "queues": 2,
+   "boxes": 23,
+   "mystery": 10,
+   "hidden": 68,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.675,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 16,
+    "medianFilledPctLoss": 55.35714285714286,
+    "avgFilledPct": 83.24107142857147,
+    "avgPeakParked": 3.51,
+    "lossReasons": {
+     "parking_full": 65
+    },
+    "stuckColors": [
+     [
+      "brown",
+      64
+     ],
+     [
+      "blue",
+      64
+     ],
+     [
+      "cyan",
+      64
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 12.5,
+    "avgFilledPct": 12.5,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      2
+     ],
+     [
+      "blue",
+      2
+     ],
+     [
+      "yellow",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.895,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 60.71428571428572,
+    "avgFilledPct": 95.30803571428574,
+    "avgPeakParked": 3.56,
+    "lossReasons": {
+     "parking_full": 21
+    },
+    "stuckColors": [
+     [
+      "brown",
+      21
+     ],
+     [
+      "yellow",
+      21
+     ],
+     [
+      "cyan",
+      21
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.52,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0.375,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 16,
+    "medianFilledPctLoss": 56.25,
+    "avgFilledPct": 72.65625,
+    "avgPeakParked": 4.5,
+    "lossReasons": {
+     "parking_full": 5
+    },
+    "stuckColors": [
+     [
+      "brown",
+      5
+     ],
+     [
+      "yellow",
+      5
+     ],
+     [
+      "cyan",
+      5
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.5,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 43,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ]
+  },
+  "seconds": 5.54
+ },
+ {
+  "level": 30,
+  "facts": {
+   "size": "20x15",
+   "cells": 300,
+   "colors": 8,
+   "queues": 4,
+   "boxes": 31,
+   "mystery": 27,
+   "hidden": 0,
+   "locked": 33,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.64,
+    "avgTapsWin": 31,
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 57.00000000000001,
+    "avgFilledPct": 79.64166666666664,
+    "avgPeakParked": 3.84,
+    "lossReasons": {
+     "parking_full": 72
+    },
+    "stuckColors": [
+     [
+      "orange",
+      92
+     ],
+     [
+      "brown",
+      83
+     ],
+     [
+      "green",
+      68
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 6,
+    "medianFilledPctLoss": 3.3333333333333326,
+    "avgFilledPct": 3.3333333333333326,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "green",
+      1
+     ],
+     [
+      "blue",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.955,
+    "avgTapsWin": 31,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 64.33333333333333,
+    "avgFilledPct": 98.12833333333332,
+    "avgPeakParked": 2.84,
+    "lossReasons": {
+     "parking_full": 9
+    },
+    "stuckColors": [
+     [
+      "green",
+      10
+     ],
+     [
+      "orange",
+      9
+     ],
+     [
+      "brown",
+      8
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.98,
+    "avgTapsWin": 31,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 63.66666666666667,
+    "avgFilledPct": 99.27333333333333,
+    "avgPeakParked": 2.2,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "green",
+      1
+     ],
+     [
+      "brown",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 31,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 31,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.625,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 31,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 104,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    3,
+    1,
+    1,
+    3,
+    3,
+    3,
+    1,
+    1,
+    1,
+    3,
+    1,
+    3,
+    3,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1
+   ]
+  },
+  "seconds": 24.753
+ },
+ {
+  "level": 31,
+  "facts": {
+   "size": "21x10",
+   "cells": 180,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 18,
+   "mystery": 0,
+   "hidden": 38,
+   "locked": 30,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 2,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.27,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 17.777777777777782,
+    "avgFilledPct": 46.02777777777772,
+    "avgPeakParked": 4.655,
+    "lossReasons": {
+     "parking_full": 146
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      249
+     ],
+     [
+      "cyan",
+      161
+     ],
+     [
+      "orange",
+      113
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 2.2222222222222254,
+    "avgFilledPct": 2.2222222222222254,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "red",
+      2
+     ],
+     [
+      "blue",
+      1
+     ],
+     [
+      "brown",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.94,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 43.333333333333336,
+    "avgFilledPct": 96.76666666666667,
+    "avgPeakParked": 3.06,
+    "lossReasons": {
+     "parking_full": 12
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      28
+     ],
+     [
+      "cyan",
+      15
+     ],
+     [
+      "orange",
+      9
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.54,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.7,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.25,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 51,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    0,
+    2,
+    2,
+    0,
+    2,
+    0,
+    1,
+    1,
+    1,
+    2,
+    1,
+    0,
+    2,
+    2,
+    0,
+    1
+   ]
+  },
+  "seconds": 5.642
+ },
+ {
+  "level": 32,
+  "facts": {
+   "size": "35x15",
+   "cells": 480,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 50,
+   "mystery": 0,
+   "hidden": 64,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.24,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 47.70833333333333,
+    "avgFilledPct": 59.51145833333334,
+    "avgPeakParked": 4.725,
+    "lossReasons": {
+     "parking_full": 152
+    },
+    "stuckColors": [
+     [
+      "pink",
+      158
+     ],
+     [
+      "green",
+      140
+     ],
+     [
+      "blue",
+      119
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 18,
+    "medianFilledPctLoss": 27.29166666666667,
+    "avgFilledPct": 27.29166666666667,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "brown",
+      2
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.595,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 31,
+    "medianFilledPctLoss": 58.12500000000001,
+    "avgFilledPct": 83.26354166666663,
+    "avgPeakParked": 4.235,
+    "lossReasons": {
+     "parking_full": 81
+    },
+    "stuckColors": [
+     [
+      "pink",
+      102
+     ],
+     [
+      "blue",
+      74
+     ],
+     [
+      "yellow",
+      67
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.78,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 42,
+    "medianFilledPctLoss": 81.25,
+    "avgFilledPct": 95.91666666666666,
+    "avgPeakParked": 3.86,
+    "lossReasons": {
+     "parking_full": 11
+    },
+    "stuckColors": [
+     [
+      "pink",
+      23
+     ],
+     [
+      "brown",
+      19
+     ],
+     [
+      "blue",
+      7
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.35,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.375,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 144,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    0,
+    2,
+    2,
+    2,
+    1,
+    1,
+    0,
+    1,
+    0
+   ]
+  },
+  "seconds": 69.053
+ },
+ {
+  "level": 33,
+  "facts": {
+   "size": "43x10",
+   "cells": 392,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 41,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 97,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 2,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.04,
+    "avgTapsWin": 41,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 8.163265306122447,
+    "avgFilledPct": 15.737244897959192,
+    "avgPeakParked": 4.96,
+    "lossReasons": {
+     "parking_full": 192
+    },
+    "stuckColors": [
+     [
+      "pink",
+      291
+     ],
+     [
+      "cyan",
+      242
+     ],
+     [
+      "yellow",
+      130
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 1.0204081632653073,
+    "avgFilledPct": 1.0204081632653073,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      2
+     ],
+     [
+      "cyan",
+      2
+     ],
+     [
+      "red",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.625,
+    "avgTapsWin": 41,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 18.877551020408166,
+    "avgFilledPct": 74.59693877551021,
+    "avgPeakParked": 4.16,
+    "lossReasons": {
+     "parking_full": 75
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      86
+     ],
+     [
+      "brown",
+      65
+     ],
+     [
+      "yellow",
+      58
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.96,
+    "avgTapsWin": 41,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 18.877551020408166,
+    "avgFilledPct": 96.75510204081631,
+    "avgPeakParked": 3.28,
+    "lossReasons": {
+     "parking_full": 2
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      3
+     ],
+     [
+      "red",
+      2
+     ],
+     [
+      "yellow",
+      2
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 41,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.65,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 41,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.875,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 41,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 118,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    2,
+    0,
+    1,
+    0,
+    1,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1
+   ]
+  },
+  "seconds": 33.984
+ },
+ {
+  "level": 34,
+  "facts": {
+   "size": "25x15",
+   "cells": 340,
+   "colors": 7,
+   "queues": 4,
+   "boxes": 37,
+   "mystery": 0,
+   "hidden": 108,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.285,
+    "avgTapsWin": 37,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 50.588235294117645,
+    "avgFilledPct": 61.27941176470591,
+    "avgPeakParked": 4.655,
+    "lossReasons": {
+     "parking_full": 143
+    },
+    "stuckColors": [
+     [
+      "brown",
+      195
+     ],
+     [
+      "orange",
+      153
+     ],
+     [
+      "green",
+      129
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 7.941176470588241,
+    "avgFilledPct": 7.941176470588241,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "red",
+      3
+     ],
+     [
+      "green",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.825,
+    "avgTapsWin": 37,
+    "medianTapsLoss": 27,
+    "medianFilledPctLoss": 69.11764705882352,
+    "avgFilledPct": 93.14264705882353,
+    "avgPeakParked": 3.845,
+    "lossReasons": {
+     "parking_full": 35
+    },
+    "stuckColors": [
+     [
+      "brown",
+      57
+     ],
+     [
+      "orange",
+      35
+     ],
+     [
+      "red",
+      31
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.9,
+    "avgTapsWin": 37,
+    "medianTapsLoss": 28,
+    "medianFilledPctLoss": 69.70588235294117,
+    "avgFilledPct": 96.9705882352941,
+    "avgPeakParked": 2.96,
+    "lossReasons": {
+     "parking_full": 5
+    },
+    "stuckColors": [
+     [
+      "brown",
+      10
+     ],
+     [
+      "red",
+      5
+     ],
+     [
+      "orange",
+      5
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 37,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 37,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 37,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 137,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    2,
+    3,
+    1,
+    1,
+    1,
+    2,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    2,
+    3,
+    1,
+    3,
+    3,
+    3,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    0
+   ]
+  },
+  "seconds": 40.871
+ },
+ {
+  "level": 35,
+  "facts": {
+   "size": "34x10",
+   "cells": 304,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 32,
+   "mystery": 15,
+   "hidden": 118,
+   "locked": 0,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.005,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 25.657894736842103,
+    "avgFilledPct": 27.22039473684213,
+    "avgPeakParked": 4.995,
+    "lossReasons": {
+     "parking_full": 199
+    },
+    "stuckColors": [
+     [
+      "orange",
+      286
+     ],
+     [
+      "red",
+      199
+     ],
+     [
+      "green",
+      144
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 10.526315789473683,
+    "avgFilledPct": 10.526315789473683,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "blue",
+      2
+     ],
+     [
+      "red",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.045,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 16,
+    "medianFilledPctLoss": 44.73684210526315,
+    "avgFilledPct": 41.67269736842104,
+    "avgPeakParked": 4.955,
+    "lossReasons": {
+     "parking_full": 191
+    },
+    "stuckColors": [
+     [
+      "orange",
+      211
+     ],
+     [
+      "yellow",
+      180
+     ],
+     [
+      "red",
+      180
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 48.026315789473685,
+    "avgFilledPct": 46.868421052631604,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 50
+    },
+    "stuckColors": [
+     [
+      "red",
+      51
+     ],
+     [
+      "orange",
+      50
+     ],
+     [
+      "yellow",
+      49
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 48.026315789473685,
+    "avgFilledPct": 48.02631578947367,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 20
+    },
+    "stuckColors": [
+     [
+      "orange",
+      30
+     ],
+     [
+      "yellow",
+      20
+     ],
+     [
+      "cyan",
+      20
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 48.026315789473685,
+    "avgFilledPct": 48.02631578947369,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 8
+    },
+    "stuckColors": [
+     [
+      "orange",
+      12
+     ],
+     [
+      "yellow",
+      8
+     ],
+     [
+      "green",
+      8
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0.3333333333333333,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 48.026315789473685,
+    "avgFilledPct": 65.35087719298245,
+    "avgPeakParked": 4.666666666666667,
+    "lossReasons": {
+     "parking_full": 4
+    },
+    "stuckColors": [
+     [
+      "orange",
+      5
+     ],
+     [
+      "yellow",
+      4
+     ],
+     [
+      "green",
+      4
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 110,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    2,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    0,
+    0,
+    1
+   ]
+  },
+  "seconds": 10.025
+ },
+ {
+  "level": 36,
+  "facts": {
+   "size": "36x15",
+   "cells": 485,
+   "colors": 8,
+   "queues": 3,
+   "boxes": 50,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 15,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.275,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 14,
+    "medianFilledPctLoss": 22.886597938144327,
+    "avgFilledPct": 47.540206185567,
+    "avgPeakParked": 4.69,
+    "lossReasons": {
+     "parking_full": 145
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      166
+     ],
+     [
+      "pink",
+      139
+     ],
+     [
+      "brown",
+      127
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 42.26804123711341,
+    "avgFilledPct": 42.26804123711341,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      3
+     ],
+     [
+      "blue",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.36,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 29.89690721649485,
+    "avgFilledPct": 55.54123711340207,
+    "avgPeakParked": 4.59,
+    "lossReasons": {
+     "parking_full": 128
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      146
+     ],
+     [
+      "orange",
+      117
+     ],
+     [
+      "brown",
+      112
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0.76,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 18,
+    "medianFilledPctLoss": 32.577319587628864,
+    "avgFilledPct": 84.54845360824746,
+    "avgPeakParked": 4.24,
+    "lossReasons": {
+     "parking_full": 12
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      14
+     ],
+     [
+      "brown",
+      12
+     ],
+     [
+      "cyan",
+      12
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.75,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 50,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 145,
+   "bestFilledPct": 100,
+   "path": [
+    2,
+    2,
+    1,
+    0,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    1,
+    0,
+    2,
+    1,
+    1
+   ]
+  },
+  "seconds": 60.191
+ },
+ {
+  "level": 37,
+  "facts": {
+   "size": "28x10",
+   "cells": 228,
+   "colors": 8,
+   "queues": 2,
+   "boxes": 24,
+   "mystery": 12,
+   "hidden": 68,
+   "locked": 0,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 10,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.665,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 36.8421052631579,
+    "avgFilledPct": 79.57017543859654,
+    "avgPeakParked": 3.925,
+    "lossReasons": {
+     "parking_full": 67
+    },
+    "stuckColors": [
+     [
+      "green",
+      75
+     ],
+     [
+      "orange",
+      64
+     ],
+     [
+      "pink",
+      60
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 12.28070175438597,
+    "avgFilledPct": 12.28070175438597,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "cyan",
+      1
+     ],
+     [
+      "brown",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.96,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 72.80701754385966,
+    "avgFilledPct": 98.64473684210523,
+    "avgPeakParked": 3,
+    "lossReasons": {
+     "parking_full": 8
+    },
+    "stuckColors": [
+     [
+      "brown",
+      13
+     ],
+     [
+      "pink",
+      8
+     ],
+     [
+      "yellow",
+      7
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.8,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.125,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 47,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0
+   ]
+  },
+  "seconds": 7.357
+ },
+ {
+  "level": 38,
+  "facts": {
+   "size": "26x15",
+   "cells": 348,
+   "colors": 7,
+   "queues": 4,
+   "boxes": 36,
+   "mystery": 0,
+   "hidden": 0,
+   "locked": 75,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 4,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.29,
+    "avgTapsWin": 36,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 43.96551724137932,
+    "avgFilledPct": 50.47988505747133,
+    "avgPeakParked": 4.595,
+    "lossReasons": {
+     "parking_full": 142
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      148
+     ],
+     [
+      "red",
+      128
+     ],
+     [
+      "blue",
+      107
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "red",
+      2
+     ],
+     [
+      "brown",
+      1
+     ],
+     [
+      "blue",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.935,
+    "avgTapsWin": 36,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 51.14942528735632,
+    "avgFilledPct": 96.97413793103449,
+    "avgPeakParked": 2.94,
+    "lossReasons": {
+     "parking_full": 13
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      15
+     ],
+     [
+      "red",
+      13
+     ],
+     [
+      "green",
+      12
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.04,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.4,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.75,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 135,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    2,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    0,
+    2,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    0,
+    0,
+    1,
+    1,
+    3,
+    2,
+    1,
+    1,
+    3,
+    3,
+    1,
+    0
+   ]
+  },
+  "seconds": 39.296
+ },
+ {
+  "level": 39,
+  "facts": {
+   "size": "24x10",
+   "cells": 230,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 24,
+   "mystery": 0,
+   "hidden": 44,
+   "locked": 34,
+   "difficultyTag": "normal",
+   "unlockFeature": null,
+   "startExposed": 4,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.01,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 26.956521739130434,
+    "avgFilledPct": 24.652173913043477,
+    "avgPeakParked": 4.99,
+    "lossReasons": {
+     "parking_full": 198
+    },
+    "stuckColors": [
+     [
+      "blue",
+      246
+     ],
+     [
+      "pink",
+      195
+     ],
+     [
+      "red",
+      188
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 2.608695652173909,
+    "avgFilledPct": 2.608695652173909,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      2
+     ],
+     [
+      "green",
+      1
+     ],
+     [
+      "cyan",
+      1
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.01,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 30.434782608695656,
+    "avgFilledPct": 30.952173913043488,
+    "avgPeakParked": 4.99,
+    "lossReasons": {
+     "parking_full": 198
+    },
+    "stuckColors": [
+     [
+      "blue",
+      266
+     ],
+     [
+      "yellow",
+      215
+     ],
+     [
+      "pink",
+      206
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 30.434782608695656,
+    "avgFilledPct": 28.921739130434794,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 50
+    },
+    "stuckColors": [
+     [
+      "blue",
+      69
+     ],
+     [
+      "yellow",
+      60
+     ],
+     [
+      "pink",
+      53
+     ]
+    ]
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 30.434782608695656,
+    "avgFilledPct": 30.69565217391304,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 20
+    },
+    "stuckColors": [
+     [
+      "blue",
+      38
+     ],
+     [
+      "pink",
+      26
+     ],
+     [
+      "yellow",
+      21
+     ]
+    ]
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 0.5,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 31.304347826086953,
+    "avgFilledPct": 65.65217391304347,
+    "avgPeakParked": 4.5,
+    "lossReasons": {
+     "parking_full": 4
+    },
+    "stuckColors": [
+     [
+      "pink",
+      6
+     ],
+     [
+      "yellow",
+      5
+     ],
+     [
+      "blue",
+      5
+     ]
+    ]
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 0.6666666666666666,
+    "avgTapsWin": 24,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 31.304347826086953,
+    "avgFilledPct": 76.95652173913042,
+    "avgPeakParked": 4.333333333333333,
+    "lossReasons": {
+     "parking_full": 2
+    },
+    "stuckColors": [
+     [
+      "blue",
+      4
+     ],
+     [
+      "pink",
+      2
+     ],
+     [
+      "yellow",
+      2
+     ]
+    ]
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 105,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    1,
+    0,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    2,
+    2,
+    2,
+    2,
+    0,
+    1
+   ]
+  },
+  "seconds": 4.553
+ },
+ {
+  "level": 40,
+  "facts": {
+   "size": "26x15",
+   "cells": 346,
+   "colors": 7,
+   "queues": 3,
+   "boxes": 36,
+   "mystery": 18,
+   "hidden": 95,
+   "locked": 0,
+   "difficultyTag": "hard",
+   "unlockFeature": null,
+   "startExposed": 13,
+   "mismatch": []
+  },
+  "bots": {
+   "random": {
+    "runs": 200,
+    "winRate": 0.76,
+    "avgTapsWin": 36,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 54.91329479768786,
+    "avgFilledPct": 88.59971098265895,
+    "avgPeakParked": 3.44,
+    "lossReasons": {
+     "parking_full": 48
+    },
+    "stuckColors": [
+     [
+      "orange",
+      61
+     ],
+     [
+      "yellow",
+      44
+     ],
+     [
+      "brown",
+      41
+     ]
+    ]
+   },
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 57.80346820809248,
+    "avgFilledPct": 57.80346820809248,
+    "avgPeakParked": 5,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      3
+     ],
+     [
+      "red",
+      2
+     ]
+    ]
+   },
+   "novice": {
+    "runs": 200,
+    "winRate": 0.97,
+    "avgTapsWin": 36,
+    "medianTapsLoss": 24,
+    "medianFilledPctLoss": 56.64739884393064,
+    "avgFilledPct": 98.6965317919075,
+    "avgPeakParked": 1.85,
+    "lossReasons": {
+     "parking_full": 6
+    },
+    "stuckColors": [
+     [
+      "orange",
+      12
+     ],
+     [
+      "blue",
+      10
+     ],
+     [
+      "brown",
+      7
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.04,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "planner": {
+    "runs": 20,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.5,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "expert": {
+    "runs": 8,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.125,
+    "lossReasons": {},
+    "stuckColors": []
+   },
+   "master": {
+    "runs": 6,
+    "winRate": 1,
+    "avgTapsWin": 36,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
+   }
+  },
+  "solver": {
+   "result": "solvable",
+   "nodes": 103,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    0,
+    1,
+    1,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    2,
+    0,
+    1,
+    0,
+    2,
+    1,
+    1
+   ]
+  },
+  "seconds": 26.449
+ }
+]
