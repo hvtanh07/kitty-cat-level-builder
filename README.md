@@ -26,17 +26,8 @@ A visual level builder and play-testing simulator inspired by the casual mobile 
   - Export level to `.json` file and 1-click "Copy to Clipboard".
   - Import level from file upload or paste JSON text.
   - LocalStorage auto-save: preserves edits across browser reloads.
-- **10 Premade Levels Built-in**:
-  1. **Level 1 - Snail Garden**: Exact Lv10 snail art from the screenshot.
-  2. **Level 2 - Playful Kitty**: Cat face with ears and collar.
-  3. **Level 3 - Pixel Heart**: Shaded red heart mosaic.
-  4. **Level 4 - Rainbow Butterfly**: Symmetrical winged butterfly.
-  5. **Level 5 - Rubber Ducky**: Yellow duck floating on water ripples.
-  6. **Level 6 - Retro Gamepad**: Classic gaming controller with D-pad.
-  7. **Level 7 - Sweet Strawberry**: Red strawberry with seed dots.
-  8. **Level 8 - Gentleman Penguin**: Penguin with bow tie.
-  9. **Level 9 - Sunflower Blossom**: Floral mosaic.
-  10. **Level 10 - Cosmic Rocket**: Space shuttle blasting off.
+- **40 Built-in Levels** from the Tank Top level data sheet (`src/data/levels/sheetLevels.json`).
+- **Square Play Test Board**: the board is always `cols × cols` (8x8, 10x10, 15x15, ...); rows above it shift down as bottom rows clear, and cats only fly into cells currently on the board.
 
 ## 🚀 Quick Start
 

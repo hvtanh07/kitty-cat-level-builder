@@ -78,6 +78,7 @@ This application is a complete **Level Builder and Play Test Suite** for a casua
    - When all non-empty cell slots in a horizontal row become `'sealed'`, the row is cleared (`null`).
    - **Order Rule**: Lower rows must be cleared before upper rows can clear. A higher row cannot clear first and leave an empty space/gap between rows. Line clears scan from the bottom-most active row upwards and stop as soon as an unsealed row is encountered.
    - Cleared cells become unoccupied space, exposing adjacent cells above!
+   - **Square Visible Board** (`getVisibleWindow` in `src/engine/exposure.ts`): in Play Test the board is always a square of `cols × cols` (8x8, 10x10, 15x15, ...). The window is anchored on the lowest row that still has cells, so when a bottom row clears, the rows above shift down into view. Rows above the window are not on the board yet: `findQualifyingSlots` ignores them, so cats only fly into cells currently visible on the board (this also applies to the Lose check).
 6. **Cascade Check**:
    - Any parked box with remaining cats (or other parked boxes) can now immediately dispatch cats if newly exposed matching cells opened up!
    - Cascades loop automatically until no more parked boxes can dispatch.
@@ -223,19 +224,8 @@ kitty-cat-level-builder/
 
 ---
 
-## 7. Premade Levels Reference (10 Levels Progression)
-1. **Level 1** (Replicated from screenshot `media_1788432161736.jpg`): 10x8 grid, 40 cells (10 Yellow, 10 Green, 10 Blue, 10 Red). **1 single Queue** of 4 boxes of 10 cats: `[Red 10, Blue 10, Yellow 10, Green 10]`.
-2. **Level 2** (Replicated from screenshot `media_1788432161786.jpg`): 10x10 grid, 60 cells (10 Orange, 10 Blue, 10 Pink, 10 Green, 10 Yellow, 10 Red). **2 Queues** with Red 10 and Yellow 10 in front.
-3. **Level 3** (Replicated from screenshot `media_1788432161741.jpg`): 10x9 grid, 81 cells with center hole. Red/Pink top, Orange/Green bottom, Yellow cross, Blue border frame. **1 single Queue** with Yellow 10 in front.
-4. **Level 4** (Replicated from screenshot `media_1788432161738.jpg`): 10x10 grid, 100 cells. Devil Smiley Face with Red horns, Yellow face, Blue eyes, Red smile, bottom exposed Blue row. **2 Queues** with Blue 10 in front.
-5. **Level 5 - Geometric Harmony** (Replicated from screenshot `media_1788451058313.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Front boxes: Cyan 10 and Green 10 matching the bottom row.
-6. **Level 6 - Mighty Oak Tree** (Replicated from screenshot `media_1788455832239.png`): 15x15 solid rectangle, 225 cells. **3 Queues**. Multi-layer tree with rich emerald foliage border, sunny lime canopy, 10 ripe red apples, brown trunk notch, and electric cyan cloud fringes in royal blue night sky. Front boxes: Green 10 and Brown 10 matching the bottom row.
-7. **Level 7 - Retro Rocket** (Replicated from screenshot `media_1788451058311.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical rocket ship with red fuselage, orange wings, and cyan cockpit. Front boxes: Cyan 10 and Red 10 matching the bottom row.
-8. **Level 8 - Tuxedo Cat** (Replicated from screenshot `media_1788451058324.jpg`): 15x15 solid rectangle, 225 cells. **3 Queues**. Authentic tuxedo cat portrait with pointy triangular ears (pink inner lining), glowing emerald almond eyes, white forehead blaze, puffy whisker cheeks, centered red button nose, white tuxedo chest bib, and red bowtie. Front boxes: Red 10, Brown 10, Brown 10.
-9. **Level 9 - Elephant Mascot** (Replicated from screenshot `media_1788451058306.jpg`): 10x10 solid rectangle, 100 cells. **2 Queues** of 5 boxes of 10 cats. Symmetrical character with green trunk, cyan cheeks, and pink feet. Front boxes: Blue 10 and Pink 10 matching the bottom row.
-10. **Level 10 - Snail Garden** (Original screenshot masterpiece Lv10!): 18x15, 253 cells. **3 Queues**. The grand Lv10 snail masterpiece!
-
-All levels have bottom cells exposed, are 100% mathematically balanced, and are fully solvable.
+## 7. Built-in Levels Reference
+The built-in levels are the 40 levels (ids `"1"`..`"40"`) from the **Level Data** tab of the Tank Top level data sheet, stored as one JSON array in `src/data/levels/sheetLevels.json` and exposed as `PREMADE_LEVELS` from `src/data/premadeLevels.ts`. To refresh them, re-export the sheet's Level column into that file. Levels that introduce a feature carry `unlockFeature` (`HiddenCell` on 5, `HiddenBox` on 10, `LockedCell` on 15).
 
 ---
 
@@ -255,10 +245,10 @@ The project is configured to build directly into the `/docs` folder with relativ
 ---
  
 ## 9. Level Data List & Management
-All levels are stored locally in the browser's persistent storage under `kitty_cat_level_list_v1`.
+All levels are stored locally in the browser's persistent storage under `kitty_cat_level_list_v3`.
  
-- **10 Premade Levels**: Automatically loaded on first launch.
+- **Built-in Levels**: The 40 sheet levels are automatically loaded on first launch.
 - **Save / Override**: Updates the currently selected level in the level list with your latest editor canvas changes.
 - **Save as New**: Prompts for a level name and saves your current canvas design as a new level.
 - **Delete Level**: Removes the level from your list (with a safety prompt and guard against deleting the last remaining level).
-- **Levels Modal**: Click the **Levels** button next to the dropdown in the header to view, search, duplicate, load, or delete any level, or click **Restore Defaults** to restore the 10 original premade levels anytime.
+- **Levels Modal**: Click the **Levels** button next to the dropdown in the header to view, search, duplicate, load, or delete any level, or click **Restore Defaults** to restore the built-in sheet levels anytime.

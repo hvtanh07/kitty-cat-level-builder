@@ -20,19 +20,19 @@ const mockStorage: Record<string, string> = {};
 
 console.log('=== Running Level Storage Unit Tests ===');
 
-// Test 1: Initial Load contains 10 premade levels
+// Test 1: Initial Load contains all premade levels
 let levels = loadLevelList();
-if (levels.length === 10) {
-  console.log('✓ Initial load initialized exactly 10 premade levels');
+if (levels.length === PREMADE_LEVELS.length) {
+  console.log('✓ Initial load initialized all premade levels');
 } else {
-  throw new Error(`Expected 10 levels, got ${levels.length}`);
+  throw new Error(`Expected ${PREMADE_LEVELS.length} levels, got ${levels.length}`);
 }
 
 // Test 2: Save as New Level
 const baseLevel = levels[0];
 const { updatedLevels: afterNew, newLevel } = saveAsNewLevel(levels, baseLevel, 'lvl-custom-fun');
-if (afterNew.length === 11 && newLevel.id === 'lvl-custom-fun' && newLevel.id !== baseLevel.id) {
-  console.log('✓ Save as New Level correctly appended a new unique level (11 total)');
+if (afterNew.length === PREMADE_LEVELS.length + 1 && newLevel.id === 'lvl-custom-fun' && newLevel.id !== baseLevel.id) {
+  console.log('✓ Save as New Level correctly appended a new unique level');
 } else {
   throw new Error(`Failed to save as new level: ${afterNew.length}`);
 }
@@ -45,7 +45,7 @@ const modifiedLevel: typeof newLevel = {
 };
 const afterOverride = overrideLevel(afterNew, modifiedLevel);
 const found = afterOverride.find(l => l.id === newLevel.id);
-if (afterOverride.length === 11 && found && found.parkingSlotsCount === 7 && found.difficulty === 'hard') {
+if (afterOverride.length === PREMADE_LEVELS.length + 1 && found && found.parkingSlotsCount === 7 && found.difficulty === 'hard') {
   console.log('✓ Override Level correctly updated target level properties (including difficulty: hard)');
 } else {
   throw new Error('Failed to override level');
@@ -53,16 +53,16 @@ if (afterOverride.length === 11 && found && found.parkingSlotsCount === 7 && fou
 
 // Test 4: Delete Level
 const { updatedLevels: afterDelete, nextLevel } = deleteLevel(afterOverride, newLevel.id);
-if (afterDelete.length === 10 && !afterDelete.some(l => l.id === newLevel.id) && nextLevel) {
-  console.log('✓ Delete Level successfully removed target level (back to 10 total)');
+if (afterDelete.length === PREMADE_LEVELS.length && !afterDelete.some(l => l.id === newLevel.id) && nextLevel) {
+  console.log('✓ Delete Level successfully removed target level (back to original total)');
 } else {
   throw new Error(`Failed to delete level: ${afterDelete.length}`);
 }
 
 // Test 5: Reset to Default Levels
 const resetLevels = resetToDefaultLevels();
-if (resetLevels.length === 10 && resetLevels[0].id === PREMADE_LEVELS[0].id) {
-  console.log('✓ Reset to Default Levels restored original 10 premade levels');
+if (resetLevels.length === PREMADE_LEVELS.length && resetLevels[0].id === PREMADE_LEVELS[0].id) {
+  console.log('✓ Reset to Default Levels restored original premade levels');
 } else {
   throw new Error('Failed to reset default levels');
 }
