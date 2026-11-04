@@ -105,7 +105,7 @@
     0
    ]
   },
-  "seconds": 0.152
+  "seconds": 0.154
  },
  {
   "level": 2,
@@ -215,7 +215,7 @@
     1
    ]
   },
-  "seconds": 0.241
+  "seconds": 0.262
  },
  {
   "level": 3,
@@ -326,7 +326,7 @@
     0
    ]
   },
-  "seconds": 0.237
+  "seconds": 0.191
  },
  {
   "level": 4,
@@ -440,7 +440,7 @@
     1
    ]
   },
-  "seconds": 0.675
+  "seconds": 0.528
  },
  {
   "level": 5,
@@ -556,7 +556,7 @@
     0
    ]
   },
-  "seconds": 1.056
+  "seconds": 1.011
  },
  {
   "level": 6,
@@ -690,7 +690,7 @@
     1
    ]
   },
-  "seconds": 5.079
+  "seconds": 4.609
  },
  {
   "level": 7,
@@ -824,7 +824,7 @@
     1
    ]
   },
-  "seconds": 1.709
+  "seconds": 1.771
  },
  {
   "level": 8,
@@ -833,176 +833,159 @@
    "cells": 271,
    "colors": 6,
    "queues": 3,
-   "boxes": 26,
+   "boxes": 27,
    "mystery": 0,
    "hidden": 85,
    "locked": 0,
    "difficultyTag": "normal",
    "unlockFeature": null,
    "startExposed": 2,
-   "mismatch": [
-    {
-     "color": "blue",
-     "cells": 16,
-     "cats": 10
-    }
-   ]
+   "mismatch": []
   },
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
+    "winRate": 0.685,
+    "avgTapsWin": 27,
     "medianTapsLoss": 8,
-    "medianFilledPctLoss": 14.022140221402212,
-    "avgFilledPct": 26.654981549815535,
-    "avgPeakParked": 4.775,
+    "medianFilledPctLoss": 17.712177121771223,
+    "avgFilledPct": 72.7712177121772,
+    "avgPeakParked": 3.69,
     "lossReasons": {
-     "parking_full": 167,
-     "out_of_boxes": 33
+     "parking_full": 63
     },
     "stuckColors": [
      [
       "red",
-      659
-     ],
-     [
-      "green",
-      86
+      156
      ],
      [
       "cyan",
-      82
+      100
+     ],
+     [
+      "green",
+      53
      ]
     ]
    },
    "onelane": {
     "runs": 1,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 26,
-    "medianFilledPctLoss": 97.7859778597786,
-    "avgFilledPct": 97.7859778597786,
+    "winRate": 1,
+    "avgTapsWin": 27,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
     "avgPeakParked": 4,
-    "lossReasons": {
-     "out_of_boxes": 1
-    },
+    "lossReasons": {},
     "stuckColors": []
    },
    "novice": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
+    "winRate": 0.945,
+    "avgTapsWin": 27,
     "medianTapsLoss": 8,
     "medianFilledPctLoss": 17.712177121771223,
-    "avgFilledPct": 34.621771217712265,
-    "avgPeakParked": 4.725,
+    "avgFilledPct": 95.47416974169744,
+    "avgPeakParked": 3.17,
     "lossReasons": {
-     "parking_full": 155,
-     "out_of_boxes": 45
+     "parking_full": 11
     },
     "stuckColors": [
      [
       "red",
-      572
+      33
      ],
      [
       "cyan",
-      99
+      11
      ],
      [
       "green",
-      80
+      11
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 8,
-    "medianFilledPctLoss": 17.712177121771223,
-    "avgFilledPct": 35.82287822878227,
-    "avgPeakParked": 4.7,
-    "lossReasons": {
-     "parking_full": 38,
-     "out_of_boxes": 12
-    },
-    "stuckColors": [
-     [
-      "red",
-      142
-     ],
-     [
-      "cyan",
-      23
-     ],
-     [
-      "green",
-      19
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 27,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.26,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 26,
-    "medianFilledPctLoss": 97.7859778597786,
-    "avgFilledPct": 69.76014760147599,
-    "avgPeakParked": 4.15,
-    "lossReasons": {
-     "out_of_boxes": 13,
-     "parking_full": 7
-    },
-    "stuckColors": [
-     [
-      "red",
-      24
-     ],
-     [
-      "cyan",
-      7
-     ],
-     [
-      "green",
-      4
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 27,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 26,
-    "medianFilledPctLoss": 97.7859778597786,
-    "avgFilledPct": 97.7859778597786,
-    "avgPeakParked": 3.875,
-    "lossReasons": {
-     "out_of_boxes": 8
-    },
+    "winRate": 1,
+    "avgTapsWin": 27,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.125,
+    "lossReasons": {},
     "stuckColors": []
    },
    "master": {
     "runs": 6,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 26,
-    "medianFilledPctLoss": 97.7859778597786,
-    "avgFilledPct": 97.7859778597786,
-    "avgPeakParked": 4,
-    "lossReasons": {
-     "out_of_boxes": 6
-    },
+    "winRate": 1,
+    "avgTapsWin": 27,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.3333333333333335,
+    "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
-   "result": "unknown",
-   "nodes": 50000,
-   "bestFilledPct": 97.7859778597786
+   "result": "solvable",
+   "nodes": 68,
+   "bestFilledPct": 100,
+   "path": [
+    2,
+    1,
+    0,
+    0,
+    2,
+    1,
+    1,
+    2,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ]
   },
-  "seconds": 13.193
+  "seconds": 10.939
  },
  {
   "level": 9,
@@ -1023,27 +1006,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.43,
+    "winRate": 0.04,
     "avgTapsWin": 38,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 49.350649350649356,
-    "avgFilledPct": 71.72207792207794,
-    "avgPeakParked": 4.41,
+    "medianTapsLoss": 21,
+    "medianFilledPctLoss": 46.23376623376624,
+    "avgFilledPct": 50.26103896103896,
+    "avgPeakParked": 4.955,
     "lossReasons": {
-     "parking_full": 114
+     "parking_full": 192
     },
     "stuckColors": [
      [
-      "green",
-      163
-     ],
-     [
       "yellow",
-      161
+      435
      ],
      [
-      "brown",
-      149
+      "orange",
+      265
+     ],
+     [
+      "green",
+      118
      ]
     ]
    },
@@ -1051,75 +1034,105 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 22,
-    "medianFilledPctLoss": 48.05194805194806,
-    "avgFilledPct": 48.05194805194806,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 9.610389610389614,
+    "avgFilledPct": 9.610389610389614,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "brown",
-      3
+      "yellow",
+      2
      ],
      [
-      "yellow",
+      "blue",
       1
      ],
      [
-      "green",
+      "orange",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.805,
+    "winRate": 0.425,
     "avgTapsWin": 38,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 51.68831168831169,
-    "avgFilledPct": 90.79740259740257,
-    "avgPeakParked": 3.655,
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 56.1038961038961,
+    "avgFilledPct": 77.60519480519478,
+    "avgPeakParked": 4.525,
     "lossReasons": {
-     "parking_full": 39
+     "parking_full": 115
     },
     "stuckColors": [
      [
       "yellow",
-      71
+      204
      ],
      [
-      "brown",
-      62
+      "orange",
+      165
      ],
      [
-      "green",
-      29
+      "cyan",
+      76
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 1,
+    "winRate": 0.04,
     "avgTapsWin": 38,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 2.88,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 34,
+    "medianFilledPctLoss": 76.88311688311688,
+    "avgFilledPct": 72.8051948051948,
+    "avgPeakParked": 4.96,
+    "lossReasons": {
+     "parking_full": 48
+    },
+    "stuckColors": [
+     [
+      "orange",
+      81
+     ],
+     [
+      "yellow",
+      55
+     ],
+     [
+      "cyan",
+      48
+     ]
+    ]
    },
    "planner": {
     "runs": 20,
-    "winRate": 1,
+    "winRate": 0.9,
     "avgTapsWin": 38,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 2.6,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 34,
+    "medianFilledPctLoss": 78.18181818181819,
+    "avgFilledPct": 97.81818181818183,
+    "avgPeakParked": 4.05,
+    "lossReasons": {
+     "parking_full": 2
+    },
+    "stuckColors": [
+     [
+      "orange",
+      4
+     ],
+     [
+      "cyan",
+      2
+     ],
+     [
+      "yellow",
+      2
+     ]
+    ]
    },
    "expert": {
     "runs": 8,
@@ -1128,12 +1141,12 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.125,
+    "avgPeakParked": 4,
     "lossReasons": {},
     "stuckColors": []
    },
    "master": {
-    "runs": 6,
+    "runs": 24,
     "winRate": 1,
     "avgTapsWin": 38,
     "medianTapsLoss": null,
@@ -1146,35 +1159,33 @@
   },
   "solver": {
    "result": "solvable",
-   "nodes": 110,
+   "nodes": 100,
    "bestFilledPct": 100,
    "path": [
-    2,
     0,
     2,
     1,
+    1,
+    1,
+    1,
     0,
     0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    2,
+    2,
     2,
     2,
     1,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    1,
     1,
     1,
     1,
     2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    1,
     1,
     2,
     2,
@@ -1182,14 +1193,16 @@
     2,
     2,
     0,
-    1,
-    1,
-    2,
-    2,
-    0
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
    ]
   },
-  "seconds": 26.99
+  "seconds": 24.136
  },
  {
   "level": 10,
@@ -1371,7 +1384,7 @@
     1
    ]
   },
-  "seconds": 2.413
+  "seconds": 2.462
  },
  {
   "level": 11,
@@ -1386,33 +1399,33 @@
    "locked": 0,
    "difficultyTag": "normal",
    "unlockFeature": null,
-   "startExposed": 0,
+   "startExposed": 10,
    "mismatch": []
   },
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.365,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 22.2707423580786,
+    "avgFilledPct": 57.355895196506516,
+    "avgPeakParked": 4.48,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 127
     },
     "stuckColors": [
      [
+      "blue",
+      163
+     ],
+     [
       "cyan",
-      300
+      160
      ],
      [
       "yellow",
-      284
-     ],
-     [
-      "orange",
-      242
+      137
      ]
     ]
    },
@@ -1420,9 +1433,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 17.030567685589514,
+    "avgFilledPct": 17.030567685589514,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -1434,151 +1447,116 @@
      ],
      [
       "blue",
-      2
+      1
      ],
      [
-      "orange",
+      "green",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.925,
+    "avgTapsWin": 23,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 24.890829694323145,
+    "avgFilledPct": 95.00655021834059,
+    "avgPeakParked": 3.315,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 15
     },
     "stuckColors": [
      [
       "yellow",
-      282
-     ],
-     [
-      "orange",
-      279
+      22
      ],
      [
       "cyan",
-      276
+      17
+     ],
+     [
+      "blue",
+      15
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 50
-    },
-    "stuckColors": [
-     [
-      "cyan",
-      73
-     ],
-     [
-      "yellow",
-      72
-     ],
-     [
-      "orange",
-      66
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.82,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 20
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      32
-     ],
-     [
-      "cyan",
-      28
-     ],
-     [
-      "orange",
-      27
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.35,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 8
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      12
-     ],
-     [
-      "cyan",
-      12
-     ],
-     [
-      "orange",
-      10
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.375,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
     "runs": 6,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 6
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      9
-     ],
-     [
-      "orange",
-      8
-     ],
-     [
-      "cyan",
-      8
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 23,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.6666666666666665,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
-   "result": "unsolvable",
-   "nodes": 105,
-   "bestFilledPct": 0
+   "result": "solvable",
+   "nodes": 61,
+   "bestFilledPct": 100,
+   "path": [
+    1,
+    2,
+    0,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ]
   },
-  "seconds": 0.295
+  "seconds": 7.289
  },
  {
   "level": 12,
@@ -1599,27 +1577,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.92,
+    "winRate": 0.135,
     "avgTapsWin": 34,
     "medianTapsLoss": 20,
     "medianFilledPctLoss": 49.705882352941174,
-    "avgFilledPct": 94.88235294117646,
-    "avgPeakParked": 3.185,
+    "avgFilledPct": 47.92794117647056,
+    "avgPeakParked": 4.825,
     "lossReasons": {
-     "parking_full": 16
+     "parking_full": 173
     },
     "stuckColors": [
      [
       "yellow",
-      34
-     ],
-     [
-      "red",
-      19
+      332
      ],
      [
       "green",
-      18
+      197
+     ],
+     [
+      "red",
+      187
      ]
     ]
    },
@@ -1627,9 +1605,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 11,
-    "medianFilledPctLoss": 21.176470588235297,
-    "avgFilledPct": 21.176470588235297,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -1637,142 +1615,176 @@
     "stuckColors": [
      [
       "red",
-      3
+      2
      ],
      [
       "yellow",
-      2
+      1
+     ],
+     [
+      "cyan",
+      1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.955,
+    "winRate": 0.495,
     "avgTapsWin": 34,
-    "medianTapsLoss": 21,
-    "medianFilledPctLoss": 52.64705882352941,
-    "avgFilledPct": 97.8426470588235,
-    "avgPeakParked": 2.68,
+    "medianTapsLoss": 27,
+    "medianFilledPctLoss": 67.64705882352942,
+    "avgFilledPct": 79.35882352941171,
+    "avgPeakParked": 4.07,
     "lossReasons": {
-     "parking_full": 9
+     "parking_full": 101
     },
     "stuckColors": [
      [
       "yellow",
-      24
+      170
      ],
      [
       "red",
-      12
+      144
      ],
      [
-      "cyan",
-      9
+      "green",
+      100
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.92,
+    "winRate": 0.42,
     "avgTapsWin": 34,
-    "medianTapsLoss": 21,
-    "medianFilledPctLoss": 52.64705882352941,
-    "avgFilledPct": 96.21176470588235,
-    "avgPeakParked": 3.3,
+    "medianTapsLoss": 27,
+    "medianFilledPctLoss": 67.94117647058823,
+    "avgFilledPct": 78.45882352941179,
+    "avgPeakParked": 4.2,
     "lossReasons": {
-     "parking_full": 4
+     "parking_full": 29
     },
     "stuckColors": [
      [
       "yellow",
-      12
+      47
      ],
      [
       "red",
-      4
+      43
      ],
      [
-      "cyan",
-      4
+      "green",
+      29
      ]
     ]
    },
    "planner": {
     "runs": 20,
-    "winRate": 1,
+    "winRate": 0.85,
     "avgTapsWin": 34,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 2.7,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 50.294117647058826,
+    "avgFilledPct": 92.54411764705881,
+    "avgPeakParked": 4,
+    "lossReasons": {
+     "parking_full": 3
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      6
+     ],
+     [
+      "green",
+      3
+     ],
+     [
+      "red",
+      3
+     ]
+    ]
    },
    "expert": {
     "runs": 8,
-    "winRate": 1,
+    "winRate": 0.875,
     "avgTapsWin": 34,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 2.875,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 20,
+    "medianFilledPctLoss": 50.294117647058826,
+    "avgFilledPct": 93.78676470588235,
+    "avgPeakParked": 4.125,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "yellow",
+      2
+     ],
+     [
+      "green",
+      1
+     ],
+     [
+      "red",
+      1
+     ]
+    ]
    },
    "master": {
-    "runs": 6,
+    "runs": 24,
     "winRate": 1,
     "avgTapsWin": 34,
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.1666666666666665,
+    "avgPeakParked": 3.75,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 91,
+   "nodes": 99,
    "bestFilledPct": 100,
    "path": [
-    0,
-    2,
-    0,
-    2,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    0,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    2,
-    0,
     2,
     2,
-    1,
+    2,
     1,
     0,
     0,
     2,
     0,
     1,
+    1,
+    0,
+    2,
+    1,
+    1,
+    0,
+    2,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
     2,
     2,
+    1,
+    1,
+    1,
     2,
     2,
+    0,
+    1,
     2
    ]
   },
-  "seconds": 17.923
+  "seconds": 15.22
  },
  {
   "level": 13,
@@ -1903,7 +1915,7 @@
     1
    ]
   },
-  "seconds": 0.927
+  "seconds": 1.05
  },
  {
   "level": 14,
@@ -1924,23 +1936,23 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.28,
+    "winRate": 0.255,
     "avgTapsWin": 30,
-    "medianTapsLoss": 20,
-    "medianFilledPctLoss": 61.40350877192983,
-    "avgFilledPct": 69.17017543859644,
-    "avgPeakParked": 4.695,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 50.877192982456144,
+    "avgFilledPct": 65.42280701754386,
+    "avgPeakParked": 4.735,
     "lossReasons": {
-     "parking_full": 144
+     "parking_full": 149
     },
     "stuckColors": [
      [
-      "orange",
-      182
+      "cyan",
+      233
      ],
      [
-      "cyan",
-      172
+      "orange",
+      179
      ],
      [
       "yellow",
@@ -1952,9 +1964,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 54.03508771929825,
-    "avgFilledPct": 54.03508771929825,
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 77.54385964912281,
+    "avgFilledPct": 77.54385964912281,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -1976,40 +1988,55 @@
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.775,
+    "winRate": 0.37,
     "avgTapsWin": 30,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 72.63157894736842,
-    "avgFilledPct": 92.60701754385963,
-    "avgPeakParked": 4.105,
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 77.54385964912281,
+    "avgFilledPct": 80.0859649122806,
+    "avgPeakParked": 4.57,
     "lossReasons": {
-     "parking_full": 45
+     "parking_full": 126
     },
     "stuckColors": [
      [
-      "orange",
-      65
+      "cyan",
+      234
      ],
      [
-      "cyan",
-      48
+      "orange",
+      135
      ],
      [
       "yellow",
-      44
+      124
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 1,
+    "winRate": 0.2,
     "avgTapsWin": 30,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.88,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 26,
+    "medianFilledPctLoss": 79.2982456140351,
+    "avgFilledPct": 83.43859649122814,
+    "avgPeakParked": 4.8,
+    "lossReasons": {
+     "parking_full": 40
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      80
+     ],
+     [
+      "orange",
+      40
+     ],
+     [
+      "yellow",
+      40
+     ]
+    ]
    },
    "planner": {
     "runs": 20,
@@ -2018,7 +2045,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.95,
+    "avgPeakParked": 3.8,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -2029,25 +2056,40 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 4,
+    "avgPeakParked": 3.75,
     "lossReasons": {},
     "stuckColors": []
    },
    "master": {
-    "runs": 6,
-    "winRate": 1,
+    "runs": 24,
+    "winRate": 0.875,
     "avgTapsWin": 30,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.8333333333333335,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 77.54385964912281,
+    "avgFilledPct": 95.39473684210526,
+    "avgPeakParked": 4.125,
+    "lossReasons": {
+     "parking_full": 3
+    },
+    "stuckColors": [
+     [
+      "cyan",
+      5
+     ],
+     [
+      "blue",
+      4
+     ],
+     [
+      "orange",
+      3
+     ]
+    ]
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 76,
+   "nodes": 128,
    "bestFilledPct": 100,
    "path": [
     1,
@@ -2056,9 +2098,13 @@
     1,
     1,
     1,
+    0,
+    0,
+    0,
     1,
     1,
     1,
+    0,
     1,
     2,
     2,
@@ -2066,23 +2112,19 @@
     2,
     2,
     2,
-    1,
     0,
     0,
     0,
     0,
+    0,
+    2,
+    2,
     2,
     0,
-    0,
-    2,
-    0,
-    0,
-    0,
-    0,
-    2
+    1
    ]
   },
-  "seconds": 11.936
+  "seconds": 11.31
  },
  {
   "level": 15,
@@ -2238,7 +2280,7 @@
     0
    ]
   },
-  "seconds": 13.244
+  "seconds": 12.351
  },
  {
   "level": 16,
@@ -2410,7 +2452,7 @@
     0
    ]
   },
-  "seconds": 9.335
+  "seconds": 8.757
  },
  {
   "level": 17,
@@ -2588,7 +2630,7 @@
     0
    ]
   },
-  "seconds": 23.67
+  "seconds": 21.763
  },
  {
   "level": 18,
@@ -2609,27 +2651,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.18,
+    "winRate": 0.37,
     "avgTapsWin": 42,
-    "medianTapsLoss": 20,
-    "medianFilledPctLoss": 40.487804878048784,
-    "avgFilledPct": 50.95243902439023,
-    "avgPeakParked": 4.78,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 47.80487804878049,
+    "avgFilledPct": 66.8353658536585,
+    "avgPeakParked": 4.46,
     "lossReasons": {
-     "parking_full": 164
+     "parking_full": 126
     },
     "stuckColors": [
      [
+      "cyan",
+      152
+     ],
+     [
       "yellow",
-      202
+      149
      ],
      [
       "brown",
-      167
-     ],
-     [
-      "cyan",
-      163
+      139
      ]
     ]
    },
@@ -2637,9 +2679,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 50,
-    "avgFilledPct": 50,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 45.12195121951219,
+    "avgFilledPct": 45.12195121951219,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -2661,27 +2703,27 @@
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.765,
+    "winRate": 0.86,
     "avgTapsWin": 42,
     "medianTapsLoss": 20,
-    "medianFilledPctLoss": 42.19512195121952,
-    "avgFilledPct": 87.56097560975611,
-    "avgPeakParked": 3.8,
+    "medianFilledPctLoss": 40.243902439024396,
+    "avgFilledPct": 92.50609756097562,
+    "avgPeakParked": 3.455,
     "lossReasons": {
-     "parking_full": 47
+     "parking_full": 28
     },
     "stuckColors": [
      [
       "yellow",
-      70
+      31
+     ],
+     [
+      "blue",
+      28
      ],
      [
       "brown",
-      42
-     ],
-     [
-      "cyan",
-      34
+      27
      ]
     ]
    },
@@ -2692,20 +2734,35 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.36,
+    "avgPeakParked": 2.62,
     "lossReasons": {},
     "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 1,
+    "winRate": 0.95,
     "avgTapsWin": 42,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 2.6,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 49.26829268292683,
+    "avgFilledPct": 97.46341463414635,
+    "avgPeakParked": 2.95,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "brown",
+      1
+     ],
+     [
+      "yellow",
+      1
+     ],
+     [
+      "red",
+      1
+     ]
+    ]
    },
    "expert": {
     "runs": 8,
@@ -2714,7 +2771,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.75,
+    "avgPeakParked": 3,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -2725,36 +2782,35 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 4,
+    "avgPeakParked": 3.8333333333333335,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 121,
+   "nodes": 116,
    "bestFilledPct": 100,
    "path": [
     1,
     1,
-    2,
     1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     1,
     1,
     1,
     0,
+    2,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
     0,
     0,
     2,
-    0,
+    2,
+    2,
     2,
     2,
     2,
@@ -2762,24 +2818,25 @@
     2,
     1,
     0,
-    1,
-    1,
-    0,
-    1,
-    2,
-    0,
-    2,
-    2,
     2,
     2,
     0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    1,
     2,
     1,
     1,
-    2
+    1,
+    2,
+    1,
+    1
    ]
   },
-  "seconds": 30.818
+  "seconds": 35.333
  },
  {
   "level": 19,
@@ -2800,27 +2857,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.085,
+    "winRate": 0.275,
     "avgTapsWin": 28,
     "medianTapsLoss": 22,
-    "medianFilledPctLoss": 68.92857142857143,
-    "avgFilledPct": 68.37321428571431,
-    "avgPeakParked": 4.915,
+    "medianFilledPctLoss": 66.42857142857143,
+    "avgFilledPct": 73.41249999999997,
+    "avgPeakParked": 4.705,
     "lossReasons": {
-     "parking_full": 183
+     "parking_full": 145
     },
     "stuckColors": [
      [
       "pink",
-      257
+      213
+     ],
+     [
+      "green",
+      171
      ],
      [
       "brown",
-      181
-     ],
-     [
-      "yellow",
-      166
+      135
      ]
     ]
    },
@@ -2828,9 +2885,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 19,
-    "medianFilledPctLoss": 55.714285714285715,
-    "avgFilledPct": 55.714285714285715,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 74.64285714285714,
+    "avgFilledPct": 74.64285714285714,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -2841,182 +2898,152 @@
       2
      ],
      [
-      "cyan",
+      "pink",
       1
      ],
      [
-      "brown",
+      "cyan",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.595,
+    "winRate": 0.44,
     "avgTapsWin": 28,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 73.92857142857143,
-    "avgFilledPct": 88.78035714285714,
-    "avgPeakParked": 4.165,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 72.5,
+    "avgFilledPct": 84.29285714285705,
+    "avgPeakParked": 4.505,
     "lossReasons": {
-     "parking_full": 81
+     "parking_full": 112
     },
     "stuckColors": [
      [
       "pink",
-      112
+      198
      ],
      [
       "yellow",
-      83
+      125
      ],
      [
       "brown",
-      81
+      112
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.66,
+    "winRate": 0.42,
     "avgTapsWin": 28,
-    "medianTapsLoss": 22,
-    "medianFilledPctLoss": 72.5,
-    "avgFilledPct": 91.15,
-    "avgPeakParked": 3.8,
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 79.64285714285715,
+    "avgFilledPct": 88.19285714285718,
+    "avgPeakParked": 4.58,
     "lossReasons": {
-     "parking_full": 17
+     "parking_full": 29
     },
     "stuckColors": [
      [
       "pink",
-      17
-     ],
-     [
-      "brown",
-      17
+      58
      ],
      [
       "yellow",
-      17
+      58
+     ],
+     [
+      "brown",
+      29
      ]
     ]
    },
    "planner": {
     "runs": 20,
-    "winRate": 0.2,
+    "winRate": 0.75,
     "avgTapsWin": 28,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 76.78571428571428,
-    "avgFilledPct": 81.53571428571425,
-    "avgPeakParked": 4.8,
+    "medianTapsLoss": 25,
+    "medianFilledPctLoss": 79.64285714285715,
+    "avgFilledPct": 94.91071428571429,
+    "avgPeakParked": 4,
     "lossReasons": {
-     "parking_full": 16
+     "parking_full": 5
     },
     "stuckColors": [
      [
       "pink",
-      27
+      10
      ],
      [
       "yellow",
-      18
+      10
      ],
      [
-      "red",
-      16
+      "brown",
+      5
      ]
     ]
    },
    "expert": {
     "runs": 8,
-    "winRate": 0.875,
+    "winRate": 1,
     "avgTapsWin": 28,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 77.5,
-    "avgFilledPct": 97.1875,
-    "avgPeakParked": 4.125,
-    "lossReasons": {
-     "parking_full": 1
-    },
-    "stuckColors": [
-     [
-      "pink",
-      1
-     ],
-     [
-      "brown",
-      1
-     ],
-     [
-      "red",
-      1
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.875,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
-    "runs": 6,
-    "winRate": 0.8333333333333334,
+    "runs": 24,
+    "winRate": 1,
     "avgTapsWin": 28,
-    "medianTapsLoss": 22,
-    "medianFilledPctLoss": 72.5,
-    "avgFilledPct": 95.41666666666667,
-    "avgPeakParked": 4.166666666666667,
-    "lossReasons": {
-     "parking_full": 1
-    },
-    "stuckColors": [
-     [
-      "pink",
-      1
-     ],
-     [
-      "brown",
-      1
-     ],
-     [
-      "yellow",
-      1
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.9166666666666665,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 344,
+   "nodes": 80,
    "bestFilledPct": 100,
    "path": [
-    0,
+    1,
     0,
     2,
+    1,
+    1,
     2,
     2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
     2,
     2,
     1,
     1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    1,
+    0,
     2,
     2,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
     1,
     2,
+    2,
+    1,
+    1,
     0
    ]
   },
-  "seconds": 13.947
+  "seconds": 16.19
  },
  {
   "level": 20,
@@ -3132,7 +3159,7 @@
     1
    ]
   },
-  "seconds": 1.204
+  "seconds": 1.045
  },
  {
   "level": 21,
@@ -3300,7 +3327,7 @@
     0
    ]
   },
-  "seconds": 9.219
+  "seconds": 10.458
  },
  {
   "level": 22,
@@ -3497,7 +3524,7 @@
     0
    ]
   },
-  "seconds": 63.363
+  "seconds": 68.362
  },
  {
   "level": 23,
@@ -3512,33 +3539,33 @@
    "locked": 0,
    "difficultyTag": "normal",
    "unlockFeature": null,
-   "startExposed": 0,
+   "startExposed": 10,
    "mismatch": []
   },
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.45,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 37.77777777777778,
+    "avgFilledPct": 63.55833333333335,
+    "avgPeakParked": 4.375,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 110
     },
     "stuckColors": [
      [
-      "orange",
-      286
-     ],
-     [
       "pink",
-      215
+      136
      ],
      [
-      "yellow",
-      176
+      "green",
+      113
+     ],
+     [
+      "orange",
+      102
      ]
     ]
    },
@@ -3546,165 +3573,125 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 37.77777777777778,
+    "avgFilledPct": 37.77777777777778,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "orange",
+      "yellow",
       2
+     ],
+     [
+      "orange",
+      1
      ],
      [
       "red",
-      2
-     ],
-     [
-      "blue",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.87,
+    "avgTapsWin": 18,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 37.77777777777778,
+    "avgFilledPct": 91.78333333333332,
+    "avgPeakParked": 3.715,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 26
     },
     "stuckColors": [
      [
-      "orange",
-      276
-     ],
-     [
-      "pink",
-      234
+      "green",
+      30
      ],
      [
       "yellow",
-      172
+      29
+     ],
+     [
+      "pink",
+      28
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 50
-    },
-    "stuckColors": [
-     [
-      "orange",
-      73
-     ],
-     [
-      "pink",
-      60
-     ],
-     [
-      "yellow",
-      40
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.36,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 20
-    },
-    "stuckColors": [
-     [
-      "orange",
-      28
-     ],
-     [
-      "pink",
-      26
-     ],
-     [
-      "yellow",
-      17
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.2,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 8
-    },
-    "stuckColors": [
-     [
-      "orange",
-      14
-     ],
-     [
-      "pink",
-      10
-     ],
-     [
-      "green",
-      7
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.25,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
     "runs": 6,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 6
-    },
-    "stuckColors": [
-     [
-      "orange",
-      7
-     ],
-     [
-      "yellow",
-      6
-     ],
-     [
-      "pink",
-      6
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 18,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
-   "result": "unsolvable",
-   "nodes": 105,
-   "bestFilledPct": 0
+   "result": "solvable",
+   "nodes": 51,
+   "bestFilledPct": 100,
+   "path": [
+    0,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    2,
+    1,
+    0,
+    0,
+    2,
+    2,
+    2,
+    1,
+    1,
+    0,
+    2
+   ]
   },
-  "seconds": 0.498
+  "seconds": 5.755
  },
  {
   "level": 24,
@@ -3719,33 +3706,33 @@
    "locked": 0,
    "difficultyTag": "normal",
    "unlockFeature": null,
-   "startExposed": 0,
+   "startExposed": 15,
    "mismatch": []
   },
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.385,
+    "avgTapsWin": 35,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 58.18181818181818,
+    "avgFilledPct": 74.4318181818182,
+    "avgPeakParked": 4.37,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 123
     },
     "stuckColors": [
      [
+      "blue",
+      145
+     ],
+     [
       "brown",
-      336
+      89
      ],
      [
-      "orange",
-      326
-     ],
-     [
-      "yellow",
-      223
+      "red",
+      87
      ]
     ]
    },
@@ -3753,165 +3740,142 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 20.90909090909091,
+    "avgFilledPct": 20.90909090909091,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "brown",
+      "blue",
       2
      ],
      [
-      "orange",
+      "pink",
       1
      ],
      [
-      "blue",
+      "cyan",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
+    "winRate": 0.845,
+    "avgTapsWin": 35,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 58.18181818181818,
+    "avgFilledPct": 93.86515151515158,
+    "avgPeakParked": 2.995,
     "lossReasons": {
-     "parking_full": 200
+     "parking_full": 31
     },
     "stuckColors": [
      [
+      "red",
+      30
+     ],
+     [
+      "blue",
+      29
+     ],
+     [
       "brown",
-      339
-     ],
-     [
-      "orange",
-      335
-     ],
-     [
-      "yellow",
-      220
+      25
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 50
-    },
-    "stuckColors": [
-     [
-      "brown",
-      85
-     ],
-     [
-      "orange",
-      77
-     ],
-     [
-      "yellow",
-      55
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 35,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.74,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 20
-    },
-    "stuckColors": [
-     [
-      "brown",
-      38
-     ],
-     [
-      "orange",
-      25
-     ],
-     [
-      "yellow",
-      23
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 35,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 1.6,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 8
-    },
-    "stuckColors": [
-     [
-      "brown",
-      15
-     ],
-     [
-      "orange",
-      10
-     ],
-     [
-      "blue",
-      8
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 35,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
     "runs": 6,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 0,
-    "avgFilledPct": 0,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 6
-    },
-    "stuckColors": [
-     [
-      "brown",
-      10
-     ],
-     [
-      "orange",
-      9
-     ],
-     [
-      "yellow",
-      8
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 35,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.8333333333333335,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
-   "result": "unsolvable",
-   "nodes": 105,
-   "bestFilledPct": 0
+   "result": "solvable",
+   "nodes": 100,
+   "bestFilledPct": 100,
+   "path": [
+    2,
+    0,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    1,
+    0,
+    0,
+    0,
+    2,
+    1,
+    2,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    1,
+    0,
+    0,
+    1
+   ]
   },
-  "seconds": 0.743
+  "seconds": 21.875
  },
  {
   "level": 25,
@@ -4057,15 +4021,30 @@
     "stuckColors": []
    },
    "master": {
-    "runs": 6,
-    "winRate": 1,
+    "runs": 24,
+    "winRate": 0.9166666666666666,
     "avgTapsWin": 28,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 4,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 24.242424242424242,
+    "avgFilledPct": 93.68686868686869,
+    "avgPeakParked": 4.083333333333333,
+    "lossReasons": {
+     "parking_full": 2
+    },
+    "stuckColors": [
+     [
+      "blue",
+      3
+     ],
+     [
+      "pink",
+      3
+     ],
+     [
+      "brown",
+      2
+     ]
+    ]
    }
   },
   "solver": {
@@ -4103,7 +4082,7 @@
     1
    ]
   },
-  "seconds": 7.912
+  "seconds": 8.219
  },
  {
   "level": 26,
@@ -4309,7 +4288,7 @@
     2
    ]
   },
-  "seconds": 31.002
+  "seconds": 34.25
  },
  {
   "level": 27,
@@ -4330,27 +4309,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.375,
+    "winRate": 0.34,
     "avgTapsWin": 23,
-    "medianTapsLoss": 11,
-    "medianFilledPctLoss": 37.39130434782608,
-    "avgFilledPct": 54.52608695652173,
-    "avgPeakParked": 4.59,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 41.73913043478261,
+    "avgFilledPct": 52.84782608695654,
+    "avgPeakParked": 4.6,
     "lossReasons": {
-     "parking_full": 125
+     "parking_full": 132
     },
     "stuckColors": [
      [
       "orange",
-      169
+      181
      ],
      [
       "yellow",
-      136
+      141
      ],
      [
       "pink",
-      102
+      130
      ]
     ]
    },
@@ -4375,60 +4354,60 @@
       1
      ],
      [
-      "cyan",
+      "red",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.785,
+    "winRate": 0.855,
     "avgTapsWin": 23,
-    "medianTapsLoss": 14,
-    "medianFilledPctLoss": 53.04347826086957,
-    "avgFilledPct": 89.8521739130435,
-    "avgPeakParked": 3.765,
+    "medianTapsLoss": 13,
+    "medianFilledPctLoss": 47.82608695652174,
+    "avgFilledPct": 92.54347826086958,
+    "avgPeakParked": 3.68,
     "lossReasons": {
-     "parking_full": 43
+     "parking_full": 29
     },
     "stuckColors": [
      [
       "pink",
-      45
+      41
      ],
      [
       "orange",
-      45
+      28
      ],
      [
-      "yellow",
-      44
+      "cyan",
+      25
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.88,
+    "winRate": 0.98,
     "avgTapsWin": 23,
-    "medianTapsLoss": 18,
-    "medianFilledPctLoss": 66.95652173913044,
-    "avgFilledPct": 95.16521739130434,
-    "avgPeakParked": 3.38,
+    "medianTapsLoss": 17,
+    "medianFilledPctLoss": 60.86956521739131,
+    "avgFilledPct": 99.21739130434781,
+    "avgPeakParked": 2.98,
     "lossReasons": {
-     "parking_full": 6
+     "parking_full": 1
     },
     "stuckColors": [
      [
+      "orange",
+      3
+     ],
+     [
       "yellow",
-      9
+      1
      ],
      [
       "cyan",
-      7
-     ],
-     [
-      "pink",
-      5
+      1
      ]
     ]
    },
@@ -4439,7 +4418,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.4,
+    "avgPeakParked": 3.75,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -4450,7 +4429,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.5,
+    "avgPeakParked": 3.875,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -4461,14 +4440,14 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.8333333333333335,
+    "avgPeakParked": 4,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 65,
+   "nodes": 66,
    "bestFilledPct": 100,
    "path": [
     0,
@@ -4477,26 +4456,26 @@
     1,
     0,
     1,
-    1,
+    0,
     1,
     0,
-    0,
-    0,
-    2,
-    2,
     1,
-    1,
+    0,
     1,
     2,
+    0,
+    1,
+    1,
+    2,
     2,
     2,
     2,
     0,
-    0,
-    1
+    1,
+    2
    ]
   },
-  "seconds": 9.338
+  "seconds": 8.976
  },
  {
   "level": 28,
@@ -4517,27 +4496,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.415,
+    "winRate": 0.585,
     "avgTapsWin": 32,
     "medianTapsLoss": 17,
     "medianFilledPctLoss": 44.29065743944637,
-    "avgFilledPct": 66.88408304498276,
-    "avgPeakParked": 4.41,
+    "avgFilledPct": 76.47750865051903,
+    "avgPeakParked": 4.01,
     "lossReasons": {
-     "parking_full": 117
+     "parking_full": 83
     },
     "stuckColors": [
      [
       "yellow",
-      185
+      133
      ],
      [
       "orange",
-      111
+      76
      ],
      [
-      "pink",
-      91
+      "cyan",
+      71
      ]
     ]
    },
@@ -4558,7 +4537,7 @@
       1
      ],
      [
-      "pink",
+      "green",
       1
      ],
      [
@@ -4569,55 +4548,40 @@
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.755,
+    "winRate": 0.96,
     "avgTapsWin": 32,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 47.404844290657444,
-    "avgFilledPct": 87.93944636678205,
-    "avgPeakParked": 3.94,
+    "medianTapsLoss": 18,
+    "medianFilledPctLoss": 47.75086505190311,
+    "avgFilledPct": 98.03979238754324,
+    "avgPeakParked": 3.125,
     "lossReasons": {
-     "parking_full": 49
+     "parking_full": 8
     },
     "stuckColors": [
      [
       "yellow",
-      75
+      14
      ],
      [
       "orange",
-      49
+      8
      ],
      [
-      "pink",
-      46
+      "red",
+      7
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.86,
+    "winRate": 1,
     "avgTapsWin": 32,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 48.096885813148795,
-    "avgFilledPct": 92.73356401384082,
-    "avgPeakParked": 3.96,
-    "lossReasons": {
-     "parking_full": 7
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      7
-     ],
-     [
-      "red",
-      7
-     ],
-     [
-      "orange",
-      7
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.04,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
@@ -4626,7 +4590,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.45,
+    "avgPeakParked": 2.95,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -4637,7 +4601,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.875,
+    "avgPeakParked": 3.75,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -4648,14 +4612,14 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.6666666666666665,
+    "avgPeakParked": 3.1666666666666665,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 94,
+   "nodes": 89,
    "bestFilledPct": 100,
    "path": [
     1,
@@ -4666,33 +4630,33 @@
     1,
     0,
     0,
-    1,
     0,
     1,
     1,
+    1,
     0,
-    0,
+    2,
+    2,
+    2,
     2,
     1,
     1,
+    2,
+    2,
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
     1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    0,
-    2,
-    0,
-    2,
     0,
     0,
     1,
     0
    ]
   },
-  "seconds": 16.221
+  "seconds": 17.803
  },
  {
   "level": 29,
@@ -4879,7 +4843,7 @@
     0
    ]
   },
-  "seconds": 5.54
+  "seconds": 5.525
  },
  {
   "level": 30,
@@ -4900,27 +4864,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.64,
+    "winRate": 0.25,
     "avgTapsWin": 31,
-    "medianTapsLoss": 20,
-    "medianFilledPctLoss": 57.00000000000001,
-    "avgFilledPct": 79.64166666666664,
-    "avgPeakParked": 3.84,
+    "medianTapsLoss": 8,
+    "medianFilledPctLoss": 9.999999999999998,
+    "avgFilledPct": 35.42833333333334,
+    "avgPeakParked": 4.705,
     "lossReasons": {
-     "parking_full": 72
+     "parking_full": 150
     },
     "stuckColors": [
      [
-      "orange",
-      92
+      "blue",
+      280
      ],
      [
-      "brown",
-      83
+      "orange",
+      148
      ],
      [
       "green",
-      68
+      128
      ]
     ]
    },
@@ -4929,152 +4893,197 @@
     "winRate": 0,
     "avgTapsWin": null,
     "medianTapsLoss": 6,
-    "medianFilledPctLoss": 3.3333333333333326,
-    "avgFilledPct": 3.3333333333333326,
+    "medianFilledPctLoss": 1.6666666666666718,
+    "avgFilledPct": 1.6666666666666718,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "green",
-      1
+      "cyan",
+      3
      ],
      [
       "blue",
       1
      ],
      [
-      "cyan",
+      "pink",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.955,
+    "winRate": 0.41,
     "avgTapsWin": 31,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 64.33333333333333,
-    "avgFilledPct": 98.12833333333332,
-    "avgPeakParked": 2.84,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 17.666666666666664,
+    "avgFilledPct": 52.848333333333315,
+    "avgPeakParked": 4.395,
     "lossReasons": {
-     "parking_full": 9
+     "parking_full": 118
     },
     "stuckColors": [
      [
-      "green",
-      10
+      "blue",
+      257
      ],
      [
       "orange",
-      9
+      137
      ],
      [
-      "brown",
-      8
+      "green",
+      124
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.98,
+    "winRate": 0.66,
     "avgTapsWin": 31,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 63.66666666666667,
-    "avgFilledPct": 99.27333333333333,
-    "avgPeakParked": 2.2,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 17.666666666666664,
+    "avgFilledPct": 72.00666666666665,
+    "avgPeakParked": 3.94,
     "lossReasons": {
-     "parking_full": 1
+     "parking_full": 17
     },
     "stuckColors": [
      [
-      "green",
-      1
-     ],
-     [
-      "brown",
-      1
-     ],
-     [
       "blue",
-      1
+      35
+     ],
+     [
+      "orange",
+      25
+     ],
+     [
+      "green",
+      17
      ]
     ]
    },
    "planner": {
     "runs": 20,
-    "winRate": 1,
+    "winRate": 0.8,
     "avgTapsWin": 31,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.4,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 17.666666666666664,
+    "avgFilledPct": 83.53333333333335,
+    "avgPeakParked": 3.55,
+    "lossReasons": {
+     "parking_full": 4
+    },
+    "stuckColors": [
+     [
+      "blue",
+      11
+     ],
+     [
+      "orange",
+      5
+     ],
+     [
+      "green",
+      4
+     ]
+    ]
    },
    "expert": {
     "runs": 8,
-    "winRate": 1,
+    "winRate": 0.875,
     "avgTapsWin": 31,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.625,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 17.666666666666664,
+    "avgFilledPct": 89.70833333333334,
+    "avgPeakParked": 3.75,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "blue",
+      3
+     ],
+     [
+      "green",
+      1
+     ],
+     [
+      "orange",
+      1
+     ]
+    ]
    },
    "master": {
-    "runs": 6,
-    "winRate": 1,
+    "runs": 24,
+    "winRate": 0.9583333333333334,
     "avgTapsWin": 31,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.3333333333333335,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 17.666666666666664,
+    "avgFilledPct": 96.56944444444444,
+    "avgPeakParked": 3.9166666666666665,
+    "lossReasons": {
+     "parking_full": 1
+    },
+    "stuckColors": [
+     [
+      "orange",
+      2
+     ],
+     [
+      "blue",
+      1
+     ],
+     [
+      "pink",
+      1
+     ]
+    ]
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 104,
+   "nodes": 105,
    "bestFilledPct": 100,
    "path": [
+    2,
+    2,
     0,
-    1,
-    3,
-    1,
-    1,
-    3,
-    3,
-    3,
-    1,
-    1,
-    1,
-    3,
-    1,
     3,
     3,
     0,
     0,
-    2,
-    2,
-    2,
-    2,
-    2,
     0,
     2,
     0,
+    2,
+    2,
+    3,
+    3,
     0,
     0,
     0,
     2,
     2,
-    1
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    3,
+    3,
+    1,
+    3
    ]
   },
-  "seconds": 24.753
+  "seconds": 21.377
  },
  {
   "level": 31,
@@ -5241,7 +5250,7 @@
     1
    ]
   },
-  "seconds": 5.642
+  "seconds": 5.273
  },
  {
   "level": 32,
@@ -5262,27 +5271,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.24,
+    "winRate": 0.225,
     "avgTapsWin": 50,
-    "medianTapsLoss": 26,
-    "medianFilledPctLoss": 47.70833333333333,
-    "avgFilledPct": 59.51145833333334,
-    "avgPeakParked": 4.725,
+    "medianTapsLoss": 23,
+    "medianFilledPctLoss": 38.541666666666664,
+    "avgFilledPct": 57.18437500000001,
+    "avgPeakParked": 4.74,
     "lossReasons": {
-     "parking_full": 152
+     "parking_full": 155
     },
     "stuckColors": [
      [
-      "pink",
-      158
+      "blue",
+      160
      ],
      [
       "green",
-      140
+      160
      ],
      [
-      "blue",
-      119
+      "red",
+      107
      ]
     ]
    },
@@ -5290,79 +5299,64 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 18,
-    "medianFilledPctLoss": 27.29166666666667,
-    "avgFilledPct": 27.29166666666667,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 28.749999999999996,
+    "avgFilledPct": 28.749999999999996,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "orange",
-      2
-     ],
-     [
       "brown",
       2
      ],
      [
-      "cyan",
+      "orange",
+      1
+     ],
+     [
+      "pink",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.595,
+    "winRate": 0.85,
     "avgTapsWin": 50,
-    "medianTapsLoss": 31,
-    "medianFilledPctLoss": 58.12500000000001,
-    "avgFilledPct": 83.26354166666663,
-    "avgPeakParked": 4.235,
+    "medianTapsLoss": 32,
+    "medianFilledPctLoss": 57.49999999999999,
+    "avgFilledPct": 92.93333333333334,
+    "avgPeakParked": 3.835,
     "lossReasons": {
-     "parking_full": 81
+     "parking_full": 30
     },
     "stuckColors": [
      [
-      "pink",
-      102
+      "green",
+      44
      ],
      [
       "blue",
-      74
+      34
      ],
      [
-      "yellow",
-      67
+      "pink",
+      25
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.78,
+    "winRate": 1,
     "avgTapsWin": 50,
-    "medianTapsLoss": 42,
-    "medianFilledPctLoss": 81.25,
-    "avgFilledPct": 95.91666666666666,
-    "avgPeakParked": 3.86,
-    "lossReasons": {
-     "parking_full": 11
-    },
-    "stuckColors": [
-     [
-      "pink",
-      23
-     ],
-     [
-      "brown",
-      19
-     ],
-     [
-      "blue",
-      7
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 3.36,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
@@ -5371,7 +5365,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.35,
+    "avgPeakParked": 3.3,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -5382,7 +5376,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.375,
+    "avgPeakParked": 3.25,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -5400,7 +5394,7 @@
   },
   "solver": {
    "result": "solvable",
-   "nodes": 144,
+   "nodes": 147,
    "bestFilledPct": 100,
    "path": [
     1,
@@ -5413,28 +5407,7 @@
     2,
     2,
     2,
-    2,
     1,
-    1,
-    0,
-    0,
-    0,
-    2,
-    2,
-    2,
-    2,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
     2,
     2,
     0,
@@ -5445,17 +5418,38 @@
     1,
     2,
     0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    1,
     2,
     2,
     2,
+    1,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    2,
+    1,
+    0,
     1,
     1,
     0,
     1,
+    2,
     0
    ]
   },
-  "seconds": 69.053
+  "seconds": 70.529
  },
  {
   "level": 33,
@@ -5476,27 +5470,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.04,
+    "winRate": 0.045,
     "avgTapsWin": 41,
     "medianTapsLoss": 7,
     "medianFilledPctLoss": 8.163265306122447,
-    "avgFilledPct": 15.737244897959192,
-    "avgPeakParked": 4.96,
+    "avgFilledPct": 17.295918367346943,
+    "avgPeakParked": 4.95,
     "lossReasons": {
-     "parking_full": 192
+     "parking_full": 191
     },
     "stuckColors": [
      [
       "pink",
-      291
+      299
      ],
      [
       "cyan",
-      242
+      243
      ],
      [
-      "yellow",
-      130
+      "brown",
+      126
      ]
     ]
    },
@@ -5504,79 +5498,64 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 5,
-    "medianFilledPctLoss": 1.0204081632653073,
-    "avgFilledPct": 1.0204081632653073,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 7.653061224489798,
+    "avgFilledPct": 7.653061224489798,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "yellow",
-      2
-     ],
-     [
-      "cyan",
-      2
-     ],
-     [
       "red",
+      2
+     ],
+     [
+      "green",
+      1
+     ],
+     [
+      "yellow",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.625,
+    "winRate": 0.735,
     "avgTapsWin": 41,
-    "medianTapsLoss": 11,
-    "medianFilledPctLoss": 18.877551020408166,
-    "avgFilledPct": 74.59693877551021,
-    "avgPeakParked": 4.16,
+    "medianTapsLoss": 15,
+    "medianFilledPctLoss": 29.081632653061227,
+    "avgFilledPct": 82.69132653061226,
+    "avgPeakParked": 3.89,
     "lossReasons": {
-     "parking_full": 75
+     "parking_full": 53
     },
     "stuckColors": [
      [
+      "pink",
+      67
+     ],
+     [
       "cyan",
-      86
+      61
      ],
      [
       "brown",
-      65
-     ],
-     [
-      "yellow",
-      58
+      37
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0.96,
+    "winRate": 1,
     "avgTapsWin": 41,
-    "medianTapsLoss": 11,
-    "medianFilledPctLoss": 18.877551020408166,
-    "avgFilledPct": 96.75510204081631,
-    "avgPeakParked": 3.28,
-    "lossReasons": {
-     "parking_full": 2
-    },
-    "stuckColors": [
-     [
-      "cyan",
-      3
-     ],
-     [
-      "red",
-      2
-     ],
-     [
-      "yellow",
-      2
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 2.7,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
@@ -5585,7 +5564,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.65,
+    "avgPeakParked": 3.75,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -5596,7 +5575,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.875,
+    "avgPeakParked": 4,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -5614,7 +5593,7 @@
   },
   "solver": {
    "result": "solvable",
-   "nodes": 118,
+   "nodes": 113,
    "bestFilledPct": 100,
    "path": [
     0,
@@ -5625,42 +5604,42 @@
     0,
     1,
     2,
-    2,
     0,
-    2,
     0,
     0,
     2,
     1,
     1,
     1,
-    2,
-    1,
     1,
     0,
-    0,
-    0,
+    2,
     0,
     2,
+    1,
     2,
-    2,
+    0,
     1,
-    1,
-    1,
-    1,
+    0,
     1,
     2,
     2,
     2,
     0,
     2,
+    2,
     0,
     0,
     0,
+    2,
+    2,
+    1,
+    1,
+    1,
     1
    ]
   },
-  "seconds": 33.984
+  "seconds": 38.58
  },
  {
   "level": 34,
@@ -5861,7 +5840,7 @@
     0
    ]
   },
-  "seconds": 40.871
+  "seconds": 40.752
  },
  {
   "level": 35,
@@ -5882,27 +5861,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.005,
+    "winRate": 0.015,
     "avgTapsWin": 32,
-    "medianTapsLoss": 11,
-    "medianFilledPctLoss": 25.657894736842103,
-    "avgFilledPct": 27.22039473684213,
-    "avgPeakParked": 4.995,
+    "medianTapsLoss": 7,
+    "medianFilledPctLoss": 9.210526315789469,
+    "avgFilledPct": 14.217105263157894,
+    "avgPeakParked": 4.985,
     "lossReasons": {
-     "parking_full": 199
+     "parking_full": 197
     },
     "stuckColors": [
      [
-      "orange",
-      286
+      "blue",
+      205
+     ],
+     [
+      "cyan",
+      190
      ],
      [
       "red",
-      199
-     ],
-     [
-      "green",
-      144
+      188
      ]
     ]
    },
@@ -5910,9 +5889,9 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 7,
-    "medianFilledPctLoss": 10.526315789473683,
-    "avgFilledPct": 10.526315789473683,
+    "medianTapsLoss": 5,
+    "medianFilledPctLoss": 0,
+    "avgFilledPct": 0,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
@@ -5924,185 +5903,140 @@
      ],
      [
       "blue",
-      2
+      1
      ],
      [
-      "red",
+      "green",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.045,
+    "winRate": 0.335,
     "avgTapsWin": 32,
-    "medianTapsLoss": 16,
-    "medianFilledPctLoss": 44.73684210526315,
-    "avgFilledPct": 41.67269736842104,
-    "avgPeakParked": 4.955,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 26.973684210526315,
+    "avgFilledPct": 57.4457236842106,
+    "avgPeakParked": 4.59,
     "lossReasons": {
-     "parking_full": 191
+     "parking_full": 133
     },
     "stuckColors": [
      [
-      "orange",
-      211
+      "red",
+      206
+     ],
+     [
+      "cyan",
+      134
      ],
      [
       "yellow",
-      180
-     ],
-     [
-      "red",
-      180
+      96
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 48.026315789473685,
-    "avgFilledPct": 46.868421052631604,
-    "avgPeakParked": 5,
+    "winRate": 0.36,
+    "avgTapsWin": 32,
+    "medianTapsLoss": 12,
+    "medianFilledPctLoss": 26.973684210526315,
+    "avgFilledPct": 53.263157894736835,
+    "avgPeakParked": 4.64,
     "lossReasons": {
-     "parking_full": 50
+     "parking_full": 32
     },
     "stuckColors": [
      [
       "red",
-      51
-     ],
-     [
-      "orange",
-      50
+      61
      ],
      [
       "yellow",
-      49
+      32
+     ],
+     [
+      "cyan",
+      32
      ]
     ]
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 48.026315789473685,
-    "avgFilledPct": 48.02631578947367,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 20
-    },
-    "stuckColors": [
-     [
-      "orange",
-      30
-     ],
-     [
-      "yellow",
-      20
-     ],
-     [
-      "cyan",
-      20
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 32,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 48.026315789473685,
-    "avgFilledPct": 48.02631578947369,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 8
-    },
-    "stuckColors": [
-     [
-      "orange",
-      12
-     ],
-     [
-      "yellow",
-      8
-     ],
-     [
-      "green",
-      8
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 32,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
-    "runs": 6,
-    "winRate": 0.3333333333333333,
+    "runs": 24,
+    "winRate": 1,
     "avgTapsWin": 32,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 48.026315789473685,
-    "avgFilledPct": 65.35087719298245,
-    "avgPeakParked": 4.666666666666667,
-    "lossReasons": {
-     "parking_full": 4
-    },
-    "stuckColors": [
-     [
-      "orange",
-      5
-     ],
-     [
-      "yellow",
-      4
-     ],
-     [
-      "green",
-      4
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 110,
+   "nodes": 87,
    "bestFilledPct": 100,
    "path": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
     0,
     0,
     2,
     1,
     1,
     2,
+    0,
+    0,
     2,
     1,
     1,
     1,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    2,
-    2,
     2,
     1,
-    2,
-    2,
-    2,
-    1,
-    2,
     0,
     0,
-    1
+    0,
+    0
    ]
   },
-  "seconds": 10.025
+  "seconds": 11.872
  },
  {
   "level": 36,
@@ -6123,75 +6057,23 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.275,
+    "winRate": 0.44,
     "avgTapsWin": 50,
-    "medianTapsLoss": 14,
-    "medianFilledPctLoss": 22.886597938144327,
-    "avgFilledPct": 47.540206185567,
-    "avgPeakParked": 4.69,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 12.371134020618557,
+    "avgFilledPct": 54.567010309278366,
+    "avgPeakParked": 4.475,
     "lossReasons": {
-     "parking_full": 145
+     "parking_full": 112
     },
     "stuckColors": [
      [
-      "yellow",
-      166
+      "red",
+      141
      ],
      [
-      "pink",
-      139
-     ],
-     [
-      "brown",
-      127
-     ]
-    ]
-   },
-   "onelane": {
-    "runs": 1,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 42.26804123711341,
-    "avgFilledPct": 42.26804123711341,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 1
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      3
-     ],
-     [
-      "blue",
-      1
-     ],
-     [
-      "cyan",
-      1
-     ]
-    ]
-   },
-   "novice": {
-    "runs": 200,
-    "winRate": 0.36,
-    "avgTapsWin": 50,
-    "medianTapsLoss": 17,
-    "medianFilledPctLoss": 29.89690721649485,
-    "avgFilledPct": 55.54123711340207,
-    "avgPeakParked": 4.59,
-    "lossReasons": {
-     "parking_full": 128
-    },
-    "stuckColors": [
-     [
-      "yellow",
-      146
-     ],
-     [
-      "orange",
-      117
+      "green",
+      131
      ],
      [
       "brown",
@@ -6199,53 +6081,120 @@
      ]
     ]
    },
-   "greedy": {
-    "runs": 50,
-    "winRate": 0.76,
-    "avgTapsWin": 50,
-    "medianTapsLoss": 18,
-    "medianFilledPctLoss": 32.577319587628864,
-    "avgFilledPct": 84.54845360824746,
-    "avgPeakParked": 4.24,
+   "onelane": {
+    "runs": 1,
+    "winRate": 0,
+    "avgTapsWin": null,
+    "medianTapsLoss": 22,
+    "medianFilledPctLoss": 40.20618556701031,
+    "avgFilledPct": 40.20618556701031,
+    "avgPeakParked": 5,
     "lossReasons": {
-     "parking_full": 12
+     "parking_full": 1
     },
     "stuckColors": [
      [
-      "yellow",
-      14
-     ],
-     [
-      "brown",
-      12
-     ],
-     [
       "cyan",
-      12
+      2
+     ],
+     [
+      "orange",
+      1
+     ],
+     [
+      "yellow",
+      1
      ]
     ]
    },
-   "planner": {
-    "runs": 20,
+   "novice": {
+    "runs": 200,
+    "winRate": 0.855,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 10,
+    "medianFilledPctLoss": 12.577319587628866,
+    "avgFilledPct": 88.74948453608248,
+    "avgPeakParked": 3.555,
+    "lossReasons": {
+     "parking_full": 29
+    },
+    "stuckColors": [
+     [
+      "red",
+      42
+     ],
+     [
+      "brown",
+      30
+     ],
+     [
+      "orange",
+      28
+     ]
+    ]
+   },
+   "greedy": {
+    "runs": 50,
     "winRate": 1,
     "avgTapsWin": 50,
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 4,
+    "avgPeakParked": 2.86,
     "lossReasons": {},
     "stuckColors": []
    },
+   "planner": {
+    "runs": 20,
+    "winRate": 0.9,
+    "avgTapsWin": 50,
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 31.546391752577318,
+    "avgFilledPct": 93.14432989690722,
+    "avgPeakParked": 4,
+    "lossReasons": {
+     "parking_full": 2
+    },
+    "stuckColors": [
+     [
+      "red",
+      4
+     ],
+     [
+      "brown",
+      2
+     ],
+     [
+      "yellow",
+      2
+     ]
+    ]
+   },
    "expert": {
     "runs": 8,
-    "winRate": 1,
+    "winRate": 0.625,
     "avgTapsWin": 50,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 3.75,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 19,
+    "medianFilledPctLoss": 31.546391752577318,
+    "avgFilledPct": 74.3298969072165,
+    "avgPeakParked": 3.875,
+    "lossReasons": {
+     "parking_full": 3
+    },
+    "stuckColors": [
+     [
+      "red",
+      6
+     ],
+     [
+      "yellow",
+      3
+     ],
+     [
+      "pink",
+      3
+     ]
+    ]
    },
    "master": {
     "runs": 6,
@@ -6254,69 +6203,69 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.6666666666666665,
+    "avgPeakParked": 4,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 145,
+   "nodes": 141,
    "bestFilledPct": 100,
    "path": [
-    2,
-    2,
-    1,
     0,
-    1,
-    2,
-    1,
-    1,
-    1,
-    2,
-    2,
-    1,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    2,
-    0,
-    0,
-    2,
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    1,
     0,
     1,
     1,
     1,
     1,
-    1,
-    1,
-    0,
-    2,
-    2,
     1,
     1,
     2,
     2,
     2,
-    1,
-    0,
+    2,
     2,
     1,
-    1
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    2,
+    2,
+    1,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    2,
+    0,
+    2,
+    2,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
    ]
   },
-  "seconds": 60.191
+  "seconds": 66.145
  },
  {
   "level": 37,
@@ -6489,7 +6438,7 @@
     0
    ]
   },
-  "seconds": 7.357
+  "seconds": 6.251
  },
  {
   "level": 38,
@@ -6674,7 +6623,7 @@
     0
    ]
   },
-  "seconds": 39.296
+  "seconds": 38.039
  },
  {
   "level": 39,
@@ -6695,27 +6644,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.01,
+    "winRate": 0.08,
     "avgTapsWin": 24,
     "medianTapsLoss": 9,
     "medianFilledPctLoss": 26.956521739130434,
-    "avgFilledPct": 24.652173913043477,
-    "avgPeakParked": 4.99,
+    "avgFilledPct": 30.091304347826096,
+    "avgPeakParked": 4.92,
     "lossReasons": {
-     "parking_full": 198
+     "parking_full": 184
     },
     "stuckColors": [
      [
-      "blue",
-      246
+      "red",
+      200
+     ],
+     [
+      "yellow",
+      179
      ],
      [
       "pink",
-      195
-     ],
-     [
-      "red",
-      188
+      147
      ]
     ]
    },
@@ -6740,174 +6689,114 @@
       1
      ],
      [
-      "cyan",
+      "red",
       1
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.01,
+    "winRate": 0.83,
     "avgTapsWin": 24,
-    "medianTapsLoss": 9,
-    "medianFilledPctLoss": 30.434782608695656,
-    "avgFilledPct": 30.952173913043488,
-    "avgPeakParked": 4.99,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 34.78260869565217,
+    "avgFilledPct": 88.46086956521742,
+    "avgPeakParked": 4.14,
     "lossReasons": {
-     "parking_full": 198
+     "parking_full": 34
     },
     "stuckColors": [
      [
+      "pink",
+      37
+     ],
+     [
       "blue",
-      266
+      31
      ],
      [
       "yellow",
-      215
-     ],
-     [
-      "pink",
-      206
+      28
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 9,
-    "medianFilledPctLoss": 30.434782608695656,
-    "avgFilledPct": 28.921739130434794,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 50
-    },
-    "stuckColors": [
-     [
-      "blue",
-      69
-     ],
-     [
-      "yellow",
-      60
-     ],
-     [
-      "pink",
-      53
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "planner": {
     "runs": 20,
-    "winRate": 0,
-    "avgTapsWin": null,
-    "medianTapsLoss": 10,
-    "medianFilledPctLoss": 30.434782608695656,
-    "avgFilledPct": 30.69565217391304,
-    "avgPeakParked": 5,
-    "lossReasons": {
-     "parking_full": 20
-    },
-    "stuckColors": [
-     [
-      "blue",
-      38
-     ],
-     [
-      "pink",
-      26
-     ],
-     [
-      "yellow",
-      21
-     ]
-    ]
+    "winRate": 1,
+    "avgTapsWin": 24,
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "expert": {
     "runs": 8,
-    "winRate": 0.5,
+    "winRate": 1,
     "avgTapsWin": 24,
-    "medianTapsLoss": 10,
-    "medianFilledPctLoss": 31.304347826086953,
-    "avgFilledPct": 65.65217391304347,
-    "avgPeakParked": 4.5,
-    "lossReasons": {
-     "parking_full": 4
-    },
-    "stuckColors": [
-     [
-      "pink",
-      6
-     ],
-     [
-      "yellow",
-      5
-     ],
-     [
-      "blue",
-      5
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    },
    "master": {
     "runs": 6,
-    "winRate": 0.6666666666666666,
+    "winRate": 1,
     "avgTapsWin": 24,
-    "medianTapsLoss": 10,
-    "medianFilledPctLoss": 31.304347826086953,
-    "avgFilledPct": 76.95652173913042,
-    "avgPeakParked": 4.333333333333333,
-    "lossReasons": {
-     "parking_full": 2
-    },
-    "stuckColors": [
-     [
-      "blue",
-      4
-     ],
-     [
-      "pink",
-      2
-     ],
-     [
-      "yellow",
-      2
-     ]
-    ]
+    "medianTapsLoss": null,
+    "medianFilledPctLoss": null,
+    "avgFilledPct": 100,
+    "avgPeakParked": 4,
+    "lossReasons": {},
+    "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 105,
+   "nodes": 68,
    "bestFilledPct": 100,
    "path": [
-    0,
-    1,
-    0,
-    2,
-    2,
     2,
     1,
     1,
+    2,
+    0,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    1,
+    0,
+    0,
+    2,
+    2,
+    1,
     1,
     0,
     1,
-    2,
-    0,
-    0,
     0,
     1,
     1,
-    0,
-    2,
-    2,
-    2,
-    2,
-    0,
-    1
+    2
    ]
   },
-  "seconds": 4.553
+  "seconds": 9.462
  },
  {
   "level": 40,
@@ -6928,27 +6817,27 @@
   "bots": {
    "random": {
     "runs": 200,
-    "winRate": 0.76,
+    "winRate": 0.125,
     "avgTapsWin": 36,
-    "medianTapsLoss": 23,
-    "medianFilledPctLoss": 54.91329479768786,
-    "avgFilledPct": 88.59971098265895,
-    "avgPeakParked": 3.44,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 14.161849710982654,
+    "avgFilledPct": 27.635838150289022,
+    "avgPeakParked": 4.86,
     "lossReasons": {
-     "parking_full": 48
+     "parking_full": 175
     },
     "stuckColors": [
      [
-      "orange",
-      61
+      "blue",
+      406
      ],
      [
       "yellow",
-      44
+      297
      ],
      [
-      "brown",
-      41
+      "pink",
+      65
      ]
     ]
    },
@@ -6956,60 +6845,75 @@
     "runs": 1,
     "winRate": 0,
     "avgTapsWin": null,
-    "medianTapsLoss": 25,
-    "medianFilledPctLoss": 57.80346820809248,
-    "avgFilledPct": 57.80346820809248,
+    "medianTapsLoss": 11,
+    "medianFilledPctLoss": 19.36416184971098,
+    "avgFilledPct": 19.36416184971098,
     "avgPeakParked": 5,
     "lossReasons": {
      "parking_full": 1
     },
     "stuckColors": [
      [
-      "orange",
+      "yellow",
       3
      ],
      [
-      "red",
+      "orange",
       2
      ]
     ]
    },
    "novice": {
     "runs": 200,
-    "winRate": 0.97,
+    "winRate": 0.355,
     "avgTapsWin": 36,
-    "medianTapsLoss": 24,
-    "medianFilledPctLoss": 56.64739884393064,
-    "avgFilledPct": 98.6965317919075,
-    "avgPeakParked": 1.85,
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 14.161849710982654,
+    "avgFilledPct": 45.86705202312134,
+    "avgPeakParked": 4.58,
     "lossReasons": {
-     "parking_full": 6
+     "parking_full": 129
     },
     "stuckColors": [
      [
-      "orange",
-      12
-     ],
-     [
       "blue",
-      10
+      350
      ],
      [
-      "brown",
-      7
+      "yellow",
+      168
+     ],
+     [
+      "orange",
+      79
      ]
     ]
    },
    "greedy": {
     "runs": 50,
-    "winRate": 1,
+    "winRate": 0.48,
     "avgTapsWin": 36,
-    "medianTapsLoss": null,
-    "medianFilledPctLoss": null,
-    "avgFilledPct": 100,
-    "avgPeakParked": 1.04,
-    "lossReasons": {},
-    "stuckColors": []
+    "medianTapsLoss": 9,
+    "medianFilledPctLoss": 14.161849710982654,
+    "avgFilledPct": 56.56069364161849,
+    "avgPeakParked": 4.46,
+    "lossReasons": {
+     "parking_full": 26
+    },
+    "stuckColors": [
+     [
+      "blue",
+      69
+     ],
+     [
+      "orange",
+      26
+     ],
+     [
+      "yellow",
+      22
+     ]
+    ]
    },
    "planner": {
     "runs": 20,
@@ -7018,7 +6922,7 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 1.5,
+    "avgPeakParked": 3.7,
     "lossReasons": {},
     "stuckColors": []
    },
@@ -7029,27 +6933,34 @@
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 2.125,
+    "avgPeakParked": 4,
     "lossReasons": {},
     "stuckColors": []
    },
    "master": {
-    "runs": 6,
+    "runs": 24,
     "winRate": 1,
     "avgTapsWin": 36,
     "medianTapsLoss": null,
     "medianFilledPctLoss": null,
     "avgFilledPct": 100,
-    "avgPeakParked": 3.3333333333333335,
+    "avgPeakParked": 3.9583333333333335,
     "lossReasons": {},
     "stuckColors": []
    }
   },
   "solver": {
    "result": "solvable",
-   "nodes": 103,
+   "nodes": 111,
    "bestFilledPct": 100,
    "path": [
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -7058,36 +6969,29 @@
     2,
     2,
     2,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    0,
-    1,
-    1,
-    0,
     2,
     2,
     2,
-    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
     2,
     0,
     0,
     2,
     0,
+    2,
+    2,
     1,
     0,
     2,
-    1,
     1
    ]
   },
-  "seconds": 26.449
+  "seconds": 25.337
  }
 ]
